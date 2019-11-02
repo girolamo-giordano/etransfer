@@ -1,10 +1,10 @@
 registrazione/cliente/campo errato registrazione
 
-Login/cliente-manager-autista / ????
+Login/cliente-manager-autista / login campo errato
 
 Visualizza tratta/autista
 
-aggiungi fermata a tratta/manager/???
+aggiungi fermata a tratta/manager/campo errato aggiungi fermata a tratta
 
 Modifica password/aut-man-clien/Modifica pass campo errato
 
