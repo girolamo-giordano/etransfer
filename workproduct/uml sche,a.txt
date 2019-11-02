@@ -1,0 +1,61 @@
+registrazione/cliente/campo errato registrazione
+
+Login/cliente-manager-autista / ????
+
+Visualizza tratta/autista
+
+aggiungi fermata a tratta/manager/???
+
+Modifica password/aut-man-clien/Modifica pass campo errato
+
+Informazioni bus/ manager-autista
+
+Modifica Indirizzo/manager-autista-cliente
+
+Modifica email/manager-autista-cliente/ formato email non corretta /email inserite non corrispondono
+
+Elimina account/cliente
+
+Elimina account/manager
+
+richiedi tratta/ cliente
+
+richiedi fermata/ cliente
+
+recensione viaggio/cliente/recensione viaggio già effettuata
+
+visualizza biglietti venduti /manager
+
+password dimenticata/cliente-manag-autist/ cliente non valido per recupero pass
+
+visualizza richiesta fermata/manager
+
+acquisto biglietto/cliente
+
+pagamento/cliente/pagamento non riuscito
+
+aggiungi autobus/manager/campi errati aggiunta bus
+
+aggiunta autista/manager/campo errato aggiunta autista
+
+eliminazione autista/manager
+
+eliminazione autobus/manager
+
+visualizza tratte/cliente-manager
+
+eliminazione fermata/manager
+
+aggiunta tratta/manager/campo errato aggiungi tratta
+
+eliminazione tratta/manager
+
+visulaizza richiestra tratta/manager
+
+
+
+
+
+
+
+
