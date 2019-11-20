@@ -1,0 +1,38 @@
+TRATTA
+visualizza tratta/autista
+visualizza tratta/cliente,manager
+richiedi tratta/cliente
+aggiunta tratta/manager/campo errato aggiunta tratta
+eliminazione tratta/manager
+
+
+-------------------------------------------------------------
+CORSA
+agg fermata a corsa/manager/agg fermata a corsa campo errato
+richiedi fermata/cliente
+visualizza richiesta fermata/manager
+eliminazione fermate/manager
+aggiungi corsa/manager/ campo errato aggiungi corsa
+eliminazione corsa/manager
+richiedi corsa/cliente/campo errato richiedi corsa
+visualizza corsa/autista,cliente,manager
+visualizza richieste corsa/manager
+-----------------------------------------------------------
+BUS
+info bus/manager,autista
+aggiungi autobus/manager/campi errati aggiunta bus
+aggiungi autista/manager/campo errato aggiunta autista
+eliminazione autista/maanger
+visualizza info autista/manager
+eliminazione autobus/manager
+---------------------------------------------------------------
+BIGLIETTI
+visualizza biglietti venduti/manager
+acquisto biglietto/cliente
+pagamento/cliente/pagamento non riuscito
+visualizza info biglietto/manager,cliente
+------------------------------------------------------------------
+INFORMAZIONI PERSONALI
+visualizza info area personale/manager,autista,cliente
+visualizza info cliente/manager
+
