@@ -29,7 +29,7 @@
 		
 		<li><a href="catalogo.jsp">Corse</a></li>
 		<div id="lright">
-			<li><a href="Login.jsp">Login</a></li>
+			<li><a href="login.jsp">Login</a></li>
 			<li><a href="registrazione.jsp">Registrati</a></li>
 			<li><a href="carrello.jsp"><img src ="foto/carrello2.png"> </a></li>
 		</div>

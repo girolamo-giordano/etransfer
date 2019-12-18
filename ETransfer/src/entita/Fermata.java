@@ -10,6 +10,7 @@ package entita;
 public class Fermata {
 	
 	private String nomefermata;
+	private int numerocorsa;
 	
 	
 	/**
@@ -21,8 +22,9 @@ public class Fermata {
 	/**
 	 * @param nomefermata
 	 */
-	public Fermata(String nomefermata) {
+	public Fermata(String nomefermata,int numerocorsa) {
 		this.nomefermata = nomefermata;
+		this.numerocorsa=numerocorsa;
 	}
 	/**
 	 * @return the nomefermata
@@ -36,12 +38,22 @@ public class Fermata {
 	public void setNomefermata(String nomefermata) {
 		this.nomefermata = nomefermata;
 	}
+	
+	public int getNumeroCorsa()
+	{
+		return numerocorsa;
+	}
+	
+	public void setNumeroCorsa(int numerocorsa)
+	{
+		this.numerocorsa=numerocorsa;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Fermata [nomefermata=" + nomefermata + "]";
+		return "Fermata [nomefermata=" + nomefermata + ", numerocorsa=" + numerocorsa + "]";
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -51,6 +63,7 @@ public class Fermata {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nomefermata == null) ? 0 : nomefermata.hashCode());
+		result = prime * result + numerocorsa;
 		return result;
 	}
 	/* (non-Javadoc)
@@ -70,8 +83,11 @@ public class Fermata {
 				return false;
 		} else if (!nomefermata.equals(other.nomefermata))
 			return false;
+		if (numerocorsa != other.numerocorsa)
+			return false;
 		return true;
 	}
+	
 	
 	
 	

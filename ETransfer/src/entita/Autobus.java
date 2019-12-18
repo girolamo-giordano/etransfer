@@ -3,6 +3,8 @@
  */
 package entita;
 
+import utenti.Autista;
+
 /**
  * @author Girolamo
  *
@@ -13,6 +15,7 @@ public class Autobus {
 	private int numeroposti;
 	private int annoimm;
 	private int chilometri;
+	private Autista autista;
 	
 	/**
 	 * Questo è il costruttore vuoto dell'Autobus
@@ -30,12 +33,13 @@ public class Autobus {
 	 * @param annoimm è l'anno di immatricolazione
 	 * @param chilometri sono i chilometri
 	 */
-	public Autobus(String modello,int numeroposti,int annoimm,int chilometri)
+	public Autobus(String modello,int numeroposti,int annoimm,int chilometri,Autista autista)
 	{
 		this.modello=modello;
 		this.numeroposti=numeroposti;
 		this.annoimm=annoimm;
 		this.chilometri=chilometri;
+		this.autista=autista;
 	}
 	
 	/**
@@ -49,6 +53,15 @@ public class Autobus {
 	 */
 	public void setModello(String modello) {
 		this.modello = modello;
+	}
+	
+	public Autista getAutista() {
+		return autista;
+	}
+	
+	public void setAutista(Autista autista)
+	{
+		this.autista=autista;
 	}
 	/**
 	 * @return numeroposti restituisce il numero dei posti
