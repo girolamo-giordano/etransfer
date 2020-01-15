@@ -5,44 +5,98 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>ETransfer</title>
+<LINK rel= "stylesheet" href="home.css" type="text/css">
 </head>
-<header class="top"> 
-<img src="../foto/etransfer.png">
-</header>
 <body>
-	<nav>
-	<div id="menu">
-	<ul>
-		<li class="selected"><a href="home.jsp">Home</a></li>
-		<li><a href="chisiamo.jsp" >Chi siamo</a></li>
-		
-		<li class="dropdown"><a href="areautente.jsp">Area Utente</a>
-		
- 			 <div class="dropdown-content">
-   				 <a href="areautente.jsp#tableContainer">I miei dati</a>
-    				<a href="areautente.jsp#schedaVini">I miei viaggi</a>
-    		</div>
-		</li>
-			
-	
-		
-		
-		<li><a href="catalogo.jsp">Corse</a></li>
-		<div id="lright">
-			<li><a href="login.jsp">Login</a></li>
-			<li><a href="registrazione.jsp">Registrati</a></li>
-			<li><a href="carrello.jsp"><img src ="foto/carrello2.png"> </a></li>
-		</div>
-	</ul>
-	</div>
-	</nav>
-<div class="fadein">
- <div id="footer">
+
+<div id="logo"> 
+<img style="height: 290px;
+    margin-left: 87px;" src="../foto/logo.jpeg">
+</div>
+
+
+<div class="topnav">
+<div class="topnavleft" style="padding-left: 60px;
+    font-size: 20px;">
+  <a href="home.jsp">Home</a>
+  <a href="chisiamo.jsp">L'azienda</a>
+  <a href="areautente.jsp">Area Utente</a>
+  <a href="corsa.jsp">Le nostre corse</a>
+  </div>
+  
+  <div class="topnavright" style="padding-right: 60px;
+    font-size: 20px;">
+  <a href="Login.jsp" style="float:right">Login</a>
+  <a href="registrazione.jsp" style="float:right">Registrazione</a>
+</div>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+   
+
+      <div class="busimg">
+       
+      <a href="flotta.jsp">
+       <img src="../foto/pullman.jpg"> 
+       </a>
+      </div>
+      
+       <div class="barraimg">
+      <a href="barra.jsp">
+       <img style="margin-top: 143px;
+    margin-left: 35px;" src="../foto/barra.png">
+       </a>
+      </div>
+      
+
+     
+    
+    
+    
+    
+  </div>
+  
+  
+  <div class="rightcolumn">
+    <div class="card">
+      <h2 style="padding-left:85px">Chi siamo</h2>
+      <div class="fakeimg" style="height:100px;">
+      <a href="chisiamo.jsp">
+       <img style="height:208px; width:322px" src="../foto/chisiamo.png">
+       </a>
+       </div>
+      
+    </div>
+    
+    
+   <div class="card">
+      <h3 style="padding-left:85px">Corse Consigliate</h3>
+      <div class="fakeimg">
+      <a href="corsa.jsp">
+       <img src="../foto/andriaroma.png">
+       </a>
+       </div>
+       
+     <div class="fakeimg"><a href="corsa.jsp">
+       <img src="../foto/barimatera.png">
+       </a>
+       </div>
+       
+      <div class="fakeimg"><a href="corsa.jsp">
+       <img src="../foto/foggiamilano.png">
+       </a>
+       </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="footer">
       &copy; 2020, E-Transfer
       <br>
       All trademarks and registered trademarks appearing on 
       this site are the property of their respective owners.
-</div>
 </div>
 </body>
 </html>
