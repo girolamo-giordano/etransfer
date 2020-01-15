@@ -10,7 +10,25 @@ package entita;
 public class Fermata {
 	
 	private String nomefermata;
-	private int numerocorsa;
+	private Corsa corsa;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 	/**
@@ -22,9 +40,9 @@ public class Fermata {
 	/**
 	 * @param nomefermata
 	 */
-	public Fermata(String nomefermata,int numerocorsa) {
+	public Fermata(String nomefermata,Corsa numerocorsa) {
 		this.nomefermata = nomefermata;
-		this.numerocorsa=numerocorsa;
+		this.corsa=numerocorsa;
 	}
 	/**
 	 * @return the nomefermata
@@ -39,33 +57,26 @@ public class Fermata {
 		this.nomefermata = nomefermata;
 	}
 	
-	public int getNumeroCorsa()
+	public Corsa getCorsa()
 	{
-		return numerocorsa;
+		return corsa;
 	}
 	
-	public void setNumeroCorsa(int numerocorsa)
+	public void setCorsa(Corsa corsa)
 	{
-		this.numerocorsa=numerocorsa;
+		this.corsa=corsa;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Fermata [nomefermata=" + nomefermata + ", numerocorsa=" + numerocorsa + "]";
+		return "Fermata [nomefermata=" + nomefermata + ", numerocorsa=" + corsa + "]";
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nomefermata == null) ? 0 : nomefermata.hashCode());
-		result = prime * result + numerocorsa;
-		return result;
-	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -83,7 +94,7 @@ public class Fermata {
 				return false;
 		} else if (!nomefermata.equals(other.nomefermata))
 			return false;
-		if (numerocorsa != other.numerocorsa)
+		if (corsa != other.corsa)
 			return false;
 		return true;
 	}

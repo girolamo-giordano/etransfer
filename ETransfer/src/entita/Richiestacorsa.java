@@ -12,7 +12,24 @@ public class Richiestacorsa {
 	private String orapart;
 	private String datapart;
 	private int durata;
-	private int numerocor;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	/**
 	 * 
 	 */
@@ -25,12 +42,11 @@ public class Richiestacorsa {
 	 * @param durata
 	 * @param numerocor
 	 */
-	public Richiestacorsa(String orapart, String datapart, int durata, int numerocor) {
+	public Richiestacorsa(String orapart, String datapart, int durata) {
 		
 		this.orapart = orapart;
 		this.datapart = datapart;
 		this.durata = durata;
-		this.numerocor = numerocor;
 	}
 	/**
 	 * @return the orapart
@@ -68,39 +84,19 @@ public class Richiestacorsa {
 	public void setDurata(int durata) {
 		this.durata = durata;
 	}
-	/**
-	 * @return the numerocor
-	 */
-	public int getNumerocor() {
-		return numerocor;
-	}
-	/**
-	 * @param numerocor the numerocor to set
-	 */
-	public void setNumerocor(int numerocor) {
-		this.numerocor = numerocor;
-	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Richiestacorsa [orapart=" + orapart + ", datapart=" + datapart + ", durata=" + durata + ", numerocor="
-				+ numerocor + "]";
+			+ "]";
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((datapart == null) ? 0 : datapart.hashCode());
-		result = prime * result + durata;
-		result = prime * result + numerocor;
-		result = prime * result + ((orapart == null) ? 0 : orapart.hashCode());
-		return result;
-	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -120,8 +116,7 @@ public class Richiestacorsa {
 			return false;
 		if (durata != other.durata)
 			return false;
-		if (numerocor != other.numerocor)
-			return false;
+	
 		if (orapart == null) {
 			if (other.orapart != null)
 				return false;

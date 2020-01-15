@@ -10,23 +10,24 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import entita.Corsa;
-import entita.Tratta;
+import entita.Autobus;
 import utils.DriverManagerConnectionPool;
 
 /**
  * @author Gino
  *
  */
-public class TrattaDAO implements DaoModel<Tratta> {
+public class AutobusDAO implements DaoModel<Autobus> {
+	
+	AutistaDAO autista= new AutistaDAO();
 
 	@Override
-	public Tratta doRetrieveByKey(int code) throws SQLException {
+	public Autobus doRetrieveByKey(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		Tratta tratta = new Tratta();
-		String selectSQL = "SELECT * FROM tratta WHERE CODE = ?";
+		Autobus autobus = new Autobus();
+		String selectSQL = "SELECT * FROM autobus WHERE CODE = ?";
 		
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
@@ -38,9 +39,12 @@ public class TrattaDAO implements DaoModel<Tratta> {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while(rs.next()) {
-				tratta.setId(rs.getInt("code"));
-				tratta.setPartenza(rs.getString("cittapartenza"));
-				tratta.setArrivo(rs.getString("cittadiarr"));
+				autobus.setId(rs.getInt("code"));
+ 				autobus.setAutista(autista.doRetrieveByKey(rs.getInt("id_autista")));
+ 				autobus.setAnnoimm(rs.getInt("annoimm"));
+ 				autobus.setChilometri(rs.getInt("chilometri"));
+ 				autobus.setModello(rs.getString("modello"));
+ 				autobus.setNumeroposti(rs.getInt("numeroposti"));
 			}	
 		} finally {
 			try {
@@ -52,15 +56,15 @@ public class TrattaDAO implements DaoModel<Tratta> {
 			}
 		}
 		
-		return tratta;
+		return autobus;
 	}
 
 	@Override
-	public Collection<Tratta> doRetrieveAll() throws SQLException {
+	public Collection<Autobus> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Collection<Tratta> tratte = new LinkedList<Tratta>();
-		String selectSQL = "SELECT * FROM tratta";
+		Collection<Autobus> autobus = new LinkedList<Autobus>();
+		String selectSQL = "SELECT * FROM autobus";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
 			connection = DriverManagerConnectionPool.getConnection();
@@ -74,12 +78,15 @@ public class TrattaDAO implements DaoModel<Tratta> {
 			
 			//Visito tupla per tupla la risposta
 			while(rs.next()) {
-				Tratta man= new Tratta();
+				Autobus man= new Autobus();
 				man.setId(rs.getInt("code"));
-				man.setPartenza(rs.getString("cittapartenza"));
-				man.setArrivo(rs.getString("cittadiarr"));
+				man.setAutista(autista.doRetrieveByKey(rs.getInt("id_autista")));
+				man.setChilometri(rs.getInt("chilometri"));
+				man.setAnnoimm(rs.getInt("annoimm"));
+				man.setNumeroposti(rs.getInt("numeroposti"));
+				man.setModello(rs.getString("modello"));
 				//Aggiungo il bean che ho appena creato alla Collezione
-				tratte.add(man);
+				autobus.add(man);
 			}	
 		} finally {
 			try {
@@ -93,17 +100,17 @@ public class TrattaDAO implements DaoModel<Tratta> {
 			}
 		}
 		
-		return tratte;
+		return autobus;
 	}
 
 	@Override
-	public void doSave(Tratta tratta) throws SQLException {
+	public void doSave(Autobus autobus) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
 		//Stringa di inserimento parametrica dal database
 		//Non inserisco a mano code perchè è un int autoincrement
-		String selectSQL = "INSERT INTO tratta (cittapartenza,cittadiarr) VALUES (?,?)";
+		String selectSQL = "INSERT INTO autobus (modello,numeroposti,annoimm, chilometri,id_autista) VALUES (?,?, ?,?,?)";
 		
 		/*Stringa per provare a generare un'errore
 		 String selectSQL = "INSERT INTO product2 (name, description, price, quantity) VALUES (?, ?, ?, ?)";
@@ -115,8 +122,12 @@ public class TrattaDAO implements DaoModel<Tratta> {
 			connection = DriverManagerConnectionPool.getConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, tratta.getPartenza());
-			preparedStatement.setString(2, tratta.getArrivo());
+			preparedStatement.setString(1, autobus.getModello());
+			preparedStatement.setInt(2, autobus.getNumeroposti());
+			preparedStatement.setInt(3, autobus.getAnnoimm());
+			preparedStatement.setInt(4, autobus.getChilometri());
+			preparedStatement.setInt(5, autobus.getAutista().getId());
+			
 			System.out.println("doSave: " + preparedStatement.toString());
 			
 			//Eseguo il preparedStatement inserendo i dati all'interno del database
@@ -139,18 +150,21 @@ public class TrattaDAO implements DaoModel<Tratta> {
 	}
 
 	@Override
-	public void doUpdate(Tratta tratta) throws SQLException {
+	public void doUpdate(Autobus autobus) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String updateSQL="UPDATE tratta SET"+" cittapartenza=?, cittadiarr=? "+" WHERE code = ?";
+		String updateSQL="UPDATE autobus SET"+" modello=?, numeroposti=?, annoimm=?, chilometri=?, id_autista=?  "+" WHERE code = ?";
 		try {
 				connection=DriverManagerConnectionPool.getConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
-				preparedStatement.setString(1,tratta.getPartenza());
-				preparedStatement.setString(2,tratta.getArrivo());
-				preparedStatement.setInt(3, tratta.getId());
+				preparedStatement.setString(1,autobus.getModello());
+				preparedStatement.setInt(2,autobus.getNumeroposti());
+				preparedStatement.setInt(3,autobus.getAnnoimm());
+				preparedStatement.setInt(4,autobus.getChilometri());
+				preparedStatement.setInt(5,autobus.getAutista().getId());
+				preparedStatement.setInt(6,autobus.getId());
 				System.out.println("doUpdate: "+preparedStatement.toString());
 				preparedStatement.executeUpdate();
 				
@@ -170,16 +184,14 @@ public class TrattaDAO implements DaoModel<Tratta> {
 	}
 
 	@Override
-	public boolean doDelete(Tratta tratta) throws SQLException {
+	public boolean doDelete(Autobus autobus) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		CorsaDAO corsadao= new CorsaDAO();
-		corsadao.doDelete(tratta);
-		String deleteSql="DELETE FROM tratta WHERE CODE=?";
+		String deleteSql="DELETE FROM autobus WHERE CODE=?";
 		try {
 			connection= DriverManagerConnectionPool.getConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
-			preparedStatement.setInt(1,tratta.getId());
+			preparedStatement.setInt(1,autobus.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());
 			preparedStatement.executeUpdate();
 			connection.commit();

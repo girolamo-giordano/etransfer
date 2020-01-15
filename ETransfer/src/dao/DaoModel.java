@@ -11,7 +11,7 @@ public interface DaoModel<T> {
 	public T doRetrieveByKey(int code) throws SQLException;
 	
 	//recupera tutti i prodotti e li puo ordinare secondo un criterio
-	public Collection<T> doRetrieveAll(String order) throws SQLException;
+	public Collection<T> doRetrieveAll() throws SQLException;
 	
 	//salvare un prodotto da zero
 	public void doSave (T product) throws SQLException;

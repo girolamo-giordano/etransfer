@@ -23,12 +23,11 @@ public class DriverManagerConnectionPool {
 		Connection newConnection = null;
 		String ip = "localhost";
 		String port = "3306";
-		String db = "shopbd";
+		String db = "edb";
 		String username = "root";
 		String password = "ciao1998";
 
-		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ 
-				port+"/"+db+"?serverTimezone=UTC", username, password);
+		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+port+"/"+db+"?serverTimezone=UTC", username, password);
 				//Per sistemare il problema della time zone senza usare il prompt di MySQL
 				  //port+"/"+db+"?serverTimezone=UTC", username, password);
 
