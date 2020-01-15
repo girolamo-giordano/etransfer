@@ -1,14 +1,12 @@
-<%@page import="entita.Tratta"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Aggiungi corsa</title>
+<title>Aggiunta Autobus</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="aggiungiCorsa.css" type="text/css">
+<LINK rel= "stylesheet" href="aggiungiBus.css" type="text/css">
 </head>
 <body>
 <div id="logo"> 
@@ -37,44 +35,41 @@
   </ul> 
 </div>
 
-<% ArrayList <Tratta> trattalist= new ArrayList();  %>
-
 <form name="loginform" action="LogControl" method="post"> 
 
 	<fieldset>
 	
-		<h2 id=titolo> Aggiunta Corsa </h2>
+		<h2 id=titolo> Aggiunta Autobus </h2>
 		
 		
 			
 		<div class="tableRow">
-			<select name="tratta" required>
-				<option value="" selected> select </option>
-				<% for(int i=0;i<trattalist.size();i++){
-					Field=trattalist.get(i).toString();%>
-					
-					<option value="<%=Field %>"><%=Field %> </option>
-				<%} %>
-			</select>
+			<label class="rcolor" for="modello">Modello:</label>
+			<input type="text" id="modello" name="modello" value="" placeholder="Inserire Modello.." required> 
 		</div>
 		
-		
+		<div class="tableRow">
+			<label class="rcolor" for="numeroPosti">Numero Posti:</label>
+			<input type="number" id="numeroPosti" name="numeroPosti" value="" min="10" max="130" placeholder="Inserire Numero Posti.." required style="
+    width: 192px;
+"> 
+		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="data">Data:</label>
-			<input type="datetime-local" id="data" name="data" value="" placeholder="Inserire Data.." required style="
+			<label class="rcolor" for="anno">Immatricolazione:</label>
+			<input type="number" id="anno" name="anno" value="" placeholder="Inserire Anno Immatricolazione.." min="1990" max="2019" required style="
     width: 193px;
 ">
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="durata">Durata:</label>
-			<input type="number" id="durata" name="durata" value="" min="0" placeholder="Inserire durata.." required >
+			<label class="rcolor" for="km">Chilometri:</label>
+			<input type="number" id="km" name="km" value="" placeholder="Inserire kilometri..." min="0" required >
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="fermate">Fermate:</label>
-			<input type="text" id="fermate" name="fermate" value="" placeholder="Inserire fermate.." required>
+			<label class="rcolor" for="autista">Autista:</label>
+			<input type="text" id="autista" name="autista" value="" placeholder="Inserire autista.." required>
 		</div>
 		
 		
@@ -93,9 +88,6 @@
       All trademarks and registered trademarks appearing on 
       this site are the property of their respective owners.
 </div>
-
-
-
 
 </body>
 </html>
