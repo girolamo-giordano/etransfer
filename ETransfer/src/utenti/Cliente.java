@@ -17,6 +17,24 @@ public class Cliente {
 	private int numerotel;
 	private String indirizzo;
 	private String citta;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	/**
 	 * @param nome
 	 * @param cognome

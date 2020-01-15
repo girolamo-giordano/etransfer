@@ -11,6 +11,24 @@ public class Richiestatratta {
 	
 	private String partenza;
 	private String arrivo;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	/**
 	 * @param partenza
 	 * @param arrivo

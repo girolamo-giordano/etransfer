@@ -10,6 +10,24 @@ package entita;
 public class Richiestafermata {
 	
 	private String nomefermata;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	/**
 	 * 

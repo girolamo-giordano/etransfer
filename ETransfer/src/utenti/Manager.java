@@ -13,6 +13,25 @@ public class Manager {
 	private String password;
 	private String nome;
 	private String cognome;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	/**
 	 * @param username
 	 * @param password

@@ -16,6 +16,24 @@ public class Autobus {
 	private int annoimm;
 	private int chilometri;
 	private Autista autista;
+	private int id;
+	
+	
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	/**
 	 * Questo è il costruttore vuoto dell'Autobus

@@ -14,6 +14,7 @@ public class Biglietto {
 	private int numerobigl;
 	private Corsa corsa;
 	private Cliente cliente;
+	
 	/**
 	 * 
 	 */
