@@ -5,18 +5,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>ETransfer</title>
+<LINK rel= "stylesheet" href="home.css" type="text/css">
 </head>
 <header class="top"> 
-<img src="../foto/etransfer.png">
+<img src="../foto/logo.jpeg">
 </header>
 <body>
 	<nav>
 	<div id="menu">
 	<ul>
 		<li class="selected"><a href="home.jsp">Home</a></li>
-		<li><a href="chisiamo.jsp" >Chi siamo</a></li>
+		<li><a href="chisiamo.jsp" >Azienda</a></li>
 		
-		<li class="dropdown"><a href="areautente.jsp">Area Utente</a>
+		<li class="dropdown"><a href="areautente.jsp">Area Cliente</a>
 		
  			 <div class="dropdown-content">
    				 <a href="areautente.jsp#tableContainer">I miei dati</a>
@@ -31,11 +32,19 @@
 		<div id="lright">
 			<li><a href="login.jsp">Login</a></li>
 			<li><a href="registrazione.jsp">Registrati</a></li>
-			<li><a href="carrello.jsp"><img src ="foto/carrello2.png"> </a></li>
+			
 		</div>
 	</ul>
 	</div>
 	</nav>
+	<div>
+		<img id="imageHome" src="../foto/pullman.jpg">
+	</div>
+	
+	<div>
+		<img id="barra" src="../foto/barra.png">
+	</div>
+	
 <div class="fadein">
  <div id="footer">
       &copy; 2020, E-Transfer
