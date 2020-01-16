@@ -1,3 +1,7 @@
+<%@page import="entita.Autobus"%>
+<%@page import="dao.AutobusDAO"%>
+<%@page import="dao.TrattaDAO"%>
+<%@page import="java.util.Collection"%>
 <%@page import="entita.Tratta"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -37,9 +41,16 @@
   </ul> 
 </div>
 
-<% ArrayList <Tratta> trattalist= new ArrayList();  %>
+<% Collection <Tratta> trattalist;
+Collection <Autobus> autobus;
+TrattaDAO trattadao= new TrattaDAO();
+trattalist=trattadao.doRetrieveAll();
+AutobusDAO busdao= new AutobusDAO();
+autobus=busdao.doRetrieveAll();
 
-<form name="loginform" action="LogControl" method="post"> 
+%>
+
+<form name="loginform" action="../AggiungiCorsa" method="post"> 
 
 	<fieldset>
 	
@@ -50,11 +61,19 @@
 		<div class="tableRow">
 			<select name="tratta" required>
 				<option value="" selected> select </option>
-				<% for(int i=0;i<trattalist.size();i++){
-					Field=trattalist.get(i).toString();%>
-					
-					<option value="<%=Field %>"><%=Field %> </option>
+				<% for(Tratta t:trattalist){
+					%>
+					<option value="<%=t.getId()%>"><%=t.getPartenza()%> - <%=t.getArrivo() %> </option>
 				<%} %>
+			</select>
+			<select name="bus" required>
+			<option value="" selected> select</option>
+			<%for(Autobus a:autobus){
+				%>
+				<option value="<%=a.getId() %>"><%=a.getModello() %> - <%=a.getAutista().getCognome()%></option>
+			<%
+			}%>
+			
 			</select>
 		</div>
 		
@@ -62,7 +81,13 @@
 		
 		<div class="tableRow">
 			<label class="rcolor" for="data">Data:</label>
-			<input type="datetime-local" id="data" name="data" value="" placeholder="Inserire Data.." required style="
+			<input type="text" id="data" name="data" value="" placeholder="Inserire Data.." required style="
+    width: 193px;
+">
+		</div>
+		<div class="tableRow">
+			<label class="rcolor" for="ora">Ora Partenza:</label>
+			<input type="text" id="ora" name="ora" value="" placeholder="Inserire Ora partenza.." required style="
     width: 193px;
 ">
 		</div>
