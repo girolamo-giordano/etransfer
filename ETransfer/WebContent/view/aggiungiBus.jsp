@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Aggiunta Autobus</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="aggiungiBus.css" type="text/css">
+<LINK rel= "stylesheet" href="aggiungiAutista.css" type="text/css">
 </head>
 <body>
 <div id="logo"> 
