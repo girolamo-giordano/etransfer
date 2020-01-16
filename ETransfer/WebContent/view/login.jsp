@@ -57,7 +57,7 @@
 </div>
 
 <div id="form">
-<form name="loginform" action="LogControl" method="post"> 
+<form name="loginform" action="../Login" method="post"> 
 
 <fieldset>
 	
@@ -83,7 +83,7 @@
 		<input type="radio" id="radiobutton" name="sceltaP" value="Utente">
 		<label class="rcolor" for="radio"> Utente </label>
 		
-		<input type="radio" id="radiobutton" name="sceltaP" value="autista">
+		<input type="radio" id="radiobutton" name="sceltaP" value="Autista">
 		<label class="rcolor" for="radio"> Autista </label>
 		
 		</div>

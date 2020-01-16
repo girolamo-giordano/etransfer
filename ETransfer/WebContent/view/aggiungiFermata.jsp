@@ -1,3 +1,6 @@
+<%@page import="dao.CorsaDAO"%>
+<%@page import="entita.Corsa"%>
+<%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -34,8 +37,13 @@
   	</li>
   </ul> 
 </div>
+<%
+Collection<Corsa> corse;
+CorsaDAO corsadao= new CorsaDAO();
+corse=corsadao.doRetrieveAll();
 
-<form name="loginform" action="LogControl" method="post"> 
+%>
+<form name="loginform" action="../AggiungiFermata" method="post"> 
 
 	<fieldset>
 	
@@ -48,6 +56,13 @@
 			<input type="text" id="nome" name="nome" value="" placeholder="Inserire Nome.." required> 
 		</div>
 		
+			<select name="corsa" required>
+				<option value="" selected> select </option>
+				<% for(Corsa t:corse){
+					%>
+					<option value="<%=t.getId()%>"><%=t.getTratta().getPartenza()%> - <%=t.getOrapart() %> </option>
+				<%} %>
+			</select>
 		
 		
 		
