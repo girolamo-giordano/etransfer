@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+
+table, th, td {
+  border: 1px solid #F8F8FA;;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-transform: uppercase;
+}
+th {
+  text-align: center;
+  font-size:larger;
+}
+
+div#firstP {
+    font-family: sans-serif;
+    font-size: large;
+    color: #F8F8FA;
+    display: table-cell;
+    background-color: #333;
+    padding: 40px;
+    border-style: groove;
+    border-radius: 15px;
+    text-align: center;
+    display: grid;
+    margin-left: 40px
+    
+  }
+  
+  center{
+  color:#333; 
+  font-weight:bold; 
+  font-size:-webkit-xxx-large;
+  }
+  
+
+
