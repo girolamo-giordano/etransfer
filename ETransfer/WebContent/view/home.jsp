@@ -20,13 +20,13 @@
     font-size: 20px;">
   <a href="home.jsp">Home</a>
   <a href="chisiamo.jsp">L'azienda</a>
-  <a href="areautente.jsp">Area Utente</a>
+  <a href="areauPers.jsp">Area Utente</a>
   <a href="corsa.jsp">Le nostre corse</a>
   </div>
   
   <div class="topnavright" style="padding-right: 60px;
     font-size: 20px;">
-  <a href="Login.jsp" style="float:right">Login</a>
+  <a class="selected" href="Login.jsp" style="float:right">Login</a>
   <a href="registrazione.jsp" style="float:right">Registrazione</a>
 </div>
 </div>

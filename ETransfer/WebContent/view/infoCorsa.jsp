@@ -1,5 +1,5 @@
-<%@page import="dao.AutistaDAO"%>
-<%@page import="utenti.Autista"%>
+<%@page import="dao.FermataDAO"%>
+<%@page import="entita.Fermata"%>
 <%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Autisti</title>
+<title>Fermate</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="visualizzaCorse.css" type="text/css">
 </head>
@@ -35,36 +35,46 @@
 
 <div style="margin-top:80px;">
 
-
-</div>
-<h2><center>I NOSTRI AUTISTI</center></h2>
-<div id="firstP">
-
-<table>
-	<tr>
-		<th>
-		NOME
-		</th>
-		<th>
-		COGNOME
-		</th>
-		
-	</tr>
 <%
-	Collection<Autista> autobus;
-	AutistaDAO trattadao= new AutistaDAO();
+	Collection<Corsa> autobus;
+	CorsaDAO trattadao= new CorsaDAO();
 	autobus=trattadao.doRetrieveAll();
-	for(Autista t:autobus)
+	System.out.println(autobus);
+	for(Corsa t:autobus)
+	
 	{
 	
 %>
 
 
+</div>
+<h2><center>Dettagli Viaggio</center></h2>
+<div id="firstP">
+Durata: 
+<table>
+	<tr>
+		<th>
+		Nome Fermata
+		</th>
+		
+		
+	</tr>
+<%
+	Collection<Fermata> tratte;
+	FermataDAO trattadao= new FermataDAO();
+	tratte=trattadao.doRetrieveAll();
+	for(Fermata t:tratte)
+	{
+	
+%>
+	
+
+
+
 	
 	<tr>
-		<td><%=t.getNome() %></td>
-		<td><%=t.getCognome()%></td>
-		
+		<td><%=t.getNomefermata() %></td>
+	
 	</tr>
 
 	
@@ -79,8 +89,5 @@
       this site are the property of their respective owners.
 </div>
 </head>
-<body>
-
-	
 </body>
 </html>

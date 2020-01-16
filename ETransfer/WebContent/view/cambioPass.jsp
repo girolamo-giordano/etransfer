@@ -1,17 +1,18 @@
-<%@page import="dao.AutistaDAO"%>
-<%@page import="utenti.Autista"%>
-<%@page import="java.util.Collection"%>
+<%@page import="utenti.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Autisti</title>
+<title>Modifica Indirizzo</title>
+
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="visualizzaCorse.css" type="text/css">
+<LINK rel= "stylesheet" href="cambia.css" type="text/css">
+
 </head>
 <body>
+
 <div id="logo"> 
 <img style="height: 290px;
     margin-left: 87px;" src="../foto/logo.jpeg">
@@ -37,50 +38,32 @@
 
 
 </div>
-<h2><center>I NOSTRI AUTISTI</center></h2>
+<%Cliente c=(Cliente)request.getSession().getAttribute("cliente"); %>
+ <center>
 <div id="firstP">
+<h2> Cambio Indirizzo</h2>
 
-<table>
-	<tr>
-		<th>
-		NOME
-		</th>
-		<th>
-		COGNOME
-		</th>
+<<form name="passform" action="ChangePsw" method="post">
+
+<div>
+	
+		<div class="tableRow">
+			<label class="rcolor" for="username">Nuovo indirizzo:</label>
+			<input type="text" id="username" name="indir" value="" placeholder="Inserire nuovo indirizzo..." required> 
+		</div>
 		
-	</tr>
-<%
-	Collection<Autista> autobus;
-	AutistaDAO trattadao= new AutistaDAO();
-	autobus=trattadao.doRetrieveAll();
-	for(Autista t:autobus)
-	{
-	
-%>
-
-
-	
-	<tr>
-		<td><%=t.getNome() %></td>
-		<td><%=t.getCognome()%></td>
+		</fieldset>
 		
-	</tr>
-
-	
-<%} %>
-</table>
+		<div id="SecFie">
+			<input class="submit" type="submit" value="Cambia">
+			<input class ="reset" type="reset">
+		</div>
+		
+	</form>
 </div>
+</center>
 
-<div class="footer">
-      &copy; 2020, E-Transfer
-      <br>
-      All trademarks and registered trademarks appearing on 
-      this site are the property of their respective owners.
-</div>
-</head>
-<body>
 
-	
+
 </body>
 </html>

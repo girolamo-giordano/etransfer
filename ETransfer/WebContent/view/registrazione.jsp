@@ -58,7 +58,7 @@
 		
 		
 		<div class="tableRow">
-			<label class="rcolor" for="provincia">Provincia: </label>
+			<label class="rcolor" for="provincia">Città: </label>
  			<select name="citta" id="provincia">
     			<option selected="selected">--</option>
                 <optgroup label="Valle d'Aosta">
@@ -246,7 +246,7 @@
 		
 		<div class="tableRow">
 			<label class="rcolor" for="email">Telefono:</label>
-			<input type="number" id="telefono" name="numerotelefono" placeholder="Inserire telefono.." required>
+			<input type="text" id="telefono" name="numerotelefono" placeholder="Inserire telefono.." required>
 		</div>
 		
 		

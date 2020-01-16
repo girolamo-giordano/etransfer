@@ -1,0 +1,41 @@
+@charset "ISO-8859-1";
+div#firstP {
+    font-family: sans-serif;
+    font-size: large;
+    color: #F8F8FA;
+    display: table-cell;
+    background-color: #333;
+    padding: 40px;
+    
+    border:groove;
+    text-align: center;
+    
+    margin-left: 40px
+    
+  }
+  
+  center{
+  color:#333; 
+  font-weight:bold; 
+  font-size:-webkit-xxx-large;
+  }
+  
+  #SecFie{
+  margin-top:50px;
+  }
+  
+  #username{
+  width: 170px;
+    height: 45px;
+  }
+  
+  
+  .submit,.reset{
+      width: 107px;
+    height: 41px;
+
+  }
+  
+ .rcolor{
+ padding-right:20px;
+ }
