@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import entita.Corsa;
 import entita.Tratta;
 import utils.DriverManagerConnectionPool;
 

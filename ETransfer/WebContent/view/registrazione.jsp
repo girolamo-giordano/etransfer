@@ -33,7 +33,7 @@
 
 
 <div id="form">
-<form name="checkforname" method="post" action="RegControl" onsubmit="event.preventDefault();validate(this)">
+<form name="checkforname" method="post" action="../Registrazione">
 
 <fieldset>
 	
@@ -246,7 +246,7 @@
 		
 		<div class="tableRow">
 			<label class="rcolor" for="email">Telefono:</label>
-			<input type="number" id="telefono" name="telefono" placeholder="Inserire telefono.." required>
+			<input type="number" id="telefono" name="numerotelefono" placeholder="Inserire telefono.." required>
 		</div>
 		
 		
