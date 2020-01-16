@@ -39,29 +39,16 @@
 
 	<fieldset>
 	
-		<h2 id=titolo> Aggiunta Autista </h2>
+		<h2 id=titolo> Aggiunta Fermata </h2>
 		
 		
 			
 		<div class="tableRow">
-			<label class="rcolor" for="nome">Nome:</label>
+			<label class="rcolor" for="nome">Nome Fermata:</label>
 			<input type="text" id="nome" name="nome" value="" placeholder="Inserire Nome.." required> 
 		</div>
 		
-		<div class="tableRow">
-			<label class="rcolor" for="cognome">Cognome:</label>
-			<input type="text" id="cognome" name="cognome" value="" placeholder="Inserire Cognome.." required >
-		</div>
 		
-		<div class="tableRow">
-			<label class="rcolor" for="username">Username:</label>
-			<input type="text" id="username" name="username" value="" placeholder="Inserire Username.." required >
-		</div>
-		
-		<div class="tableRow">
-			<label class="rcolor" for="pass">Password:</label>
-			<input type="password" id="pass" name="pass" value="" placeholder="Inserire password..."  required >
-		</div>
 		
 		
 		

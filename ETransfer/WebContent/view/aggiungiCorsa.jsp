@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Aggiungi corsa</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="aggiungiCorsa.css" type="text/css">
+<LINK rel= "stylesheet" href="aggiungiAutista.css" type="text/css">
 </head>
 <body>
 <div id="logo"> 
