@@ -1,3 +1,6 @@
+<%@page import="utenti.Manager"%>
+<%@page import="utenti.Cliente"%>
+<%@page import="utenti.Autista"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,6 +11,22 @@
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 </head>
 <body>
+<%
+	Autista autista= (Autista)request.getSession().getAttribute("autista");
+	Cliente cliente= (Cliente)request.getSession().getAttribute("cliente");
+	Manager manager= (Manager)request.getSession().getAttribute("manager");
+	
+	if(cliente != null)
+	{
+%>
+ 		Ciao cliente <%=cliente.getNome() %>
+ <%}
+	if(autista != null){%>
+	Ciao autista <%=autista.getNome() %>
+	<%}if(manager != null){ %>
+	
+	ciao manager <%=manager.getNome() %>
+	<%} %>
 
 <div id="logo"> 
 <img style="height: 290px;

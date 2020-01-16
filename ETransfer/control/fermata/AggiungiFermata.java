@@ -1,4 +1,4 @@
-package corsa;
+package fermata;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,28 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AutobusDAO;
 import dao.CorsaDAO;
-import dao.TrattaDAO;
-import entita.Autobus;
-import entita.Corsa;
-import entita.Tratta;
+import dao.FermataDAO;
+import entita.Fermata;
+import utenti.Autista;
 
 /**
- * Servlet implementation class AggiungiCorsa
+ * Servlet implementation class AggiungiFermata
  */
-@WebServlet("/AggiungiCorsa")
-public class AggiungiCorsa extends HttpServlet {
+@WebServlet("/AggiungiFermata")
+public class AggiungiFermata extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static CorsaDAO corsadao=new CorsaDAO();
-	static TrattaDAO trattadao= new TrattaDAO();
-	static AutobusDAO autobusdao= new AutobusDAO();
-	
+	static FermataDAO fermatadao= new FermataDAO();
+	static CorsaDAO corsadao= new CorsaDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AggiungiCorsa() {
+    public AggiungiFermata() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,23 +43,12 @@ public class AggiungiCorsa extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tratta=request.getParameter("tratta");
-		String busid=request.getParameter("bus");
-		String data=request.getParameter("data");
-		String orapart=request.getParameter("ora");
-		String durata=request.getParameter("durata");
-		Tratta trattae;
-		Autobus autobus;
-		Corsa corsa= new Corsa();
+		String nome=request.getParameter("nome");
+		String idcorsa=request.getParameter("corsa");
+		Fermata fermata= new Fermata();
+		fermata.setNomefermata(nome);
 		try {
-			trattae = trattadao.doRetrieveByKey(Integer.parseInt(tratta));
-			autobus= autobusdao.doRetrieveByKey(Integer.parseInt(busid));
-			corsa.setTratta(trattae);
-			corsa.setBus(autobus);
-			corsa.setDatapart(data);
-			corsa.setDurata(Integer.parseInt(durata));
-			corsa.setOrapart(orapart);
-			corsa.setFermate(null);
+			fermata.setCorsa(corsadao.doRetrieveByKey(Integer.parseInt(idcorsa)));
 		} catch (NumberFormatException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -71,16 +56,14 @@ public class AggiungiCorsa extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 		try {
-			corsadao.doSave(corsa);
-			response.sendRedirect("view/home.jsp");
+			fermatadao.doSave(fermata);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Errore"+e.toString());
 		}
 		
-		
+		response.sendRedirect("view/home.jsp");
 	}
 
 }

@@ -1,0 +1,149 @@
+@charset "ISO-8859-1";
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #F8F8FA;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: grid;
+}
+
+
+form {
+	display: table;
+	padding-top: 10px;
+	border: thin dotted #7e7e7e;
+	background-color: #333;
+	
+	width: 400px;
+    height: 400px;
+    position:relative;
+    top: 50%;
+    left: 50%;
+    margin-top: 100px;
+    margin-left: -200px;
+    margin-bottom: 100px;
+	
+}
+
+
+
+
+#durata{
+	width:193px;
+}
+
+
+div.tableRow label:first-child {
+	text-align: left;
+}
+
+div.tableRow {
+	display: table-row;
+}
+
+div.tableRow > p, div.tableRow > label, div.tableRow > input {
+	display: table-cell;
+	vertical-align: top;
+	padding: 10px;
+}
+
+#footer {
+  background-color:  #F8F8FA;
+ 
+  text-align:       center;
+  padding:          15px;
+  margin: 0px 10px 10px 10px;
+  font-size:        90%;
+}
+
+.submit , .reset{
+	background: #F8F8FA;
+  border: solid rgb(42,23,44);       /* nessun bordo */
+  color: #333;        /* colore del testo    */
+  font-weight: bold;
+  margin-top:20px;
+  padding: 0;         /* padding             */
+  height: 40px;       /* altezza             */
+  width: 100px;        
+  text-align: center;
+  
+}
+
+.submit{
+	margin-right: 10px;
+	margin-left: 80px;
+}
+
+
+
+h2#titolo{
+	color: #F8F8FA;
+	text-align: center;
+	text-decoration: underline;
+	font-style: italic;
+}
+
+.rcolor{
+	color: #F8F8FA;
+}
+
+#button{
+	margin-top: 20px;
+	margin-bottom:20px;
+	margin-left: 77px;
+}
+
+#primoF{
+	padding-top: 24px;
+    padding-left: 28px;
+}
+
+.error{
+	background-color: red;
+}
+
+
