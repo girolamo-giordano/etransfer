@@ -35,7 +35,7 @@
   </ul> 
 </div>
 
-<form name="loginform" action="LogControl" method="post"> 
+<form name="loginform" action="../AggiungiAutista" method="post"> 
 
 	<fieldset>
 	
