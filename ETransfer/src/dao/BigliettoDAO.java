@@ -3,6 +3,7 @@
  */
 package dao;
 
+import java.security.KeyStore.ProtectionParameter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,6 +43,8 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 				biglietto.setNumerobigl(rs.getInt("code"));
 				biglietto.setCliente(clientedao.doRetrieveByKey(rs.getInt("id_cliente")));
 				biglietto.setCorsa(corsadao.doRetrieveByKey(rs.getInt("id_corsa")));
+				biglietto.setQuantita(rs.getInt("quantita"));
+				biglietto.setAcquistodata(rs.getString("data"));
 			}	
 		} finally {
 			try {
@@ -79,6 +82,8 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 				man.setNumerobigl(rs.getInt("code"));
 				man.setCliente(clientedao.doRetrieveByKey(rs.getInt("id_cliente")));
 				man.setCorsa(corsadao.doRetrieveByKey(rs.getInt("id_corsa")));
+				man.setQuantita(rs.getInt("quantita"));
+				man.setAcquistodata(rs.getString("data"));
 				//Aggiungo il bean che ho appena creato alla Collezione
 				biglietti.add(man);
 			}	
@@ -104,7 +109,7 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		
 		//Stringa di inserimento parametrica dal database
 		//Non inserisco a mano code perchè è un int autoincrement
-		String selectSQL = "INSERT INTO biglietto (id_cliente,id_corsa) VALUES (?,?)";
+		String selectSQL = "INSERT INTO biglietto (id_cliente,id_corsa,quantita,data) VALUES (?,?,?,?)";
 		
 		/*Stringa per provare a generare un'errore
 		 String selectSQL = "INSERT INTO product2 (name, description, price, quantity) VALUES (?, ?, ?, ?)";
@@ -118,6 +123,8 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, biglietto.getCliente().getId());
 			preparedStatement.setInt(2, biglietto.getCorsa().getId());
+			preparedStatement.setInt(3, biglietto.getQuantita());
+			preparedStatement.setString(4, biglietto.getAcquistodata());
 			System.out.println("doSave: " + preparedStatement.toString());
 			
 			//Eseguo il preparedStatement inserendo i dati all'interno del database
@@ -144,14 +151,16 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String updateSQL="UPDATE biglietto SET"+" id_cliente=?, id_corsa=? "+" WHERE code = ?";
+		String updateSQL="UPDATE biglietto SET"+" id_cliente=?, id_corsa=?, quantita=?, data=?"+" WHERE code = ?";
 		try {
 				connection=DriverManagerConnectionPool.getConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setInt(1,biglietto.getCliente().getId());
 				preparedStatement.setInt(2,biglietto.getCorsa().getId());
-				preparedStatement.setInt(3, biglietto.getNumerobigl());
+				preparedStatement.setInt(3, biglietto.getQuantita());
+				preparedStatement.setString(4, biglietto.getAcquistodata());
+				preparedStatement.setInt(5, biglietto.getNumerobigl());
 				System.out.println("doUpdate: "+preparedStatement.toString());
 				preparedStatement.executeUpdate();
 				

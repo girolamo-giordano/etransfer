@@ -1,30 +1,29 @@
-package biglietto;
+package tratta;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CorsaDAO;
-import entita.Corsa;
+import dao.TrattaDAO;
+import entita.Tratta;
 
 /**
- * Servlet implementation class CheckoutAcquisto
+ * Servlet implementation class AggiungiTratta
  */
-@WebServlet("/CheckoutAcquisto")
-public class CheckoutAcquisto extends HttpServlet {
+@WebServlet("/AggiungiTratta")
+public class AggiungiTratta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static CorsaDAO corsadao= new CorsaDAO();
+	static TrattaDAO trattadao= new TrattaDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckoutAcquisto() {
+    public AggiungiTratta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,24 +40,18 @@ public class CheckoutAcquisto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String numbiglietti= request.getParameter("numbiglietti");
-		String idcorsa= request.getParameter("corsaid");
-		Corsa corsa=null ;
+		String partenza=request.getParameter("partenza");
+		String arrivo=request.getParameter("arrivo");
+		Tratta tratta= new Tratta();
+		tratta.setPartenza(partenza);
+		tratta.setArrivo(arrivo);
 		try {
-			corsa = corsadao.doRetrieveByKey(Integer.parseInt(idcorsa));
-			System.out.println("checkout corsa servlet "+corsa);
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			trattadao.doSave(tratta);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("corsain",corsa);
-		request.setAttribute("idcorsa",Integer.parseInt(idcorsa));
-		request.setAttribute("numbiglietti", Integer.parseInt(numbiglietti));
-		RequestDispatcher rd= this.getServletContext().getRequestDispatcher("/view/checkoutBiglietto.jsp");
-		rd.forward(request, response);
+		response.sendRedirect("view/home.jsp");
 	}
 
 }

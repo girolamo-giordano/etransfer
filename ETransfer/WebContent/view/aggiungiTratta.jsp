@@ -35,7 +35,7 @@
   </ul> 
 </div>
 
-<form name="loginform" action="LogControl" method="post"> 
+<form name="loginform" action="../AggiungiTratta" method="post"> 
 
 	<fieldset>
 	

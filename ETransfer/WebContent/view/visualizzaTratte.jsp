@@ -48,7 +48,9 @@
 		<th>
 		Arrivo
 		</th>
-		
+		<th>
+		Modifica
+		</th>
 		
 	</tr>
 <%
@@ -66,6 +68,7 @@
 	<tr>
 		<td><%=t.getPartenza() %></td>
 		<td><%=t.getArrivo() %></td>
+		<td><a href="../EliminaTratta?idtratta=<%=t.getId()%>">Elimina tratta</a></td>
 		
 	</tr>
 
