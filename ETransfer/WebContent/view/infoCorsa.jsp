@@ -1,3 +1,4 @@
+<%@page import="entita.Corsa"%>
 <%@page import="dao.FermataDAO"%>
 <%@page import="entita.Fermata"%>
 <%@page import="java.util.Collection"%>
@@ -36,13 +37,7 @@
 <div style="margin-top:80px;">
 
 <%
-	Collection<Corsa> autobus;
-	CorsaDAO trattadao= new CorsaDAO();
-	autobus=trattadao.doRetrieveAll();
-	System.out.println(autobus);
-	for(Corsa t:autobus)
-	
-	{
+	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
 	
 %>
 
@@ -54,32 +49,17 @@ Durata:
 <table>
 	<tr>
 		<th>
-		Nome Fermata
+		Nome <%=corsa.getTratta().getPartenza() %> Fermata <%=corsa.getTratta().getArrivo() %>
 		</th>
 		
 		
 	</tr>
-<%
-	Collection<Fermata> tratte;
-	FermataDAO trattadao= new FermataDAO();
-	tratte=trattadao.doRetrieveAll();
-	for(Fermata t:tratte)
-	{
-	
-%>
-	
-
-
-
-	
-	<tr>
-		<td><%=t.getNomefermata() %></td>
-	
-	</tr>
-
-	
-<%} %>
 </table>
+<form method="post" action="CheckoutAcquisto">
+	<input name="numbiglietti" type="number" min="1" max="10" required">
+	<input type="hidden" value="<%=corsa.getId()%>" name="corsaid">
+	<input type="submit" value="Acquista">
+</form>
 </div>
 
 <div class="footer">

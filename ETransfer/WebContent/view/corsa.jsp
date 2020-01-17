@@ -73,11 +73,11 @@
 
 	
 	<tr>
-		<td><%=t.getTratta().getPartenza() %></td>
-		<td><%=t.getTratta().getArrivo() %></td>
-		<td><%=t.getDatapart() %></td>
-		<td><%=t.getOrapart() %></td>
-		<td><%=t.getDurata() %>'</td>
+		<td><a href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getTratta().getPartenza() %></a></td>
+		<td><a href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getTratta().getArrivo() %></a></td>
+		<td><a href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getDatapart() %></a></td>
+		<td><a href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getOrapart() %></a></td>
+		<td><a href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getDurata() %>'</a></td>
 	</tr>
 
 	
