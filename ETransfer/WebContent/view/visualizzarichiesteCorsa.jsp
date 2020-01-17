@@ -1,3 +1,5 @@
+<%@page import="dao.RichiestaCorsaDAO"%>
+<%@page import="entita.Richiestacorsa"%>
 <%@page import="dao.CorsaDAO"%>
 <%@page import="entita.Corsa"%>
 <%@page import="java.util.Collection"%>
@@ -37,7 +39,7 @@
 
 
 </div>
-<h2><center>CORSE DISPONIBILI</center></h2>
+<h2><center>Visualizza Richieste corse</center></h2>
 <div id="firstP">
 
 <table>
@@ -54,20 +56,15 @@
 		<th>
 		Ora Partenza
 		</th>
-		<th>
-		Durata
-		</th>
-		<th>
-		Prezzo
-		</th>
+		
 		
 	</tr>
 <%
-	Collection<Corsa> autobus;
-	CorsaDAO trattadao= new CorsaDAO();
-	autobus=trattadao.doRetrieveAll();
-	System.out.println(autobus);
-	for(Corsa t:autobus)
+	Collection<Richiestacorsa> rc;
+	RichiestaCorsaDAO rcdao= new RichiestaCorsaDAO();
+	rc=rcdao.doRetrieveAll();
+	
+	for(Richiestacorsa t:rc)
 	
 	{
 	
@@ -76,12 +73,11 @@
 
 	
 	<tr>
-		<td><a class="co" href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getTratta().getPartenza() %></a></td>
-		<td><a class="co" href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getTratta().getArrivo() %></a></td>
-		<td><a class="co" href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getDatapart() %></a></td>
-		<td><a class="co" href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getOrapart() %></a></td>
-		<td><a class="co" href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getDurata() %>'</a></td>
-		<td><a class="co" href="../InfoCorsa?id_corsa=<%=t.getId()%>"><%=t.getCosto() %>&#8364</a></td>
+		<td><%=t.getTratta().getPartenza()%></td>
+		<td><%=t.getTratta().getArrivo()%></td>
+		<td><%=t.getDatapart()%></td>
+		<td><%=t.getOrapart()%></td>
+		
 	</tr>
 
 	

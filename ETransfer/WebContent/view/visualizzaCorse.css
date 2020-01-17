@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 table, th, td {
-  border: 1px solid #F8F8FA;;
+  border: 1px solid #F8F8FA;
   border-collapse: collapse;
 }
 th, td {
@@ -34,5 +34,8 @@ div#firstP {
   font-size:-webkit-xxx-large;
   }
   
-
+a.co{
+	 color:#F8F8FA;
+	 text-decoration: none;
+}
 

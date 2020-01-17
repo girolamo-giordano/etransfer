@@ -60,10 +60,10 @@ corse=corsadao.doRetrieveAll();
 			<label class="rcolor" for="durata">Corsa:</label>
 			<select class="sel" style="width: 193px;
     height: 39px;" required>
-    <option value="" selected> Partenza-Arrivo </option>
+    <option value="" selected> Partenza-Arrivo ora </option>
 				<% for(Corsa t:corse){
 					%>
-					<option value="<%=t.getId()%>"><%=t.getTratta().getPartenza()%>-<%=t.getTratta().getArrivo() %> </option>
+					<option value="<%=t.getId()%>"><%=t.getTratta().getPartenza()%>-<%=t.getTratta().getArrivo() %> <%=t.getOrapart()%>  </option>
 				<%} %>
 			</select>
 		</div>

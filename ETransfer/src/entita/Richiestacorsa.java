@@ -13,10 +13,21 @@ public class Richiestacorsa {
 	private String datapart;
 	private int durata;
 	private int id;
+	private Tratta tratta;
 	
 	
 	
 	
+	
+	
+	public Tratta getTratta() {
+		return tratta;
+	}
+
+	public void setTratta(Tratta tratta) {
+		this.tratta = tratta;
+	}
+
 	/**
 	 * @return the id
 	 */

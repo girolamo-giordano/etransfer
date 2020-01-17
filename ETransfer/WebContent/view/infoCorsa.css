@@ -1,0 +1,54 @@
+@charset "ISO-8859-1";
+
+table {
+  font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 728px;
+    font-size: xx-large;
+   text-align:center;
+    height: 129px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+th{
+	font-size: larger;
+	font-weight: bold;
+	text-align:center;
+}
+
+.arrpar{
+	font-style: oblique;
+}
+
+#totale{
+	display:flex;
+	margin-left: 245px;
+}
+
+#form {
+   display: table;
+    padding-top: 10px;
+    border: thin dotted #7e7e7e;
+    background-color: #333;
+    width: 458px;
+    height: 400px;
+    /* top: 50%; */
+    /* left: 50%; */
+    margin-top: 78px;
+    margin-left: -306px;
+    margin-bottom: 100px;
+}
+
+#info{
+	margin-right: 25px;
+    font-weight: bold;
+}

@@ -11,10 +11,20 @@ public class Richiestafermata {
 	
 	private String nomefermata;
 	private int id;
+	private Corsa corsa;
 	
 	
 	
 	
+	
+	public Corsa getCorsa() {
+		return corsa;
+	}
+
+	public void setCorsa(Corsa corsa) {
+		this.corsa = corsa;
+	}
+
 	/**
 	 * @return the id
 	 */

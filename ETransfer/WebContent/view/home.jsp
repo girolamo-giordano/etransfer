@@ -31,6 +31,15 @@
   <a href="chisiamo.jsp">L'azienda</a>
   <a href="areaPers.jsp">Area Utente</a>
   <a href="corsa.jsp">Le nostre corse</a>
+  <li class="dropdown"> 
+  	<a href="javascript:void(0)" class="dropbnt"> Personalizza il tuo Viaggio </a> 
+  	<div class="dropdown-content">
+  	<a href="richiestaCorsa.jsp"> Richiesta Corsa </a>
+  	<a href="richiestaFermata.jsp"> Richiesta Fermata </a>
+  	<a href="richiestaTratta.jsp"> Richiesta Tratta </a>
+  	
+  	</div>
+  	</li>
   </div>
   
   <div class="topnavright" style="padding-right: 60px;
@@ -220,9 +229,9 @@
   	<li class="dropdown"> 
   	<a href="javascript:void(0)" class="dropbnt"> Visualizza Richieste </a> 
   	<div class="dropdown-content">
-  	<a href="richiestaCorsa.jsp"> Richiesta Corsa </a>
-  	<a href="richiestaFermata.jsp"> Richiesta Fermata </a>
-  	<a href="richiestaTratta.jsp"> Richiesta Tratta </a>
+  	<a href="visualizzarichiestaCorsa.jsp"> Richiesta Corsa </a>
+  	<a href="visualizzarichiestaFermata.jsp"> Richiesta Fermata </a>
+  	<a href="visualizzarichiestaTratta.jsp"> Richiesta Tratta </a>
   	
   	</div>
   	</li>
