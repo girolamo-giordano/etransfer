@@ -1,29 +1,32 @@
-package account;
+package corsa;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ClienteDAO;
+import dao.CorsaDAO;
+import entita.Corsa;
 
-import utenti.Cliente;
 
 /**
- * Servlet implementation class ChangePsw
+ * Servlet implementation class InfoCorsa
  */
-@WebServlet("/ChangePsw")
-public class ChangePsw extends HttpServlet {
+@WebServlet("/InfoCorsa")
+public class InfoCorsa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static ClienteDAO model=new ClienteDAO();
+	static CorsaDAO corsadao= new CorsaDAO();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangePsw() {
+    public InfoCorsa() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,8 +35,22 @@ public class ChangePsw extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int id_prod=Integer.parseInt(request.getParameter("id_corsa"));
+		Corsa corsa=new Corsa();
+		try {
+			corsa=corsadao.doRetrieveByKey(id_prod);
+			if(corsa.getDatapart()==null)
+			{
+				response.sendError(404);
+				return;
+			}
+			request.setAttribute("corsasel", corsa);
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/view/infoCorsa.jsp");
+			dispatcher.forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -41,31 +58,7 @@ public class ChangePsw extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Cliente ur=new Cliente();
-		ur=(Cliente)request.getSession(false).getAttribute("cliente");
-		
-		String pass=request.getParameter("password");
-		if(pass==null)
-		{
-			response.sendError(406);
-			return;
-		}
-		if(ur==null)
-		{
-			response.sendError(407);
-			return;
-		}
-		else
-		{
-			ur.setPassword(pass);;
-			try {
-				model.doUpdate(ur);
-				response.sendRedirect("changeindirizzosucc.jsp");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			}
+		doGet(request, response);
 	}
 
 }

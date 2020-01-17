@@ -43,7 +43,7 @@
 <div id="firstP">
 <h2> Cambio Indirizzo</h2>
 
-<form name="indirizzoform" action="ChangeIndirizzo" method="post">
+<form name="indirizzoform" action="../ModificaIndirizzo" method="post">
 
 <div>
 	
