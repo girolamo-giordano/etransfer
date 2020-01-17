@@ -7,8 +7,8 @@
 <meta charset="ISO-8859-1">
 <title>Area Personale</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="visualizzaCorse.css" type="text/css">
-<LINK rel= "stylesheet" href="login.css" type="text/css">
+<LINK rel= "stylesheet" href="areaPers.css" type="text/css">
+
 </head>
 <body>
 <div id="logo"> 
@@ -37,34 +37,35 @@
 
 </div>
 <%Cliente c=(Cliente)request.getSession().getAttribute("cliente"); %>
-<div id="firstP">
-<h2> Ciao <%=c.getNome() %> <%=c.getCognome() %></h2>
 
-<form>
 
-<fieldset>
+
+<form id="form">
+<h2><center> Ciao <%=c.getNome() %> <%=c.getCognome() %></center></h2>
+
+<fieldset class="field">
 	
 		<div class="tableRow">
-			<label class="rcolor" for="indirizzo">Indirizzo:</label>
+			<label class="rcolor" for="indirizzo">Indirizzo</label>
 			<input type="text" id="indirizzo" name="indirizzo" value= <%=c.getIndirizzo() %> readonly> 
 			<a href="cambioIndirizzo.jsp">Modifica Indirizzo </a>
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="provincia">Provincia: </label>
+			<label class="rcolor" for="provincia">Provincia </label>
  			<input type="text" id="provincia" name="provincia" value= <%=c.getCitta() %> readonly>
         
 		</div>
 		
 		
 		<div class="tableRow">
-			<label class="rcolor" for="email">Email:</label>
+			<label class="rcolor" for="email">Email</label>
 			<input type="email" id="email" name="email" value= <%=c.getEmail() %> readonly>
 			<a href="cambioEmail.jsp">Modifica Email </a>
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="email">Telefono:</label>
+			<label class="rcolor" for="email">Telefono</label>
 			<input type="number" id="telefono" name="numerotelefono" value= <%=c.getNumerotel()%> readonly>
 		</div>
 		
@@ -72,17 +73,17 @@
 		
 		</fieldset>
 		
-		<fieldset id="secondoF">
+		<fieldset class="field">
 			
 			
 			<div class="tableRow">
-			<label class="rcolor" for="username">Username:</label>
+			<label class="rcolor" for="username">Username</label>
 			<input type="text" id="user" name="username" value= <%=c.getUsername()%> readonly> 
 		</div>
 		
 		
 		<div class="tableRow">
-			<label class="rcolor" for="password">Password:</label>
+			<label class="rcolor" for="password">Password</label>
 			<input type="password" id="Password" name="Password" value="*****" readonly>
 			<a href="cambioIndirizzo.jsp">Modifica Password </a>
 		</div>

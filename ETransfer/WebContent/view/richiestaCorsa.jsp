@@ -1,13 +1,16 @@
+<%@page import="entita.Autobus"%>
+<%@page import="dao.AutobusDAO"%>
+<%@page import="dao.TrattaDAO"%>
 <%@page import="java.util.Collection"%>
-<%@page import="dao.AutistaDAO"%>
-<%@page import="utenti.Autista"%>
+<%@page import="entita.Tratta"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Aggiunta Autobus</title>
+<title>Aggiungi corsa</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="aggiungiAutista.css" type="text/css">
 </head>
@@ -17,12 +20,6 @@
     margin-left: 87px;" src="../foto/logo.jpeg">
 </div>
 
-<% Collection <Autista> autistalist;
-AutistaDAO autistadao= new AutistaDAO();
-autistalist=autistadao.doRetrieveAll();
-
-
-%>
 
 
 <div class="topnav">
@@ -44,54 +41,60 @@ autistalist=autistadao.doRetrieveAll();
   </ul> 
 </div>
 
-<form name="loginform" action="LogControl" method="post"> 
+<% Collection <Tratta> trattalist;
+Collection <Autobus> autobus;
+TrattaDAO trattadao= new TrattaDAO();
+trattalist=trattadao.doRetrieveAll();
+AutobusDAO busdao= new AutobusDAO();
+autobus=busdao.doRetrieveAll();
+
+%>
+
+<form name="loginform" action="../AggiungiCorsa" method="post"> 
 
 	<fieldset>
 	
-		<h2 id=titolo> Aggiunta Autobus </h2>
+		<h2 id=titolo> Richiesta Corsa </h2>
 		
 		
 			
-		<div class="tableRow">
-			<label class="rcolor" for="modello">Modello:</label>
-			<input type="text" id="modello" name="modello" value="" placeholder="Inserire Modello.." required> 
-		</div>
+		
+		
+		
 		
 		<div class="tableRow">
-			<label class="rcolor" for="numeroPosti">Numero Posti:</label>
-			<input type="number" id="numeroPosti" name="numeroPosti" value="" min="10" max="130" placeholder="Inserire Numero Posti.." required style="
-    width: 192px;
-"> 
+			<label class="rcolor" for="data">Data:</label>
+			<input type="text" id="data" name="data" value="" placeholder="Inserire Data.." required style="
+    width: 193px;
+">
 		</div>
-		
 		<div class="tableRow">
-			<label class="rcolor" for="anno">Immatricolazione:</label>
-			<input type="number" id="anno" name="anno" value="" placeholder="Inserire Anno Immatricolazione.." min="1990" max="2019" required style="
+			<label class="rcolor" for="ora">Ora Partenza:</label>
+			<input type="text" id="ora" name="ora" value="" placeholder="Inserire Ora partenza.." required style="
     width: 193px;
 ">
 		</div>
 		
-		<div class="tableRow">
-			<label class="rcolor" for="km">Chilometri:</label>
-			<input type="number" id="km" name="km" value="" placeholder="Inserire kilometri..." min="0" required >
-		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="autista">Autista:</label>
-			<select class="sel" style="width: 193px;
-    height: 39px;" required>
-				<option value="" selected> Autista </option>
-				<%for(Autista a:autistalist){
-				%>
-				<option value="<%=a.getId() %>"><%=a.getNome()%> <%=a.getCognome()%> </option>
-			<%
-			}%>
+			<label class="rcolor" for="durata">Tratta:</label>
+			<select class="sel" required style="width: 193px;
+    height: 39px;">
+				<option value="" selected> Partenza-Arrivo </option>
+				<% for(Tratta t:trattalist){
+					%>
+					<option value="<%=t.getId()%>"><%=t.getPartenza()%> - <%=t.getArrivo() %> </option>
+				<%} %>
 			</select>
 		</div>
 		
 		
 		
-		<input class="submit" type="submit" value="Aggiungi">
+		
+		
+		
+		
+		<input class="submit" type="submit" value="Richiedi">
 			<input class ="reset" type="reset"> <br>
 	
 	</fieldset>
@@ -105,6 +108,9 @@ autistalist=autistadao.doRetrieveAll();
       All trademarks and registered trademarks appearing on 
       this site are the property of their respective owners.
 </div>
+
+
+
 
 </body>
 </html>

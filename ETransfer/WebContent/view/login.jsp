@@ -97,14 +97,14 @@
 		</form>
 		
 		<div style="padding-top:10px;">
-		 <a id="ricordapass" href="ricordapassword" style="padding:100px; color:#F8F8FA; "> Hai dimenticato la password?</a>
+		 <a id="ricordapass" href="ricordapassword" style="margin:100px; color:#F8F8FA; "> Hai dimenticato la password?</a>
 		 </div>
+		 
 		<div id="reg"> <h2 id="RegText"> Sei nuovo su ETransfer?</h2> 
 		
 		 <a href="registrazione.jsp"> <input type="button" id="regBut" value="REGISTRATI"> </a>  </div>
 		 
 		
-	</fieldset>
 	</div>
 	
 	
