@@ -58,24 +58,7 @@ autobus=busdao.doRetrieveAll();
 		
 		
 			
-		<div class="tableRow">
-			<select name="tratta" required>
-				<option value="" selected> select </option>
-				<% for(Tratta t:trattalist){
-					%>
-					<option value="<%=t.getId()%>"><%=t.getPartenza()%> - <%=t.getArrivo() %> </option>
-				<%} %>
-			</select>
-			<select name="bus" required>
-			<option value="" selected> select</option>
-			<%for(Autobus a:autobus){
-				%>
-				<option value="<%=a.getId() %>"><%=a.getModello() %> - <%=a.getAutista().getCognome()%></option>
-			<%
-			}%>
-			
-			</select>
-		</div>
+		
 		
 		
 		
@@ -98,9 +81,31 @@ autobus=busdao.doRetrieveAll();
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="fermate">Fermate:</label>
-			<input type="text" id="fermate" name="fermate" value="" placeholder="Inserire fermate.." required>
+			<label class="rcolor" for="durata">Tratta:</label>
+			<select class="sel" required style="width: 193px;
+    height: 39px;">
+				<option value="" selected> Partenza-Arrivo </option>
+				<% for(Tratta t:trattalist){
+					%>
+					<option value="<%=t.getId()%>"><%=t.getPartenza()%> - <%=t.getArrivo() %> </option>
+				<%} %>
+			</select>
 		</div>
+		
+		<div class="tableRow">
+			<label class="rcolor" for="durata">Trasporto:</label>
+			<select class="sel" style="width: 193px;
+    height: 39px;" required>
+				<option value="" selected> Bus-Autista </option>
+				<%for(Autobus a:autobus){
+				%>
+				<option value="<%=a.getId() %>"><%=a.getModello() %> - <%=a.getAutista().getCognome()%></option>
+			<%
+			}%>
+			</select>
+		</div>
+		
+		
 		
 		
 		

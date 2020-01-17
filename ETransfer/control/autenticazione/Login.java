@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -84,8 +85,22 @@ public class Login extends HttpServlet {
 								logged=true;
 								
 								request.getSession().setAttribute("cliente",cliente);
-								System.out.println("utente loggato");
-								response.sendRedirect("view/home.jsp");
+								//RequestDispatcher dd= request.getRequestDispatcher("http://localhost:8080/Etransferr/view/home.jsp");
+								//dd.forward(request, response);
+								response.sendRedirect("home.jsp");
+								
+								String page = "";
+							    try {
+
+							    } catch (Exception e) {
+							      page = "error.jsp";
+							    } finally {
+							      page = "home.jsp";
+							    }
+
+							RequestDispatcher dd=request.getRequestDispatcher(page);
+							dd.forward(request, response);
+								
 							}
 					
 				}

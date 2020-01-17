@@ -1,6 +1,3 @@
-<%@page import="dao.CorsaDAO"%>
-<%@page import="entita.Corsa"%>
-<%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -37,46 +34,32 @@
   	</li>
   </ul> 
 </div>
-<%
-Collection<Corsa> corse;
-CorsaDAO corsadao= new CorsaDAO();
-corse=corsadao.doRetrieveAll();
 
-%>
-<form name="loginform" action="../AggiungiFermata" method="post"> 
+<form name="loginform" action="LogControl" method="post"> 
 
 	<fieldset>
 	
-		<h2 id=titolo> Aggiunta Fermata </h2>
+		<h2 id=titolo> Richiesta Tratta </h2>
 		
 		
 			
 		<div class="tableRow">
-			<label class="rcolor" for="nome">Nome Fermata:</label>
-			<input type="text" id="nome" name="nome" value="" placeholder="Inserire Nome.." required> 
+			<label class="rcolor" for="nome">Partenza:</label>
+			<input type="text" id="partenza" name="partenza" value="" placeholder="Inserire Partenza.." required> 
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="durata">Corsa:</label>
-			<select class="sel" style="width: 193px;
-    height: 39px;" required>
-    <option value="" selected> Partenza-Arrivo </option>
-				<% for(Corsa t:corse){
-					%>
-					<option value="<%=t.getId()%>"><%=t.getTratta().getPartenza()%>-<%=t.getTratta().getArrivo() %> </option>
-				<%} %>
-			</select>
+			<label class="rcolor" for="arrivo">Arrivo:</label>
+			<input type="text" id="arrivo" name="arrivo" value="" placeholder="Inserire Arrivo..." required >
 		</div>
 		
 		
-			
 		
 		
 		
 		
 		
-		
-		<input class="submit" type="submit" value="Aggiungi">
+		<input class="submit" type="submit" value="Richiedi">
 			<input class ="reset" type="reset"> <br>
 	
 	</fieldset>
