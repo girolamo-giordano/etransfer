@@ -14,6 +14,8 @@ public class Biglietto {
 	private int numerobigl;
 	private Corsa corsa;
 	private Cliente cliente;
+	private int quantita;
+	private String acquistodata;
 	
 	/**
 	 * 
@@ -26,11 +28,13 @@ public class Biglietto {
 	 * @param corsa
 	 * @param cliente
 	 */
-	public Biglietto(int numerobigl, Corsa corsa, Cliente cliente) {
+	public Biglietto(int numerobigl, Corsa corsa, Cliente cliente,int quantita, String acquistodata) {
 		super();
 		this.numerobigl = numerobigl;
 		this.corsa = corsa;
 		this.cliente = cliente;
+		this.quantita=quantita;
+		this.acquistodata=acquistodata;
 	}
 	/**
 	 * @return the numerobigl
@@ -67,6 +71,32 @@ public class Biglietto {
 	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+	
+	/**
+	 * @return the quantita
+	 */
+	public int getQuantita() {
+		return quantita;
+	}
+	/**
+	 * @param quantita the quantita to set
+	 */
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
+	}
+	/**
+	 * @return the acquistodata
+	 */
+	public String getAcquistodata() {
+		return acquistodata;
+	}
+	/**
+	 * @param acquistodata the acquistodata to set
+	 */
+	public void setAcquistodata(String acquistodata) {
+		this.acquistodata = acquistodata;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

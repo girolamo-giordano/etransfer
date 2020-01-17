@@ -80,6 +80,7 @@ public class Login extends HttpServlet {
 								cliente.setIndirizzo(ur1.getIndirizzo());
 								cliente.setNome(ur1.getNome());
 								cliente.setNumerotel(ur1.getNumerotel());
+								cliente.setId(ur1.getId());
 								logged=true;
 								
 								request.getSession().setAttribute("cliente",cliente);

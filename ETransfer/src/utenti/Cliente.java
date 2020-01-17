@@ -25,16 +25,7 @@ public class Cliente {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	/**
 	 * @param nome
 	 * @param cognome
@@ -157,6 +148,16 @@ public class Cliente {
 	public void setCitta(String citta) {
 		this.citta = citta;
 	}
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -164,7 +165,7 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [nome=" + nome + ", cognome=" + cognome + ", username=" + username + ", password=" + password
 				+ ", email=" + email + ", numerotel=" + numerotel + ", indirizzo=" + indirizzo + ", citta=" + citta
-				+ "]";
+				+ "id="+id+ "]";
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
