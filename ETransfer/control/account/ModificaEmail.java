@@ -16,14 +16,14 @@ import utenti.Cliente;
 /**
  * Servlet implementation class ChangeMail
  */
-@WebServlet("/ChangeMail")
-public class ChangeMail extends HttpServlet {
+@WebServlet("/ModificaEmail")
+public class ModificaEmail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static ClienteDAO model=new ClienteDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangeMail() {
+    public ModificaEmail() {
         super();
         // TODO Auto-generated constructor stub
     }

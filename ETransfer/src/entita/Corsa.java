@@ -18,6 +18,7 @@ public class Corsa {
 	private Autobus bus;
 	private Tratta tratta;
 	private ArrayList<Fermata> fermate;
+	private float costo;
 	private int id;
 	
 	
@@ -51,7 +52,7 @@ public class Corsa {
 	 * @param fermate
 	 */
 	public Corsa(String orapart, String datapart, int durata, int numerocor, Autobus bus, Tratta tratta,
-			ArrayList<Fermata> fermate) {
+			ArrayList<Fermata> fermate,float costo) {
 
 		this.orapart = orapart;
 		this.datapart = datapart;
@@ -60,7 +61,24 @@ public class Corsa {
 		this.bus = bus;
 		this.tratta = tratta;
 		this.fermate = fermate;
+		this.costo=costo;
 	}
+	
+	
+	/**
+	 * @return the costo
+	 */
+	public float getCosto() {
+		return costo;
+	}
+
+	/**
+	 * @param costo the costo to set
+	 */
+	public void setCosto(float costo) {
+		this.costo = costo;
+	}
+
 	/**
 	 * @return the orapart
 	 */

@@ -14,17 +14,16 @@ import dao.ClienteDAO;
 import utenti.Cliente;
 
 /**
- * Servlet implementation class ChangeInd
+ * Servlet implementation class ChangePsw
  */
-@WebServlet("/ChangeInd")
-public class ChangeInd extends HttpServlet {
+@WebServlet("/ModificaPassword")
+public class ModificaPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static ClienteDAO model=new ClienteDAO();
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangeInd() {
+    public ModificaPassword() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,10 +40,12 @@ public class ChangeInd extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		Cliente ur=new Cliente();
 		ur=(Cliente)request.getSession(false).getAttribute("cliente");
-		String indirizzo=request.getParameter("indirizzo");
-		if(indirizzo==null)
+		
+		String pass=request.getParameter("password");
+		if(pass==null)
 		{
 			response.sendError(406);
 			return;
@@ -56,7 +57,7 @@ public class ChangeInd extends HttpServlet {
 		}
 		else
 		{
-			ur.setIndirizzo(indirizzo);
+			ur.setPassword(pass);;
 			try {
 				model.doUpdate(ur);
 				response.sendRedirect("changeindirizzosucc.jsp");

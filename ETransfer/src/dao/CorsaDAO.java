@@ -57,6 +57,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
  				corsa.setOrapart(rs.getString("orapartenza"));
 				corsa.setDatapart(rs.getString("datapartenza"));
 				corsa.setDurata(rs.getInt("durata"));
+				corsa.setCosto(rs.getFloat("costo"));
 				Collection<Fermata>coll=fermatad.doRetrieveAll();
 				ArrayList<Fermata> fermate= new ArrayList<Fermata>();
 				for(Fermata f:coll)
@@ -126,6 +127,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 				man.setDatapart(rs.getString("datapartenza"));
 				man.setOrapart(rs.getString("orapartenza"));
 				man.setDurata(rs.getInt("durata"));
+				man.setCosto(rs.getFloat("costo"));
 				//Aggiungo il bean che ho appena creato alla Collezione
 				corse.add(man);
 			}	
@@ -151,7 +153,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		
 		//Stringa di inserimento parametrica dal database
 		//Non inserisco a mano code perchè è un int autoincrement
-		String selectSQL = "INSERT INTO corsa (id_tratta,id_autobus,orapartenza,datapartenza,durata) VALUES (?,?,?,?,?)";
+		String selectSQL = "INSERT INTO corsa (id_tratta,id_autobus,orapartenza,datapartenza,durata,costo) VALUES (?,?,?,?,?,?)";
 		
 		/*Stringa per provare a generare un'errore
 		 String selectSQL = "INSERT INTO product2 (name, description, price, quantity) VALUES (?, ?, ?, ?)";
@@ -168,6 +170,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 			preparedStatement.setString(3,corsa.getOrapart());
 			preparedStatement.setString(4,corsa.getDatapart());
 			preparedStatement.setInt(5,corsa.getDurata());
+			preparedStatement.setFloat(6, corsa.getCosto());
 			System.out.println("doSave: " + preparedStatement.toString());
 			
 			//Eseguo il preparedStatement inserendo i dati all'interno del database
@@ -194,7 +197,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String updateSQL="UPDATE corsa SET"+" id_tratta=?,id_autobus=?,orapartenza=?,datapartenza=?,durata=? "+" WHERE code = ?";
+		String updateSQL="UPDATE corsa SET"+" id_tratta=?,id_autobus=?,orapartenza=?,datapartenza=?,durata=?,costo=?"+" WHERE code = ?";
 		try {
 				connection=DriverManagerConnectionPool.getConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
@@ -204,7 +207,8 @@ public class CorsaDAO implements DaoModel<Corsa> {
 				preparedStatement.setString(3, corsa.getOrapart());
 				preparedStatement.setString(4, corsa.getDatapart());
 				preparedStatement.setInt(5,corsa.getDurata());
-				preparedStatement.setInt(6,corsa.getId());
+				preparedStatement.setFloat(6, corsa.getCosto());
+				preparedStatement.setInt(7,corsa.getId());
 				System.out.println("doUpdate: "+preparedStatement.toString());
 				preparedStatement.executeUpdate();
 				
