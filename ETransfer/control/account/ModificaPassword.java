@@ -60,7 +60,7 @@ public class ModificaPassword extends HttpServlet {
 			ur.setPassword(pass);;
 			try {
 				model.doUpdate(ur);
-				response.sendRedirect("changeindirizzosucc.jsp");
+				response.sendRedirect("changepasssucc.jsp");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -87,19 +87,8 @@ public class Login extends HttpServlet {
 								request.getSession().setAttribute("cliente",cliente);
 								//RequestDispatcher dd= request.getRequestDispatcher("http://localhost:8080/Etransferr/view/home.jsp");
 								//dd.forward(request, response);
-								response.sendRedirect("home.jsp");
-								
-								String page = "";
-							    try {
-
-							    } catch (Exception e) {
-							      page = "error.jsp";
-							    } finally {
-							      page = "home.jsp";
-							    }
-
-							RequestDispatcher dd=request.getRequestDispatcher(page);
-							dd.forward(request, response);
+								response.sendRedirect("view/home.jsp");
+							
 								
 							}
 					

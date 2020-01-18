@@ -40,21 +40,20 @@
 	}
 %>
 
-<div class="topnav">
-<div class="topnavleft" style="padding-left: 60px;
-    font-size: 20px;">
-  <a href="home.jsp">Home</a>
-  <a href="chisiamo.jsp">L'azienda</a>
-  <a href="areautente.jsp">Area Utente</a>
-  <a href="corsa.jsp">Le nostre corse</a>
-  </div>
-  
-  <div class="topnavright" style="padding-right: 60px;
-    font-size: 20px;">
-  <a class="selected" href="Login.jsp" style="float:right">Login</a>
-  <a href="registrazione.jsp" style="float:right">Registrazione</a>
-</div>
-</div>
+<div id="menu">
+	<ul>
+		<li class="selected"><a href="home.jsp">Home</a></li>
+		<li><a href="chisiamo.jsp">L'azienda</a> </li>
+  		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+		
+		
+		
+		<div id="lright" style="float:right">
+			<li><a href="login.jsp">Login</a></li>
+			<li><a href="registrazione.jsp">Registrazione</a></li>
+		</div>
+	</ul>
+	</div>
 
 <div id="form">
 <form name="loginform" action="../Login" method="post"> 
@@ -97,7 +96,7 @@
 		</form>
 		
 		<div style="padding-top:10px;">
-		 <a id="ricordapass" href="ricordapassword" style="margin:100px; color:#F8F8FA; "> Hai dimenticato la password?</a>
+		 <a id="ricordapass" href="ricordapassword" style="margin:65px; color:#F8F8FA; "> Hai dimenticato la password?</a>
 		 </div>
 		 
 		<div id="reg"> <h2 id="RegText"> Sei nuovo su ETransfer?</h2> 

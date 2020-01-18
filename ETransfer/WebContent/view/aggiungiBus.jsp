@@ -29,8 +29,20 @@ autistalist=autistadao.doRetrieveAll();
   <ul> 
  <li> <a href="home.jsp">Home</a> </li>
   <li> <a href="chisiamo.jsp">L'azienda</a> </li>
-  <li> <a href="areautente.jsp">Area Admin</a> </li>
-  <li> <a href="corsa.jsp">Le nostre corse</a> </li>
+  <li> <a href="areaPers.jsp">Area Admin</a> </li>
+  <li> <a href="eliminaFermata.jsp">Elimina Fermata</a> </li>
+  
+  <li class="dropdown"> 
+  	<a href="javascript:void(0)" class="dropbnt"> Visualizza </a> 
+  	<div class="dropdown-content">
+  	<a href="corsa.jsp">Le nostre corse</a>
+  	<a href="visualizzaAutisti.jsp"> I nostri Autisti </a>
+  	<a href="visualizzaAutobus.jsp"> I nostri Bus </a>
+  	
+  	</div>
+  	</li>
+  
+  
   <li class="dropdown"> 
   	<a href="javascript:void(0)" class="dropbnt"> Aggiungi </a> 
   	<div class="dropdown-content">
@@ -41,8 +53,26 @@ autistalist=autistadao.doRetrieveAll();
   	<a href="aggiungiTratta.jsp"> Aggiungi Tratta </a>
   	</div>
   	</li>
-  </ul> 
+  	
+  	<li class="dropdown"> 
+  	<a href="javascript:void(0)" class="dropbnt"> Visualizza Richieste </a> 
+  	<div class="dropdown-content">
+  	<a href="visualizzarichiestaCorsa.jsp"> Richiesta Corsa </a>
+  	<a href="visualizzarichiestaFermata.jsp"> Richiesta Fermata </a>
+  	<a href="visualizzarichiestaTratta.jsp"> Richiesta Tratta </a>
+  	
+  	</div>
+  	</li>
+  	
+  	<div class="topnavright" style="padding-right: 60px;
+    font-size: 20px;">
+  <a class="selected" href="logout.jsp" style="float:right">Logout</a>
+  
 </div>
+  </ul>
+  
+</div>
+  
 
 <form name="loginform" action="LogControl" method="post"> 
 

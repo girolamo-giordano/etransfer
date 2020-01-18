@@ -3,17 +3,17 @@
 
 .succText{
 	
-	color:#954b4b;
+	color: #F8F8FA;
 	text-align: center;
 	
 }
 
 form {
-    display: table;
-    padding-top: 10px;
-    border: thin #7e7e7e;
-    background-color: #efe5d0;
-    font-size: 20px;
+    /* display: table; */
+    padding-top: 30px;
+    border: antiquewhite #7e7e7e;
+    background-color: #333;
+    font-size: 21px;
     width: 1000px;
     height: 100px;
     position: relative;
@@ -22,5 +22,7 @@ form {
     margin-top: 100px;
     margin-left: -511px;
     margin-bottom: 100px;
-  
+    border-style: ridge;
+    /* text-align: center; */
+    text-transform: uppercase;
 }

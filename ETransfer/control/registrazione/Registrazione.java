@@ -84,7 +84,7 @@ public class Registrazione extends HttpServlet {
 		ur.setNumerotel(Integer.parseInt(numeroditelefono));
 		try {
 			clientedao.doSave(ur);
-			response.sendRedirect("regiSuccess.jsp");
+			response.sendRedirect("view/regiSuccess.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
