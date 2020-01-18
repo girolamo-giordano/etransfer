@@ -26,6 +26,8 @@
 	Autista a= (Autista)request.getSession().getAttribute("autista");
 	Cliente c= (Cliente)request.getSession().getAttribute("cliente");
 	Manager m= (Manager)request.getSession().getAttribute("manager");
+	BigliettoDAO bigliettodao= new BigliettoDAO();
+	Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
 	
 	if(c != null)
 	{
@@ -57,9 +59,7 @@
 
 
 </div>
-<%
 
-%>
 
 
 <form id="form">
@@ -114,10 +114,22 @@
 		
 	</fieldset>
 	</form>
-	<%}
+	<%
+	for(Biglietto b:biglietti)
+	{
+		if(c.getId()==b.getCliente().getId())
+		{
+
+		
+%>
+
+	Is tuoi biglietti acquistati: <%=b.toString() %><br>
+	<%	}
+	}
+}
 	
 	
-	else if(a != null){%>
+	if(a != null){%>
 	<div id="menu">
 	<ul>
 		<li class="selected"><a href="home.jsp">Home</a></li>
@@ -208,23 +220,7 @@
 
 
 </div>
-<%
-BigliettoDAO bigliettodao= new BigliettoDAO();
-Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
-if(c!= null)
-{
-	for(Biglietto b:biglietti)
-	{
-		if(c.getId()==b.getCliente().getId())
-		{
 
-
-%>
-
-I tuoi biglietti acquistati: <%=b.toString() %><br>
-<%		}
-	}
-}%>
 
 <form id="form">
 <h2><center> Ciao <%=m.getNome() %> <%=m.getCognome() %></center></h2>
@@ -246,7 +242,8 @@ I tuoi biglietti acquistati: <%=b.toString() %><br>
 		
 	</fieldset>
 	</form>
-<%} %>
+	<%} %>
+
 
 </body>
 </html>
