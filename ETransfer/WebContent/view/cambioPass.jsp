@@ -41,14 +41,14 @@
 <%Cliente c=(Cliente)request.getSession().getAttribute("cliente"); %>
  <center>
 <div id="firstP">
-<h2> Cambio Indirizzo</h2>
+<h2> Cambia Password</h2>
 
-<<form name="passform" action="ChangePsw" method="post">
+<<form name="passform" action="../ModificaPassword" method="post">
 
 <div>
 	
 		<div class="tableRow">
-			<label class="rcolor" for="username">Nuovo indirizzo:</label>
+			<label class="rcolor" for="username">Nuova Password:</label>
 			<input type="text" id="username" name="indir" value="" placeholder="Inserire nuovo indirizzo..." required> 
 		</div>
 		

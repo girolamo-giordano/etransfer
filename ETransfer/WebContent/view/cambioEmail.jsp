@@ -43,7 +43,7 @@
 <div id="firstP">
 <h2> Cambio Email</h2>
 
-<<form name="mailform" action="ChangeMail" method="post">
+<<form name="mailform" action="../ModificaEmail" method="post">
 
 <div>
 	

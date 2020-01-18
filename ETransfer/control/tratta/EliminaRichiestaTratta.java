@@ -1,4 +1,4 @@
-package account;
+package tratta;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ClienteDAO;
-
-import utenti.Cliente;
+import dao.RichiestatrattaDAO;
+import entita.Richiestatratta;
 
 /**
- * Servlet implementation class ChangePsw
+ * Servlet implementation class EliminaRichiestaTratta
  */
-@WebServlet("/ModificaPassword")
-public class ModificaPassword extends HttpServlet {
+@WebServlet("/EliminaRichiestaTratta")
+public class EliminaRichiestaTratta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static ClienteDAO model=new ClienteDAO();
+	static RichiestatrattaDAO richiestatrattadao= new RichiestatrattaDAO();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificaPassword() {
+    public EliminaRichiestaTratta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,8 +32,17 @@ public class ModificaPassword extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int idrich=Integer.parseInt(request.getParameter("idrichtratta"));
+		Richiestatratta rich= new Richiestatratta();
+		try {
+			rich=richiestatrattadao.doRetrieveByKey(idrich);
+			richiestatrattadao.doDelete(rich);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.sendRedirect("view/home.jsp");
+		
 	}
 
 	/**
@@ -41,31 +50,7 @@ public class ModificaPassword extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Cliente ur=new Cliente();
-		ur=(Cliente)request.getSession(false).getAttribute("cliente");
-		
-		String pass=request.getParameter("indir");
-		if(pass==null)
-		{
-			response.sendError(406);
-			return;
-		}
-		if(ur==null)
-		{
-			response.sendError(407);
-			return;
-		}
-		else
-		{
-			ur.setPassword(pass);;
-			try {
-				model.doUpdate(ur);
-				response.sendRedirect("changeindirizzosucc.jsp");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			}
+		doGet(request, response);
 	}
 
 }

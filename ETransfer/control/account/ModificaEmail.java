@@ -44,7 +44,7 @@ public class ModificaEmail extends HttpServlet {
 		ur=(Cliente)request.getSession(false).getAttribute("cliente");
 		
 		
-		String email=request.getParameter("email");
+		String email=request.getParameter("indir");
 		if(email==null)
 		{
 			response.sendError(406);

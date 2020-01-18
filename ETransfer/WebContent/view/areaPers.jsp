@@ -1,3 +1,6 @@
+<%@page import="java.util.Collection"%>
+<%@page import="entita.Biglietto"%>
+<%@page import="dao.BigliettoDAO"%>
 <%@page import="utenti.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -36,7 +39,10 @@
 
 
 </div>
-<%Cliente c=(Cliente)request.getSession().getAttribute("cliente"); %>
+<%Cliente c=(Cliente)request.getSession().getAttribute("cliente");
+BigliettoDAO bigliettodao= new BigliettoDAO();
+Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
+%>
 
 
 
@@ -85,7 +91,7 @@
 		<div class="tableRow">
 			<label class="rcolor" for="password">Password</label>
 			<input type="password" id="Password" name="Password" value="*****" readonly>
-			<a href="cambioIndirizzo.jsp">Modifica Password </a>
+			<a href="cambioPass.jsp">Modifica Password </a>
 		</div>
 		
 		
@@ -93,6 +99,21 @@
 	</form>
 
 </div>
+<%
+if(c!= null)
+{
+	for(Biglietto b:biglietti)
+	{
+		if(c.getId()==b.getCliente().getId())
+		{
+
+
+%>
+
+I tuoi biglietti acquistati: <%=b.toString() %><br>
+<%		}
+	}
+}%>
 
 </body>
 </html>

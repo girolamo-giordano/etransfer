@@ -1,3 +1,4 @@
+<%@page import="utenti.Cliente"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entita.Corsa"%>
 <%@page import="dao.FermataDAO"%>
@@ -53,7 +54,7 @@
 
 <%
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
-	
+
 %>
 
 
@@ -124,52 +125,14 @@
 
 </table>
 
+<form method="post" action="CheckoutAcquisto">
+	<input name="numbiglietti" type="number" min="1" max="10" required">
+	<input type="hidden" value="<%=corsa.getId()%>" name="corsaid">
+	<input type="submit" value="Acquista">
+</form>
 
-<div id="pulsanti" style=" margin-left:225px;">
-	<input style="padding:10px; margin-top:20px; width: 240px;" type="button" value="PROCEDI AL PAGAMENTO" onclick="javascript:mostra('<%=corsa.getId() %>')" />   
+
 </div>
-
-
-<div id="content<%=corsa.getId()%>" style="display:none; padding-left: 150px">
-	
-	
-		<form name="loginform" id="form"> 
-		<center><h2 style="color:#F8F8FA"> DATI CARTA DI CREDITO</h2> </center>
-
-			<fieldset id="primoF" >
-						
-					<div class="tableRow">
-						<label class="rcolor" for="username">Nome e Cognome:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire Nominativo.." required> 
-					</div>
-					
-					<div class="tableRow">
-						<label class="rcolor" for="username">Numero Carta:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire Numero Carta.."  required> 
-					</div>
-					
-					<div class="tableRow">
-						<label class="rcolor" for="username">Scadenza:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire Scadenza.."  required> 
-					</div>
-					
-					<div class="tableRow">
-						<label class="rcolor" for="username">CVV:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire CVV.." required> 
-					</div>
-					
-					
-			
-			
-			</fieldset>
-			<center><input style="padding:10px; margin-top:20px;" type="button" value="Nascondi" onclick="javascript:nascondi('<%=corsa.getId() %>')" />
-					<input style="padding:10px; margin-top:20px;" type="button" value="Completa l'acquisto" onclick="location.href='buysuccess.jsp';" />  
-					 </center>
-		</form>
-	
-	
-</div>
-
 </div>
 </div>
 
