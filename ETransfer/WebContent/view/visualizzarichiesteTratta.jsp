@@ -54,7 +54,9 @@
 		<th>
 		Arrivo
 		</th>
-		
+		<th>
+		Azioni
+		</th>
 		
 	</tr>
 <%
@@ -71,8 +73,11 @@
 
 	
 	<tr>
-		<td><%=t.getPartenza()%></a></td>
-		<td><%=t.getArrivo()%></a></td>
+		<td><%=t.getPartenza()%></td>
+		<td><%=t.getArrivo()%></td>
+		<td><a href="../ConfermaRichiestaTratta?idrichtratta=<%=t.getId() %>">Aggiungi richiesta a tratte</a>
+		||   <a href="../EliminaRichiestaTratta?idrichtratta=<%=t.getId() %>"> Elimina richiesta</a>
+		</td>
 		
 		
 	</tr>

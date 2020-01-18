@@ -44,7 +44,7 @@ public class ModificaPassword extends HttpServlet {
 		Cliente ur=new Cliente();
 		ur=(Cliente)request.getSession(false).getAttribute("cliente");
 		
-		String pass=request.getParameter("password");
+		String pass=request.getParameter("indir");
 		if(pass==null)
 		{
 			response.sendError(406);

@@ -1,5 +1,10 @@
+
 <%@page import="utenti.Manager"%>
 <%@page import="utenti.Autista"%>
+
+<%@page import="java.util.Collection"%>
+<%@page import="entita.Biglietto"%>
+<%@page import="dao.BigliettoDAO"%>
 <%@page import="utenti.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -53,6 +58,11 @@
 
 
 </div>
+<%
+BigliettoDAO bigliettodao= new BigliettoDAO();
+Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
+%>
+
 
 <form id="form">
 <h2><center> Ciao <%=c.getNome() %> <%=c.getCognome() %></center></h2>
@@ -100,6 +110,7 @@
 			<label class="rcolor" for="password">Password</label>
 			<input type="password" id="Password" name="Password" value="*****" readonly>
 			<a href="cambioPass.jsp">Modifica Password </a>
+
 		</div>
 		
 		
@@ -143,6 +154,7 @@
 			<label class="rcolor" for="password">Password</label>
 			<input type="password" id="Password" name="Password" value="*****" readonly>
 			<a href="cambioPass.jsp">Modifica Password </a>
+
 		</div>
 		
 		
@@ -198,6 +210,21 @@
 
 
 </div>
+<%
+if(c!= null)
+{
+	for(Biglietto b:biglietti)
+	{
+		if(c.getId()==b.getCliente().getId())
+		{
+
+
+%>
+
+I tuoi biglietti acquistati: <%=b.toString() %><br>
+<%		}
+	}
+}%>
 
 <form id="form">
 <h2><center> Ciao <%=m.getNome() %> <%=m.getCognome() %></center></h2>

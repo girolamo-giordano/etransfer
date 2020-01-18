@@ -1,4 +1,4 @@
-package account;
+package tratta;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ClienteDAO;
-
-import utenti.Cliente;
+import dao.RichiestatrattaDAO;
+import entita.Richiestatratta;
 
 /**
- * Servlet implementation class ChangeMail
+ * Servlet implementation class EliminaRichiestaTratta
  */
-@WebServlet("/ModificaEmail")
-public class ModificaEmail extends HttpServlet {
+@WebServlet("/EliminaRichiestaTratta")
+public class EliminaRichiestaTratta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static ClienteDAO model=new ClienteDAO();
+	static RichiestatrattaDAO richiestatrattadao= new RichiestatrattaDAO();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificaEmail() {
+    public EliminaRichiestaTratta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,40 +32,25 @@ public class ModificaEmail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int idrich=Integer.parseInt(request.getParameter("idrichtratta"));
+		Richiestatratta rich= new Richiestatratta();
+		try {
+			rich=richiestatrattadao.doRetrieveByKey(idrich);
+			richiestatrattadao.doDelete(rich);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.sendRedirect("view/home.jsp");
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cliente ur=new Cliente();
-		ur=(Cliente)request.getSession(false).getAttribute("cliente");
-		
-		
-		String email=request.getParameter("indir");
-		if(email==null)
-		{
-			response.sendError(406);
-			return;
-		}
-		if(ur==null)
-		{
-			response.sendError(407);
-			return;
-		}
-		else
-		{
-			ur.setEmail(email);
-			try {
-				model.doUpdate(ur);
-				response.sendRedirect("changemailsucc.jsp");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

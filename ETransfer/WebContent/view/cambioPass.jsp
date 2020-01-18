@@ -127,15 +127,18 @@
 
  <center>
 <div id="firstP">
-<h2> Cambio Password</h2>
 
-<form name="passform" action="../ModificaPassword" method="post">
+<h2> Cambia Password</h2>
+
+<<form name="passform" action="../ModificaPassword" method="post">
+
 
 <div>
 	
 		<div class="tableRow">
-			<label class="rcolor" for="username">Nuova password:</label>
-			<input type="text" id="username" name="indir" value="" placeholder="Inserire nuova password..." required> 
+
+			<label class="rcolor" for="username">Nuova Password:</label>
+			<input type="text" id="username" name="indir" value="" placeholder="Inserire nuovo indirizzo..." required> 
 		</div>
 		
 		</fieldset>

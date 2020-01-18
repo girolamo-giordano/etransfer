@@ -1,4 +1,4 @@
-package account;
+package tratta;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ClienteDAO;
-
-import utenti.Cliente;
+import dao.RichiestatrattaDAO;
+import entita.Richiestatratta;
 
 /**
- * Servlet implementation class ChangeMail
+ * Servlet implementation class AggiungiRichiestaTratta
  */
-@WebServlet("/ModificaEmail")
-public class ModificaEmail extends HttpServlet {
+@WebServlet("/AggiungiRichiestaTratta")
+public class AggiungiRichiestaTratta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static ClienteDAO model=new ClienteDAO();
+	RichiestatrattaDAO richiestatrattadao= new RichiestatrattaDAO();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificaEmail() {
+    public AggiungiRichiestaTratta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,32 +40,18 @@ public class ModificaEmail extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cliente ur=new Cliente();
-		ur=(Cliente)request.getSession(false).getAttribute("cliente");
-		
-		
-		String email=request.getParameter("indir");
-		if(email==null)
-		{
-			response.sendError(406);
-			return;
+		String partenza= request.getParameter("partenza");
+		String arrivo= request.getParameter("arrivo");
+		Richiestatratta richiestat=new Richiestatratta();
+		richiestat.setPartenza(partenza);
+		richiestat.setArrivo(arrivo);
+		try {
+			richiestatrattadao.doSave(richiestat);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		if(ur==null)
-		{
-			response.sendError(407);
-			return;
-		}
-		else
-		{
-			ur.setEmail(email);
-			try {
-				model.doUpdate(ur);
-				response.sendRedirect("changemailsucc.jsp");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			}
+		response.sendRedirect("view/home.jsp");
 	}
 
 }
