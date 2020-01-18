@@ -1,4 +1,3 @@
-
 <%@page import="utenti.Manager"%>
 <%@page import="utenti.Autista"%>
 
@@ -59,8 +58,7 @@
 
 </div>
 <%
-BigliettoDAO bigliettodao= new BigliettoDAO();
-Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
+
 %>
 
 
@@ -211,6 +209,8 @@ Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
 
 </div>
 <%
+BigliettoDAO bigliettodao= new BigliettoDAO();
+Collection<Biglietto> biglietti= bigliettodao.doRetrieveAll();
 if(c!= null)
 {
 	for(Biglietto b:biglietti)
