@@ -64,11 +64,7 @@
 	</ul>
 	</div>
   	
-  	<div class="topnavright" style="padding-right: 60px;
-    font-size: 20px;">
-  <a class="selected" href="logout.jsp" style="float:right">Logout</a>
-  
-</div>
+  	
 <h2><center>Visualizza Richieste fermate</center></h2>
 <div id="firstP">
 

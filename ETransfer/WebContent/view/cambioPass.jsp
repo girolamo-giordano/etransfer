@@ -138,7 +138,7 @@
 		<div class="tableRow">
 
 			<label class="rcolor" for="username">Nuova Password:</label>
-			<input type="text" id="username" name="indir" value="" placeholder="Inserire nuova password..." required> 
+			<input type="password" id="username" name="indir" value="" placeholder="Inserire nuova password..." required> 
 		</div>
 		
 		</fieldset>
