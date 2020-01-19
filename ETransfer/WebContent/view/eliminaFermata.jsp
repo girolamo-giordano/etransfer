@@ -67,7 +67,12 @@
   
 </div>
 
-<h2><center>Visualizza Richieste fermate</center></h2>
+<div style="margin-top:80px;">
+
+
+</div>
+
+<h2><center>Elimina fermata</center></h2>
 <div id="firstP">
 
 <table>
@@ -104,7 +109,7 @@
 		<td><%=t.getNomefermata()%></a></td>
 		<td><%=t.getCorsa().getTratta().getPartenza()%></a></td>
 		<td><%=t.getCorsa().getTratta().getArrivo()%></td>
-		<td><a href="../EliminaRichiestaFermata?idrichfe=<%=t.getId()%>">Rimuovi Fermata</a>
+		<td><a href="../EliminaFermata?idrichfe=<%=t.getId()%>">Rimuovi Fermata</a>
 		</td>
 		
 	</tr>

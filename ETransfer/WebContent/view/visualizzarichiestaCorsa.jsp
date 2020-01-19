@@ -67,6 +67,11 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
 		</div>
 	</ul>
 	</div>
+	
+	<div style="margin-top:80px;">
+
+
+</div>
   	
   	
 <h2><center>Visualizza Richieste corse</center></h2>

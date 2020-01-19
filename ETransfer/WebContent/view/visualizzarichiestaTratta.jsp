@@ -67,6 +67,10 @@
 	</ul>
 	</div>
   	
+  	<div style="margin-top:80px;">
+
+
+</div>
   	
 <h2><center>Visualizza Richieste Tratte</center></h2>
 <div id="firstP">
