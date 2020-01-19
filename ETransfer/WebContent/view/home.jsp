@@ -53,7 +53,7 @@
 
       <div class="busimg" style="
     position: relative;
-    top: -80px;">
+    top: -20px;">
        <h2 style="
     left: 660px;
     position: relative;
@@ -140,7 +140,7 @@
 
       <div class="busimg" style="
     position: relative;
-    top: -80px;">
+    top: -20px;">
        <h2 style="
     left: 660px;
     position: relative;
@@ -268,7 +268,7 @@
 
       <div class="busimg" style="
     position: relative;
-    top: -80px;">
+    top: -20px;">
        <h2 style="
     left: 660px;
     position: relative;
@@ -363,7 +363,7 @@
 
      <div class="busimg" style="
     position: relative;
-    top: -80px;">
+    top: -20px;">
        <h2 style="
     left: 660px;
     position: relative;
