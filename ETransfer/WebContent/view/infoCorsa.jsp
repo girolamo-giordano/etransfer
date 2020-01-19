@@ -1,3 +1,4 @@
+<%@page import="dao.CorsaDAO"%>
 <%@page import="utenti.Cliente"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entita.Corsa"%>
@@ -53,7 +54,10 @@
 </div>
 
 <%
+	CorsaDAO corsadao= new CorsaDAO();
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
+	Corsa corsa2= corsadao.doRetrieveByKey(corsa.getId());
+	System.out.println("info "+corsa2);
 
 %>
 
@@ -82,7 +86,7 @@
 	
 	<%
 	ArrayList<Fermata> fermate;
-	fermate=corsa.getFermate();
+	fermate=corsa2.getFermate();
 	
 	for(Fermata t:fermate)
 	

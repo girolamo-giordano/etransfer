@@ -88,7 +88,7 @@ corse=corsadao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Corsa:</label>
-			<select class="sel" style="width: 193px;
+			<select name="corsa" class="sel" style="width: 193px;
     height: 39px;" required>
     <option value="" selected> Partenza-Arrivo orario </option>
 				<% for(Corsa t:corse){
