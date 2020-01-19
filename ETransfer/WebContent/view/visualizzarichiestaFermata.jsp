@@ -21,25 +21,53 @@
     margin-left: 87px;" src="../foto/logo.jpeg">
 </div>
 
-<div class="topnav">
-<div class="topnavleft" style="padding-left: 60px;
+<div id="menu">
+	<ul>
+		<li class="selected"><a href="home.jsp">Home</a></li>
+		<li> <a href="chisiamo.jsp">L'azienda</a></li>
+		<li> <a href="areaPers.jsp">Area Admin</a> </li>
+		<li> <a href="eliminaFermata.jsp">Elimina Fermata</a> </li>
+		
+		<li class="dropdown"><a href="#">Visualizza</a>
+		
+ 			 <div class="dropdown-content">
+   				 <a href="corsa.jsp"> Le nostre Corse </a>
+    			<a href="visualizzaAutisti.jsp"> I nostri autisti </a>
+  				<a href="visualizzaAutobus.jsp">I nostri bus </a>
+    		</div>
+		</li>
+		
+		<li class="dropdown1"><a href="#">Aggiungi</a>
+		
+ 			 <div class="dropdown1-content">
+   				<a href="aggiungiCorsa.jsp"> Aggiungi Corsa </a>
+  	<a href="aggiungiBus.jsp"> Aggiungi Autobus </a>
+  	<a href="aggiungiAutista.jsp"> Aggiungi Autista </a>
+  	<a href="aggiungiFermata.jsp"> Aggiungi Fermata </a>
+  	<a href="aggiungiTratta.jsp"> Aggiungi Tratta </a>
+    		</div>
+		</li>
+		
+		<li class="dropdown2"><a href="#">Visualizza Richieste</a>
+		
+ 			 <div class="dropdown2-content">
+   				 <a href="visualizzarichiestaCorsa.jsp"> Richiesta Corsa </a>
+  	<a href="visualizzarichiestaFermata.jsp"> Richiesta Fermata </a>
+  	<a href="visualizzarichiestaTratta.jsp"> Richiesta Tratta </a>
+  	
+    		</div>
+		</li>
+		
+		<div id="lright" style="float:right">
+			<li><a href="logout.jsp">Logout</a></li>
+		</div>
+	</ul>
+	</div>
+  	
+  	<div class="topnavright" style="padding-right: 60px;
     font-size: 20px;">
-  <a href="home.jsp">Home</a>
-  <a href="chisiamo.jsp">L'azienda</a>
-  <a href="areautente.jsp">Area Utente</a>
-  <a href="corsa.jsp">Le nostre corse</a>
-  </div>
+  <a class="selected" href="logout.jsp" style="float:right">Logout</a>
   
-  <div class="topnavright" style="padding-right: 60px;
-    font-size: 20px;">
-  <a class="selected" href="Login.jsp" style="float:right">Login</a>
-  <a href="registrazione.jsp" style="float:right">Registrazione</a>
-</div>
-</div>
-
-<div style="margin-top:80px;">
-
-
 </div>
 <h2><center>Visualizza Richieste fermate</center></h2>
 <div id="firstP">

@@ -98,7 +98,7 @@
 	{
 	
 %>
-	<tr><td>    -<%=t.getNomefermata() %></td></tr>
+	<tr><td style="padding-left:80px;">    -<%=t.getNomefermata() %></td></tr>
 <%} %>
 	<tr>
 		<td class="arrpar">&#183<%=corsa.getTratta().getArrivo() %></td>
@@ -200,7 +200,7 @@
 	{
 	
 %>
-	<tr><td>    -<%=t.getNomefermata() %></td></tr>
+	<tr><td style="padding-left:80px;">    -<%=t.getNomefermata() %></td></tr>
 <%} %>
 	<tr>
 		<td class="arrpar">&#183<%=corsa.getTratta().getArrivo() %></td>
@@ -326,7 +326,7 @@
 	{
 	
 %>
-	<tr><td>    -<%=t.getNomefermata() %></td></tr>
+	<tr><td style="padding-left:80px;">    -<%=t.getNomefermata() %></td></tr>
 <%} %>
 	<tr>
 		<td class="arrpar">&#183<%=corsa.getTratta().getArrivo() %></td>
@@ -438,7 +438,7 @@
 	{
 	
 %>
-	<tr><td>    -<%=t.getNomefermata() %></td></tr>
+	<tr><td style="padding-left:80px;">    -<%=t.getNomefermata() %></td></tr>
 <%} %>
 	<tr>
 		<td class="arrpar">&#183<%=corsa.getTratta().getArrivo() %></td>
