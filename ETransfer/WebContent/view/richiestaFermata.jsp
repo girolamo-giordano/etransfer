@@ -46,7 +46,7 @@ CorsaDAO corsadao= new CorsaDAO();
 corse=corsadao.doRetrieveAll();
 
 %>
-<form name="loginform" action="../RichiestaFermata" method="post"> 
+<form name="loginform" action="../AggiungiRichiestaFermata" method="post"> 
 
 	<fieldset>
 	
@@ -61,7 +61,7 @@ corse=corsadao.doRetrieveAll();
 		
 			<div class="tableRow">
 			<label class="rcolor" for="durata">Corsa:</label>
-			<select class="sel" style="width: 193px;
+			<select name="idcor" class="sel" style="width: 193px;
     height: 39px;" required>
     <option value="" selected> Partenza-Arrivo ora </option>
 				<% for(Corsa t:corse){

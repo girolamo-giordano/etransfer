@@ -53,7 +53,7 @@ autobus=busdao.doRetrieveAll();
 
 %>
 
-<form name="loginform" action="../AggiungiCorsa" method="post"> 
+<form name="loginform" action="../AggiungiRichiestaCorsa" method="post"> 
 
 	<fieldset>
 	
@@ -81,7 +81,7 @@ autobus=busdao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Tratta:</label>
-			<select class="sel" required style="width: 193px;
+			<select name="idtratta" class="sel" required style="width: 193px;
     height: 39px;">
 				<option value="" selected> Partenza-Arrivo </option>
 				<% for(Tratta t:trattalist){

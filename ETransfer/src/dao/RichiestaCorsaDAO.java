@@ -18,6 +18,8 @@ import utils.DriverManagerConnectionPool;
  *
  */
 public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
+	TrattaDAO trattad= new TrattaDAO();
+	AutobusDAO autobusd= new AutobusDAO();
 
 	@Override
 	public Richiestacorsa doRetrieveByKey(int code) throws SQLException {
@@ -40,7 +42,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 				richiestacorsa.setId(rs.getInt("code"));
 				richiestacorsa.setOrapart(rs.getString("orapartenza"));
 				richiestacorsa.setDatapart(rs.getString("datapartenza"));
-				richiestacorsa.setDurata(rs.getInt("durata"));
+				richiestacorsa.setTratta(trattad.doRetrieveByKey(rs.getInt("id_tratta")));
 			}	
 		} finally {
 			try {
@@ -78,7 +80,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 				man.setId(rs.getInt("code"));
 				man.setDatapart(rs.getString("datapartenza"));
 				man.setOrapart(rs.getString("orapartenza"));
-				man.setDurata(rs.getInt("durata"));
+				man.setTratta(trattad.doRetrieveByKey(rs.getInt("id_tratta")));
 				//Aggiungo il bean che ho appena creato alla Collezione
 				richiestecorse.add(man);
 			}	
@@ -104,7 +106,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		
 		//Stringa di inserimento parametrica dal database
 		//Non inserisco a mano code perchè è un int autoincrement
-		String selectSQL = "INSERT INTO richiestacorsa (orapartenza,datapartenza,durata) VALUES (?,?,?)";
+		String selectSQL = "INSERT INTO richiestacorsa (orapartenza,datapartenza,id_tratta) VALUES (?,?,?)";
 		
 		/*Stringa per provare a generare un'errore
 		 String selectSQL = "INSERT INTO product2 (name, description, price, quantity) VALUES (?, ?, ?, ?)";
@@ -118,7 +120,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1,richiestacorsa.getOrapart());
 			preparedStatement.setString(2,richiestacorsa.getDatapart());
-			preparedStatement.setInt(3, richiestacorsa.getDurata());
+			preparedStatement.setInt(3, richiestacorsa.getTratta().getId());
 			System.out.println("doSave: " + preparedStatement.toString());
 			
 			//Eseguo il preparedStatement inserendo i dati all'interno del database
@@ -145,14 +147,14 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String updateSQL="UPDATE richiestacorsa SET"+" orapartenza=?,datapartenza=?,durata=? "+" WHERE code = ?";
+		String updateSQL="UPDATE richiestacorsa SET"+" orapartenza=?,datapartenza=?,id_tratta=?"+" WHERE code = ?";
 		try {
 				connection=DriverManagerConnectionPool.getConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,richiestacorsa.getOrapart());
 				preparedStatement.setString(2,richiestacorsa.getDatapart());
-				preparedStatement.setInt(3, richiestacorsa.getDurata());
+				preparedStatement.setInt(3,richiestacorsa.getTratta().getId());
 				preparedStatement.setInt(4, richiestacorsa.getId());
 				System.out.println("doUpdate: "+preparedStatement.toString());
 				preparedStatement.executeUpdate();
