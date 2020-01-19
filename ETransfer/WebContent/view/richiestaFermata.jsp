@@ -9,7 +9,7 @@
 <meta charset="ISO-8859-1">
 <title>Aggiunta Autista</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="aggiungiAutista.css" type="text/css">
+<LINK rel= "stylesheet" href="login.css" type="text/css">
 </head>
 <body>
 <div id="logo"> 
@@ -19,24 +19,27 @@
 
 
 
-<div class="topnav">
-  <ul> 
- <li> <a href="home.jsp">Home</a> </li>
-  <li> <a href="chisiamo.jsp">L'azienda</a> </li>
-  <li> <a href="areautente.jsp">Area Admin</a> </li>
-  <li> <a href="corsa.jsp">Le nostre corse</a> </li>
-  <li class="dropdown"> 
-  	<a href="javascript:void(0)" class="dropbnt"> Aggiungi </a> 
-  	<div class="dropdown-content">
-  	<a href="aggiungiCorsa.jsp"> Aggiungi Corsa </a>
-  	<a href="aggiungiBus.jsp"> Aggiungi Autobus </a>
-  	<a href="aggiungiAutista.jsp"> Aggiungi Autista </a>
-  	<a href="aggiungiFermata.jsp"> Aggiungi Fermata </a>
-  	<a href="aggiungiTratta.jsp"> Aggiungi Tratta </a>
-  	</div>
-  	</li>
-  </ul> 
-</div>
+<div id="menu">
+	<ul>
+		<li class="selected"><a href="home.jsp">Home</a></li>
+		<li> <a href="chisiamo.jsp">L'azienda</a></li>
+		<li> <a href="areaPers.jsp">Area Utente</a> </li>
+		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+		
+		<li class="dropdown4"><a href="#">Personalizza Viaggio</a>
+		
+ 			 <div class="dropdown4-content">
+   				 <a href="richiestaCorsa.jsp"> Richiesta Corsa </a>
+    				<a href="richiestaFermata.jsp"> Richiesta Fermata </a>
+  	<a href="richiestaTratta.jsp"> Richiesta Tratta </a>
+    		</div>
+		</li>
+		
+		<div id="lright" style="float:right">
+			<li><a href="logout.jsp">Logout</a></li>
+		</div>
+	</ul>
+	</div>
 <%
 Collection<Corsa> corse;
 CorsaDAO corsadao= new CorsaDAO();

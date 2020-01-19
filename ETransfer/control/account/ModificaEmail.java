@@ -60,7 +60,7 @@ public class ModificaEmail extends HttpServlet {
 			ur.setEmail(email);
 			try {
 				model.doUpdate(ur);
-				response.sendRedirect("changemailsucc.jsp");
+				response.sendRedirect("view/change.jsp");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

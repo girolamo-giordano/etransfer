@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Acquisto Riuscito</title>
-<title>Registrazione avvenuta con successo</title>
+<title>Cambio Password avvenuto con successo</title>
 <link rel="icon" href="foto/favicon.ico">
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="success.css" type="text/css">
@@ -19,10 +18,10 @@
 </div>
 
 <form>
-<div class="succText"> Acquisto avvenuta con successo, verrai reindirizzato alla Homepage</div>
+<div class="succText"> Cambio avvenuto con successo, verrai reindirizzato alla tua Pagina Personale</div>
 <script>
   setTimeout(function() {
-      document.location = "home.jsp";
+      document.location = "areaPers.jsp";
   }, 2000);
 </script>
 </form>
