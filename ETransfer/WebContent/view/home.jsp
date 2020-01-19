@@ -125,6 +125,7 @@
 		<li> <a href="chisiamo.jsp">L'azienda</a></li>
 		<li> <a href="areaPers.jsp">Area Utente</a> </li>
 		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+		<li> <a href="visualizzaCorsaAutista.jsp">Visualizza Corse da effetturare</a> </li>
 		
 		
 		<div id="lright" style="float:right">

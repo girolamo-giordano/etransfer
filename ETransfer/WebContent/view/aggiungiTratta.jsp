@@ -49,6 +49,7 @@
    				 <a href="visualizzarichiestaCorsa.jsp"> Richiesta Corsa </a>
   	<a href="visualizzarichiestaFermata.jsp"> Richiesta Fermata </a>
   	<a href="visualizzarichiestaTratta.jsp"> Richiesta Tratta </a>
+  	<a href="visualizzaBiglietti.jsp">Biglietti venduti </a>
   	
     		</div>
 		</li>
