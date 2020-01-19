@@ -1,3 +1,5 @@
+<%@page import="entita.Autobus"%>
+<%@page import="dao.AutobusDAO"%>
 <%@page import="dao.RichiestaCorsaDAO"%>
 <%@page import="entita.Richiestacorsa"%>
 <%@page import="dao.CorsaDAO"%>
@@ -14,6 +16,9 @@
 <LINK rel= "stylesheet" href="visualizzaCorse.css" type="text/css">
 </head>
 <body>
+<%AutobusDAO autobusdao= new AutobusDAO();
+Collection<Autobus> autobus= autobusdao.doRetrieveAll();
+%>
 <div id="logo"> 
 <img style="height: 290px;
     margin-left: 87px;" src="../foto/logo.jpeg">
@@ -56,6 +61,18 @@
 		<th>
 		Ora Partenza
 		</th>
+		<th>
+		Autobus
+		</th>
+		<th>
+		Durata
+		</th>
+		<th>
+		Costo
+		</th>
+		<th>
+		Azioni
+		</th>
 		
 		
 	</tr>
@@ -71,18 +88,41 @@
 %>
 
 
-	
 	<tr>
 		<td><%=t.getTratta().getPartenza()%></td>
 		<td><%=t.getTratta().getArrivo()%></td>
 		<td><%=t.getDatapart()%></td>
 		<td><%=t.getOrapart()%></td>
+		<td><select name="idbus" id="idbus">
+		<option value="" selected> Seleziona autobus </option>
+				<% for(Autobus a:autobus){
+					%>
+					<option value="<%=a.getId()%>"><%=a.getModello()%> - <%=a.getAutista().getCognome() %> </option>
+				<%} %>
+		</select></td>
+		<td><input type="text" name="durata" id="durata"></td>
+		<td><input type="text" name="costo" id="costo"></td>
+		<td><button onclick="see('<%=t.getId()%>')"> Aggiungi corsa</button>
+		<a href="../EliminaRichiestaCorsa?idrichco=<%=t.getId()%>">Elimina corsa</a>
+		</td>
 		
 	</tr>
 
 	
 <%} %>
 </table>
+<script type="text/javascript">
+function see(k)
+{
+	var r= document.getElementById("idbus").value;
+	var j= document.getElementById("durata").value;
+	var a= document.getElementById("costo").value;
+
+	var x="../ConfermaRichiestaCorsa?idbus="+r+"&durata="+j+"&idrcor="+k+"&costo="+a;
+	window.location.href=x;
+}
+
+</script>
 </div>
 
 <div class="footer">

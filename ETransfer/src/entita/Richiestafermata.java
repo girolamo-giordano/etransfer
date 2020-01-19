@@ -49,9 +49,10 @@ public class Richiestafermata {
 	/**
 	 * @param nomefermata
 	 */
-	public Richiestafermata(String nomefermata) {
-		
+	public Richiestafermata(String nomefermata,Corsa corsa,int id) {
 		this.nomefermata = nomefermata;
+		this.corsa=corsa;
+		this.id=id;
 	}
 
 	/**

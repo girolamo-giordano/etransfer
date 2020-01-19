@@ -55,6 +55,9 @@
 		<th>
 		Arrivo
 		</th>
+		<th>
+		Azioni
+		</th>
 		
 		
 	</tr>
@@ -75,6 +78,9 @@
 		<td><%=t.getNomefermata()%></a></td>
 		<td><%=t.getCorsa().getTratta().getPartenza()%></a></td>
 		<td><%=t.getCorsa().getTratta().getArrivo()%></td>
+		<td><a href="../ConfermaRichiestaFermata?idrichfermata=<%=t.getId()%>">Aggiungi fermata</a>
+		|| <a href="../EliminaRichiestaFermata?idrichfe=<%=t.getId()%>">Rimuovi Fermata</a>
+		</td>
 		
 	</tr>
 

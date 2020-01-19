@@ -18,6 +18,7 @@ import utils.DriverManagerConnectionPool;
  *
  */
 public class RichiestafermataDAO implements DaoModel<Richiestafermata> {
+	static CorsaDAO corsadao=new CorsaDAO();
 
 	@Override
 	public Richiestafermata doRetrieveByKey(int code) throws SQLException {
@@ -39,6 +40,7 @@ public class RichiestafermataDAO implements DaoModel<Richiestafermata> {
 			while(rs.next()) {
 				richiestafermata.setId(rs.getInt("code"));
 				richiestafermata.setNomefermata(rs.getString("nomefermata"));
+				richiestafermata.setCorsa(corsadao.doRetrieveByKey(rs.getInt("id_corsa")));
 			}	
 		} finally {
 			try {
@@ -75,6 +77,7 @@ public class RichiestafermataDAO implements DaoModel<Richiestafermata> {
 				Richiestafermata man= new Richiestafermata();
 				man.setId(rs.getInt("code"));
 				man.setNomefermata(rs.getString("nomefermata"));
+				man.setCorsa(corsadao.doRetrieveByKey(rs.getInt("id_corsa")));
 				//Aggiungo il bean che ho appena creato alla Collezione
 				richiestafermate.add(man);
 			}	
@@ -100,7 +103,7 @@ public class RichiestafermataDAO implements DaoModel<Richiestafermata> {
 		
 		//Stringa di inserimento parametrica dal database
 		//Non inserisco a mano code perchè è un int autoincrement
-		String selectSQL = "INSERT INTO richiestafermata (nomefermata) VALUES (?)";
+		String selectSQL = "INSERT INTO richiestafermata (nomefermata,id_corsa) VALUES (?,?)";
 		
 		/*Stringa per provare a generare un'errore
 		 String selectSQL = "INSERT INTO product2 (name, description, price, quantity) VALUES (?, ?, ?, ?)";
@@ -113,6 +116,7 @@ public class RichiestafermataDAO implements DaoModel<Richiestafermata> {
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1,richiestafermata.getNomefermata());
+			preparedStatement.setInt(2, richiestafermata.getCorsa().getId());
 			
 			
 			//Eseguo il preparedStatement inserendo i dati all'interno del database
@@ -139,13 +143,14 @@ public class RichiestafermataDAO implements DaoModel<Richiestafermata> {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String updateSQL="UPDATE richiestafermata SET"+"nomefermata=? "+" WHERE code = ?";
+		String updateSQL="UPDATE richiestafermata SET"+"nomefermata=?,id_corsa=? "+" WHERE code = ?";
 		try {
 				connection=DriverManagerConnectionPool.getConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,richiestafermata.getNomefermata());
-				preparedStatement.setInt(2,richiestafermata.getId());
+				preparedStatement.setInt(2,richiestafermata.getCorsa().getId());
+				preparedStatement.setInt(3,richiestafermata.getId());
 				
 				System.out.println("doUpdate: "+preparedStatement.toString());
 				preparedStatement.executeUpdate();

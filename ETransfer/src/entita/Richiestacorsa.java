@@ -14,6 +14,7 @@ public class Richiestacorsa {
 	private int durata;
 	private int id;
 	private Tratta tratta;
+	private Autobus bus;
 	
 	
 	
@@ -26,6 +27,22 @@ public class Richiestacorsa {
 
 	public void setTratta(Tratta tratta) {
 		this.tratta = tratta;
+	}
+	
+	
+
+	/**
+	 * @return the bus
+	 */
+	public Autobus getBus() {
+		return bus;
+	}
+
+	/**
+	 * @param bus the bus to set
+	 */
+	public void setBus(Autobus bus) {
+		this.bus = bus;
 	}
 
 	/**
@@ -53,11 +70,13 @@ public class Richiestacorsa {
 	 * @param durata
 	 * @param numerocor
 	 */
-	public Richiestacorsa(String orapart, String datapart, int durata) {
+	public Richiestacorsa(String orapart, String datapart, int durata,Tratta tratta, Autobus bus) {
 		
 		this.orapart = orapart;
 		this.datapart = datapart;
 		this.durata = durata;
+		this.tratta=tratta;
+		this.bus=bus;
 	}
 	/**
 	 * @return the orapart
