@@ -52,6 +52,7 @@ public class AggiungiCorsa extends HttpServlet {
 		String data=request.getParameter("data");
 		String orapart=request.getParameter("ora");
 		String durata=request.getParameter("durata");
+		int costo=Integer.parseInt(request.getParameter("costo"));
 		Tratta trattae;
 		Autobus autobus;
 		Corsa corsa= new Corsa();
@@ -64,6 +65,7 @@ public class AggiungiCorsa extends HttpServlet {
 			corsa.setDatapart(data);
 			corsa.setDurata(Integer.parseInt(durata));
 			corsa.setOrapart(orapart);
+			corsa.setCosto(costo);
 			corsa.setFermate(null);
 		} catch (NumberFormatException e1) {
 			// TODO Auto-generated catch block

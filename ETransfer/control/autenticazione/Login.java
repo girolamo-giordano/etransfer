@@ -152,6 +152,7 @@ public class Login extends HttpServlet {
 							{
 								ar.setCognome(ar1.getCognome());
 								ar.setNome(ar1.getNome());
+								ar.setId(ar1.getId());
 								logged=true;
 								request.getSession().setAttribute("autista",ar);
 								System.out.println("autista loggato");

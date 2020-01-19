@@ -122,7 +122,7 @@ public class Autobus {
 	@Override
 	public String toString() {
 		return "Autobus [modello=" + modello + ", numeroposti=" + numeroposti + ", annoimm=" + annoimm + ", chilometri="
-				+ chilometri + "]";
+				+ chilometri + "autista"+autista+"]";
 	}
 	
 	
