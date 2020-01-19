@@ -3,7 +3,7 @@ CREATE DATABASE edb;
 USE edb;
 
 DROP TABLE IF exists cliente;
- 
+
 CREATE table cliente(
 	code int primary key AUTO_INCREMENT,
 	name char(25) not null,
@@ -16,7 +16,14 @@ CREATE table cliente(
     citta char(25)
 );
 
+DROP TABLE IF EXISTS fermata;
 
+create table fermata(
+	code int primary key AUTO_INCREMENT,
+    id_corsa int,
+    nomefermata char(30),
+    foreign key(id_corsa)references fermata(code)
+);
 
 DROP TABLE IF exists tratta;
 
@@ -57,19 +64,8 @@ create table corsa(
     orapartenza char(10),
     datapartenza char(10),
     durata int,
-    costo float,
     foreign key(id_tratta)references tratta(code),
 	foreign key(id_autobus)references autobus(code)
-    ON DELETE CASCADE
-);
-
-DROP TABLE IF EXISTS fermata;
-
-create table fermata(
-	code int primary key AUTO_INCREMENT,
-    id_corsa int,
-    nomefermata char(30),
-    foreign key(id_corsa)references corsa(code)
 );
 
 DROP TABLE IF EXISTS biglietto;
@@ -78,8 +74,6 @@ CREATE table biglietto(
 	code int primary key AUTO_INCREMENT,
 	id_cliente int,
     id_corsa int,
-    quantita int,
-    data char(30),
     foreign key(id_cliente)references cliente(code),
 	foreign key(id_corsa)references corsa(code)
 );
@@ -100,18 +94,14 @@ create table richiestacorsa(
 	code int primary key auto_increment,
     orapartenza char(10),
     datapartenza char(10),
-    id_tratta int,
-    foreign key(id_tratta) references tratta(code)
-    
+    durata int
 );
 
 DROP table if exists richiestafermata;
 
 create table richiestafermata(
 	code int primary key auto_increment,
-	nomefermata char(30),
-    id_corsa int,
-    foreign key(id_corsa) references corsa(code)
+	nomefermata char(30)
 );
 
 

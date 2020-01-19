@@ -82,9 +82,9 @@
 		<li class="dropdown"><a href="#">Visualizza</a>
 		
  			 <div class="dropdown-content">
-   				 <a href="richiestaCorsa.jsp"> Le nostre Corse </a>
-    			<a href="richiestaFermata.jsp"> I nostri autisti </a>
-  				<a href="richiestaTratta.jsp">I nostri bus </a>
+   				 <a href="corsa.jsp"> Le nostre Corse </a>
+    			<a href="visualizzaAutisti.jsp"> I nostri autisti </a>
+  				<a href="visualizzaAutobus.jsp">I nostri bus </a>
     		</div>
 		</li>
 		
@@ -135,6 +135,7 @@
 		<li class="selected"><a href="home.jsp">Home</a></li>
 		<li><a href="chisiamo.jsp">L'azienda</a> </li>
   		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+  		<li> <a href="visualizzaAutobus.jsp">I nostri autobus</a> </li>
 		
 		
 		

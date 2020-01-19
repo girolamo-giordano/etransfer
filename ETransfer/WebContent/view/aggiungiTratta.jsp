@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Aggiunta Autista</title>
+<title>Aggiunta Tratta</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="aggiungiAutista.css" type="text/css">
+<LINK rel= "stylesheet" href="login.css" type="text/css">
 </head>
 <body>
 <div id="logo"> 
@@ -16,54 +16,52 @@
 
 
 
-<div class="topnav">
-  <ul> 
- <li> <a href="home.jsp">Home</a> </li>
-  <li> <a href="chisiamo.jsp">L'azienda</a> </li>
-  <li> <a href="areaPers.jsp">Area Admin</a> </li>
-  <li> <a href="eliminaFermata.jsp">Elimina Fermata</a> </li>
-  
-  <li class="dropdown"> 
-  	<a href="javascript:void(0)" class="dropbnt"> Visualizza </a> 
-  	<div class="dropdown-content">
-  	<a href="corsa.jsp">Le nostre corse</a>
-  	<a href="visualizzaAutisti.jsp"> I nostri Autisti </a>
-  	<a href="visualizzaAutobus.jsp"> I nostri Bus </a>
-  	
-  	</div>
-  	</li>
-  
-  
-  <li class="dropdown"> 
-  	<a href="javascript:void(0)" class="dropbnt"> Aggiungi </a> 
-  	<div class="dropdown-content">
-  	<a href="aggiungiCorsa.jsp"> Aggiungi Corsa </a>
+<div id="menu">
+	<ul>
+		<li class="selected"><a href="home.jsp">Home</a></li>
+		<li> <a href="chisiamo.jsp">L'azienda</a></li>
+		<li> <a href="areaPers.jsp">Area Admin</a> </li>
+		<li> <a href="eliminaFermata.jsp">Elimina Fermata</a> </li>
+		
+		<li class="dropdown"><a href="#">Visualizza</a>
+		
+ 			 <div class="dropdown-content">
+   				 <a href="corsa.jsp"> Le nostre Corse </a>
+    			<a href="visualizzaAutisti.jsp"> I nostri autisti </a>
+  				<a href="visualizzaAutobus.jsp">I nostri bus </a>
+    		</div>
+		</li>
+		
+		<li class="dropdown1"><a href="#">Aggiungi</a>
+		
+ 			 <div class="dropdown1-content">
+   				<a href="aggiungiCorsa.jsp"> Aggiungi Corsa </a>
   	<a href="aggiungiBus.jsp"> Aggiungi Autobus </a>
   	<a href="aggiungiAutista.jsp"> Aggiungi Autista </a>
   	<a href="aggiungiFermata.jsp"> Aggiungi Fermata </a>
   	<a href="aggiungiTratta.jsp"> Aggiungi Tratta </a>
-  	</div>
-  	</li>
-  	
-  	<li class="dropdown"> 
-  	<a href="javascript:void(0)" class="dropbnt"> Visualizza Richieste </a> 
-  	<div class="dropdown-content">
-  	<a href="visualizzarichiestaCorsa.jsp"> Richiesta Corsa </a>
+    		</div>
+		</li>
+		
+		<li class="dropdown2"><a href="#">Visualizza Richieste</a>
+		
+ 			 <div class="dropdown2-content">
+   				 <a href="visualizzarichiestaCorsa.jsp"> Richiesta Corsa </a>
   	<a href="visualizzarichiestaFermata.jsp"> Richiesta Fermata </a>
   	<a href="visualizzarichiestaTratta.jsp"> Richiesta Tratta </a>
   	
-  	</div>
-  	</li>
+    		</div>
+		</li>
+		
+		<div id="lright" style="float:right">
+			<li><a href="logout.jsp">Logout</a></li>
+		</div>
+	</ul>
+	</div>
   	
-  	<div class="topnavright" style="padding-right: 60px;
-    font-size: 20px;">
-  <a class="selected" href="logout.jsp" style="float:right">Logout</a>
+  	
   
 </div>
-  </ul>
-  
-</div>
-  
 
 <form name="loginform" action="../AggiungiTratta" method="post"> 
 

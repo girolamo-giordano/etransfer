@@ -59,7 +59,7 @@ public class ModificaIndirizzo extends HttpServlet {
 			ur.setIndirizzo(indirizzo);
 			try {
 				model.doUpdate(ur);
-				response.sendRedirect("changeindirizzosucc.jsp");
+				response.sendRedirect("view/change.jsp");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

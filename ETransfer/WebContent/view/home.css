@@ -22,7 +22,11 @@ li:hover{
 	
 	color:blue;
 }
+
 	
+.selected{
+	color:blue;
+}
 
 
 div#textRec {

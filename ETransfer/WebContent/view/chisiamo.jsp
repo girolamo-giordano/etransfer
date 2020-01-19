@@ -125,6 +125,7 @@
 		<li class="selected"><a href="home.jsp">Home</a></li>
 		<li><a href="chisiamo.jsp">L'azienda</a> </li>
   		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+  		<li> <a href="visualizzaAutobus.jsp">I nostri autobus</a> </li>
 		
 		
 		

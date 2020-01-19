@@ -51,9 +51,16 @@
   <div class="leftcolumn">
    
 
-      <div class="busimg">
+      <div class="busimg" style="
+    position: relative;
+    top: -20px;">
+       <h2 style="
+    left: 660px;
+    position: relative;
+    top: 115px;
+"> I nostri autobus</h2>
        
-      <a href="flotta.jsp">
+      <a href="visualizzaAutobus.jsp">
        <img src="../foto/pullman.jpg"> 
        </a>
       </div>
@@ -131,9 +138,16 @@
   <div class="leftcolumn">
    
 
-      <div class="busimg">
+      <div class="busimg" style="
+    position: relative;
+    top: -20px;">
+       <h2 style="
+    left: 660px;
+    position: relative;
+    top: 115px;
+"> I nostri autobus</h2>
        
-      <a href="flotta.jsp">
+      <a href="visualizzaAutobus.jsp">
        <img src="../foto/pullman.jpg"> 
        </a>
       </div>
@@ -248,12 +262,19 @@
  
 
 <div class="row">
+
   <div class="leftcolumn">
    
 
-      <div class="busimg">
-       
-      <a href="flotta.jsp">
+      <div class="busimg" style="
+    position: relative;
+    top: -20px;">
+       <h2 style="
+    left: 660px;
+    position: relative;
+    top: 115px;
+"> I nostri autobus</h2>
+      <a href="visualizzaAutobus.jsp">
        <img src="../foto/pullman.jpg"> 
        </a>
       </div>
@@ -325,6 +346,7 @@
 		<li class="selected"><a href="home.jsp">Home</a></li>
 		<li><a href="chisiamo.jsp">L'azienda</a> </li>
   		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+  		<li> <a href="visualizzaAutobus.jsp">I nostri autobus</a> </li>
 		
 		
 		
@@ -339,9 +361,16 @@
   <div class="leftcolumn">
    
 
-      <div class="busimg">
+     <div class="busimg" style="
+    position: relative;
+    top: -20px;">
+       <h2 style="
+    left: 660px;
+    position: relative;
+    top: 115px;
+"> I nostri autobus</h2>
        
-      <a href="flotta.jsp">
+      <a href="visualizzaAutobus.jsp">
        <img src="../foto/pullman.jpg"> 
        </a>
       </div>

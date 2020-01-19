@@ -20,6 +20,7 @@
 		<li class="selected"><a href="home.jsp">Home</a></li>
 		<li><a href="chisiamo.jsp">L'azienda</a> </li>
   		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+  		<li> <a href="visualizzaAutobus.jsp">I nostri autobus</a> </li>
 		
 		
 		
@@ -37,7 +38,7 @@
 <fieldset>
 	
 		<h2 id=titolo> REGISTRAZIONE</h2>
-		<h4 id="RegLog"> Hai già un account? <a id="Torna" href="Login.jsp" >Torna al Login </a></h4>
+		<h4 id="RegLog"> Hai già un account? <a id="Torna" href="login.jsp" >Torna al Login </a></h4>
 		
 		<fieldset id="primoF">
 			

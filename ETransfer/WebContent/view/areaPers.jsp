@@ -114,6 +114,11 @@
 		
 	</fieldset>
 	</form>
+	<center><h2 style="
+    color: #333;
+    margin-top: 65px;
+">I tuoi biglietti acquistati: </h2> </center>
+	
 	<%
 	for(Biglietto b:biglietti)
 	{
@@ -123,10 +128,58 @@
 		
 %>
 
-	Is tuoi biglietti acquistati: <%=b.toString() %><br>
-	<%	}
+	
+	
+	
+	<table>
+ 
+  <tr>
+    <td>Quantita</td>
+    <td>Data acquisto</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> <%=b.getQuantita() %></td>
+    <td><%=b.getAcquistodata() %></td>
+    <td></td>
+    <td></td>
+    
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Orario</td>
+    <td>Partenza</td>
+    <td>Arrivo</td>
+  </tr>
+  <tr>
+    <td><%=b.getCorsa().getDatapart() %></td>
+    <td><%=b.getCorsa().getOrapart() %></td>
+    <td><%=b.getCorsa().getTratta().getPartenza() %></td>
+     <td><%=b.getCorsa().getTratta().getArrivo() %></td>
+  </tr>
+  <tr>
+    <td>Nome e cognome</td>
+    <td>Duarata Viaggio</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%=b.getCliente().getNome() %> <%=b.getCliente().getCognome()%></td>
+    <td><%=b.getCorsa().getDurata() %></td>
+    <td></td>
+    
+    <td><%=b.getCorsa().getCosto() %></td>
+  </tr>
+</table>
+<%	}
+	%>	<div style="
+    margin-top: 35px;
+"> </div> <% 
 	}
 }
+
+	
+	
 	
 	
 	if(a != null){%>

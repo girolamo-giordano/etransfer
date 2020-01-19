@@ -29,16 +29,40 @@ th{
 	font-style: oblique;
 }
 
+#check {
+    margin-top: 10px;
+    width: -8px;
+    position: relative;
+    top: 0px;
+    left: 250px;
+}
+
 #totale{
 	display:flex;
-	margin-left: 245px;
+	margin-left: 585px;
+	
+}
+
+#sub {
+    text-transform: uppercase;
+    height: 80px;
+    width: 140px;
+    background-color: #333;
+    color: #F8F8FA;
+    font-size: 23px;
+    text-align: center;
+}
+
+#check {
+    margin-top: 10px;
+    position: relative;
+    left: 240px;
 }
 
 #form {
    display: table;
     padding-top: 10px;
-    border: thin dotted #7e7e7e;
-    background-color: #333;
+    background-color: #F8F8FA;
     width: 458px;
     height: 400px;
     /* top: 50%; */
