@@ -18,6 +18,7 @@ import utils.DriverManagerConnectionPool;
  *
  */
 public class FermataDAO implements DaoModel<Fermata> {
+	static CorsaDAO corsadao= new CorsaDAO();
 	@Override
 	public Fermata doRetrieveByKey(int code) throws SQLException {
 
@@ -39,6 +40,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 			while(rs.next()) {
 				fermata.setId(rs.getInt("code"));
 				fermata.setNomefermata(rs.getString("nomefermata"));
+				fermata.setCorsa(corsadao.doRetrieveByKey(rs.getInt("id_corsa")));
 			}	
 		} finally {
 			try {
@@ -55,6 +57,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 
 	@Override
 	public Collection<Fermata> doRetrieveAll() throws SQLException {
+		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<Fermata> fermate = new LinkedList<Fermata>();
@@ -75,6 +78,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 				Fermata man= new Fermata();
 				man.setId(rs.getInt("code"));
 				man.setNomefermata(rs.getString("nomefermata"));
+				man.setCorsa(corsadao.doRetrieveByKey(rs.getInt("id_corsa")));
 				//Aggiungo il bean che ho appena creato alla Collezione
 				fermate.add(man);
 			}	

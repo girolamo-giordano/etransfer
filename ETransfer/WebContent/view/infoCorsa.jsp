@@ -56,8 +56,8 @@
 <%
 	CorsaDAO corsadao= new CorsaDAO();
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
-	Corsa corsa2= corsadao.doRetrieveByKey(corsa.getId());
-	System.out.println("info "+corsa2);
+	FermataDAO fermatadao= new FermataDAO();
+	
 
 %>
 
@@ -85,10 +85,17 @@
 	</tr>
 	
 	<%
-	ArrayList<Fermata> fermate;
-	fermate=corsa2.getFermate();
-	
-	for(Fermata t:fermate)
+	Collection<Fermata> fermate;
+	fermate=fermatadao.doRetrieveAll();
+	ArrayList<Fermata> fermatefin=new ArrayList<Fermata>();
+	for(Fermata f:fermate)
+	{
+		if(f.getCorsa().getId()==corsa.getId())
+		{
+			fermatefin.add(f);
+		}
+	}
+	for(Fermata t:fermatefin)
 	
 	{
 	

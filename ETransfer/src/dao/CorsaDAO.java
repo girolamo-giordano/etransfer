@@ -58,22 +58,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 				corsa.setDatapart(rs.getString("datapartenza"));
 				corsa.setDurata(rs.getInt("durata"));
 				corsa.setCosto(rs.getFloat("costo"));
-				Collection<Fermata>coll=fermatad.doRetrieveAll();
-				ArrayList<Fermata> fermate= new ArrayList<Fermata>();
-				for(Fermata f:coll)
-				{
-					System.out.println("tutte fermate"+f);
-					fermate.add(f);
-				}
-				for(Fermata f:fermate)
-				{
-					if(f.getCorsa().getId()==code)
-					{
-						fermateagg.add(f);
-						System.out.println("corsadao "+f);
-					}
-				}
-				corsa.setFermate(fermateagg);
+				corsa.setFermate(null);
 			
 			}	
 		} finally {
@@ -114,19 +99,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 				Corsa man= new Corsa();
 				man.setId(rs.getInt("code"));
 				man.setBus(autobusd.doRetrieveByKey(rs.getInt("id_autobus")));
-				Collection<Fermata>coll=fermatad.doRetrieveAll();
-				ArrayList<Fermata> fermate= new ArrayList<Fermata>();
-				for(Fermata f:coll)
-				{
-					fermate.add(f);
-				}
-				
-				for(Fermata f:fermate)
-				{
-					if(f.getId()==rs.getInt("code"))
-						fermateagg.add(f);
-				}
-				man.setFermate(fermate);
+				man.setFermate(null);
 				man.setTratta(trattad.doRetrieveByKey(rs.getInt("id_tratta")));
 				man.setDatapart(rs.getString("datapartenza"));
 				man.setOrapart(rs.getString("orapartenza"));
