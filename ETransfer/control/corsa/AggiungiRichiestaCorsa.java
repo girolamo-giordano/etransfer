@@ -59,7 +59,7 @@ public class AggiungiRichiestaCorsa extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("view/home.jsp");
+		response.sendRedirect("view/richiestaAggiunta.jsp");
 		
 	}
 

@@ -37,7 +37,7 @@ public class Logout extends HttpServlet {
 		request.getSession().setAttribute("cliente",null);
 		request.getSession().setAttribute("autista", null);
 		request.getSession().setAttribute("manager",null);
-		response.sendRedirect("view/home.jsp");
+		response.sendRedirect("view/logoutSucc.jsp");
 	}
 
 }

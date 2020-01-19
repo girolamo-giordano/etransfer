@@ -63,7 +63,7 @@ public class AggiungiFermata extends HttpServlet {
 			System.out.println("Errore"+e.toString());
 		}
 		
-		response.sendRedirect("view/home.jsp");
+		response.sendRedirect("view/aggiunta.jsp");
 	}
 
 }

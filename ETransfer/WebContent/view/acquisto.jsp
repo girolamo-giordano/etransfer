@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Modifica avvenuta con successo</title>
+<title>Acquisto avvenuto con successo</title>
 <link rel="icon" href="foto/favicon.ico">
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="success.css" type="text/css">
@@ -18,7 +18,7 @@
 </div>
 
 <form>
-<div class="succText"> Modifica avvenuta con successo, verrai reindirizzato alla tua Pagina Personale</div>
+<div class="succText"> Acquisto avvenuto con successo, verrai reindirizzato alla tua Homepage</div>
 <script>
   setTimeout(function() {
       document.location = "areaPers.jsp";
