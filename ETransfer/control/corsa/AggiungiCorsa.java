@@ -57,6 +57,7 @@ public class AggiungiCorsa extends HttpServlet {
 		Corsa corsa= new Corsa();
 		try {
 			trattae = trattadao.doRetrieveByKey(Integer.parseInt(tratta));
+			System.out.println("numid tratta"+trattae);
 			autobus= autobusdao.doRetrieveByKey(Integer.parseInt(busid));
 			corsa.setTratta(trattae);
 			corsa.setBus(autobus);

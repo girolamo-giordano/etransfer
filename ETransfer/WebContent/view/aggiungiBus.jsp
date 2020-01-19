@@ -72,7 +72,7 @@ autistalist=autistadao.doRetrieveAll();
   
 </div>
 
-<form name="loginform" action="LogControl" method="post"> 
+<form name="loginform" action="../AggiungiAutobus" method="post"> 
 
 	<fieldset>
 	
@@ -106,7 +106,7 @@ autistalist=autistadao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="autista">Autista:</label>
-			<select class="sel" style="width: 193px;
+			<select name="autista" class="sel" style="width: 193px;
     height: 39px;" required>
 				<option value="" selected> Autista </option>
 				<%for(Autista a:autistalist){

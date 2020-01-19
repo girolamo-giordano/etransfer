@@ -110,7 +110,7 @@ autobus=busdao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Tratta:</label>
-			<select class="sel" required style="width: 193px;
+			<select name="tratta" class="sel" required style="width: 193px;
     height: 39px;">
 				<option value="" selected> Partenza-Arrivo </option>
 				<% for(Tratta t:trattalist){
@@ -122,7 +122,7 @@ autobus=busdao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Trasporto:</label>
-			<select class="sel" style="width: 193px;
+			<select name="bus" class="sel" style="width: 193px;
     height: 39px;" required>
 				<option value="" selected> Bus-Autista </option>
 				<%for(Autobus a:autobus){

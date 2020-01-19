@@ -1,3 +1,4 @@
+<%@page import="dao.CorsaDAO"%>
 <%@page import="utenti.Manager"%>
 <%@page import="utenti.Autista"%>
 <%@page import="utenti.Cliente"%>
@@ -62,7 +63,10 @@
 </div>
 
 <%
+	CorsaDAO corsadao= new CorsaDAO();
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
+	FermataDAO fermatadao= new FermataDAO();
+	
 
 %>
 
@@ -90,10 +94,17 @@
 	</tr>
 	
 	<%
-	ArrayList<Fermata> fermate;
-	fermate=corsa.getFermate();
-	
-	for(Fermata t:fermate)
+	Collection<Fermata> fermate;
+	fermate=fermatadao.doRetrieveAll();
+	ArrayList<Fermata> fermatefin=new ArrayList<Fermata>();
+	for(Fermata f:fermate)
+	{
+		if(f.getCorsa().getId()==corsa.getId())
+		{
+			fermatefin.add(f);
+		}
+	}
+	for(Fermata t:fermatefin)
 	
 	{
 	

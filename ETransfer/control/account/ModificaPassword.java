@@ -57,7 +57,7 @@ public class ModificaPassword extends HttpServlet {
 		}
 		else
 		{
-			ur.setPassword(pass);;
+			ur.setPassword(pass);
 			try {
 				model.doUpdate(ur);
 				response.sendRedirect("view/change.jsp");

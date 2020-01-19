@@ -71,7 +71,7 @@ public class Fermata {
 	 */
 	@Override
 	public String toString() {
-		return "Fermata [nomefermata=" + nomefermata + ", numerocorsa=" + corsa + "]";
+		return "Fermata [nomefermata=" + nomefermata + ", numerocorsa=" + corsa + "id"+id+"]";
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
