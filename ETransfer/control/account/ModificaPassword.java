@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AutistaDAO;
 import dao.ClienteDAO;
-
+import dao.ManagerDAO;
+import utenti.Autista;
 import utenti.Cliente;
+import utenti.Manager;
 
 /**
  * Servlet implementation class ChangePsw
@@ -20,6 +23,8 @@ import utenti.Cliente;
 public class ModificaPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static ClienteDAO model=new ClienteDAO();
+	static AutistaDAO autistadao=new AutistaDAO();
+	static ManagerDAO managerdao=new ManagerDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -42,8 +47,11 @@ public class ModificaPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Cliente ur=new Cliente();
+		Autista at=new Autista();
+		Manager man=new Manager();
 		ur=(Cliente)request.getSession(false).getAttribute("cliente");
-		
+		at=(Autista)request.getSession().getAttribute("autista");
+		man=(Manager)request.getSession().getAttribute("manager");
 		String pass=request.getParameter("indir");
 		if(pass==null)
 		{
@@ -52,8 +60,34 @@ public class ModificaPassword extends HttpServlet {
 		}
 		if(ur==null)
 		{
-			response.sendError(407);
-			return;
+			if(at==null)
+			{
+				if(man== null)
+				{
+					response.sendError(407);
+					return;
+				}
+				else
+				{
+					man.setPassword(pass);
+					try {
+						managerdao.doUpdate(man);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			else
+			{
+				at.setPassword(pass);
+				try {
+					autistadao.doUpdate(at);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		else
 		{
@@ -65,7 +99,8 @@ public class ModificaPassword extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			}
+		}
+		response.sendRedirect("view/home.jsp");
 	}
 
 }
