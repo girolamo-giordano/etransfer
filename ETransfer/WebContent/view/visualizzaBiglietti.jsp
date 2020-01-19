@@ -1,24 +1,17 @@
-<%@page import="entita.Autobus"%>
-<%@page import="dao.AutobusDAO"%>
-<%@page import="dao.RichiestaCorsaDAO"%>
-<%@page import="entita.Richiestacorsa"%>
-<%@page import="dao.CorsaDAO"%>
-<%@page import="entita.Corsa"%>
+<%@page import="entita.Biglietto"%>
 <%@page import="java.util.Collection"%>
+<%@page import="dao.BigliettoDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Corse</title>
+<title>Biglietti Venduti</title>
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="visualizzaCorse.css" type="text/css">
 </head>
 <body>
-<%AutobusDAO autobusdao= new AutobusDAO();
-Collection<Autobus> autobus= autobusdao.doRetrieveAll();
-%>
 <div id="logo"> 
 <img style="height: 290px;
     margin-left: 87px;" src="../foto/logo.jpeg">
@@ -37,6 +30,8 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
    				 <a href="corsa.jsp"> Le nostre Corse </a>
     			<a href="visualizzaAutisti.jsp"> I nostri autisti </a>
   				<a href="visualizzaAutobus.jsp">I nostri bus </a>
+  				<a href="visualizzaBiglietti.jsp">Biglietti venduti </a>
+  				
     		</div>
 		</li>
 		
@@ -66,13 +61,19 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
 		</div>
 	</ul>
 	</div>
-  	
-  	
-<h2><center>Visualizza Richieste corse</center></h2>
+	
+<div style="margin-top:80px;">
+
+
+</div>
+<h2><center>BIGLIETTI VENDUTI</center></h2>
 <div id="firstP">
 
 <table>
 	<tr>
+		<th>
+		Quantità
+		</th>
 		<th>
 		Partenza
 		</th>
@@ -80,73 +81,46 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
 		Arrivo
 		</th>
 		<th>
-		Data
+		Data Acquisto
 		</th>
 		<th>
-		Ora Partenza
+		Data Partenza
 		</th>
 		<th>
-		Autobus
+		Cliente
 		</th>
 		<th>
-		Durata
-		</th>
-		<th>
-		Costo
-		</th>
-		<th>
-		Azioni
+		Prezzo
 		</th>
 		
 		
 	</tr>
 <%
-	Collection<Richiestacorsa> rc;
-	RichiestaCorsaDAO rcdao= new RichiestaCorsaDAO();
-	rc=rcdao.doRetrieveAll();
+	Collection<Biglietto> biglietto;
+	BigliettoDAO bigdao= new BigliettoDAO();
+	biglietto=bigdao.doRetrieveAll();
 	
-	for(Richiestacorsa t:rc)
+	for(Biglietto t:biglietto)
 	
 	{
 	
 %>
 
 
+	
 	<tr>
-		<td><%=t.getTratta().getPartenza()%></td>
-		<td><%=t.getTratta().getArrivo()%></td>
-		<td><%=t.getDatapart()%></td>
-		<td><%=t.getOrapart()%></td>
-		<td><select name="idbus" id="idbus">
-		<option value="" selected> Seleziona autobus </option>
-				<% for(Autobus a:autobus){
-					%>
-					<option value="<%=a.getId()%>"><%=a.getModello()%> - <%=a.getAutista().getCognome() %> </option>
-				<%} %>
-		</select></td>
-		<td><input type="text" name="durata" id="durata"></td>
-		<td><input type="text" name="costo" id="costo"></td>
-		<td><button onclick="see('<%=t.getId()%>')"> Aggiungi corsa</button>
-		<a href="../EliminaRichiestaCorsa?idrichco=<%=t.getId()%>">Elimina corsa</a>
-		</td>
-		
+		<td><%=t.getQuantita() %></td>
+		<td><%=t.getCorsa().getTratta().getPartenza() %></td>
+			<td><%=t.getCorsa().getTratta().getArrivo() %></td>
+				<td><%=t.getAcquistodata()%></td>
+				<td><%=t.getCorsa().getDatapart()%></td>
+				<td><%=t.getCliente().getNome()%> <%=t.getCliente().getCognome() %></td>
+				<td><%=t.getCorsa().getCosto() %> </td>
 	</tr>
 
 	
 <%} %>
 </table>
-<script type="text/javascript">
-function see(k)
-{
-	var r= document.getElementById("idbus").value;
-	var j= document.getElementById("durata").value;
-	var a= document.getElementById("costo").value;
-
-	var x="../ConfermaRichiestaCorsa?idbus="+r+"&durata="+j+"&idrcor="+k+"&costo="+a;
-	window.location.href=x;
-}
-
-</script>
 </div>
 
 <div class="footer">
@@ -155,5 +129,9 @@ function see(k)
       All trademarks and registered trademarks appearing on 
       this site are the property of their respective owners.
 </div>
+  	
+  	
+  	
+
 </body>
 </html>

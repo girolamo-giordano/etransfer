@@ -146,7 +146,7 @@
 </table>
 
 <form id="check" method="post" action="CheckoutAcquisto">
-	<input id="sub" name="numbiglietti" type="number" min="1" max="10" required">
+	<input id="sub" name="numbiglietti" type="number" min="1" value="1" max="10" required">
 	<input type="hidden" value="<%=corsa.getId()%>" name="corsaid">
 	<input id="sub" type="submit" value="Acquista">
 </form>
@@ -174,8 +174,11 @@
 	</ul>
 	</div>
 	
-	<%
+<%
+	CorsaDAO corsadao= new CorsaDAO();
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
+	FermataDAO fermatadao= new FermataDAO();
+	
 
 %>
 
@@ -201,16 +204,23 @@
 	<tr>
 		<td class="arrpar">&#183<%=corsa.getTratta().getPartenza() %></td>
 	</tr>
-	
 	<%
-	ArrayList<Fermata> fermate;
-	fermate=corsa.getFermate();
-	
-	for(Fermata t:fermate)
+	Collection<Fermata> fermate;
+	fermate=fermatadao.doRetrieveAll();
+	ArrayList<Fermata> fermatefin=new ArrayList<Fermata>();
+	for(Fermata f:fermate)
+	{
+		if(f.getCorsa().getId()==corsa.getId())
+		{
+			fermatefin.add(f);
+		}
+	}
+	for(Fermata t:fermatefin)
 	
 	{
 	
 %>
+
 	<tr><td style="padding-left:80px;">    -<%=t.getNomefermata() %></td></tr>
 <%} %>
 	<tr>
@@ -300,8 +310,11 @@
 	</ul>
 	</div>
 	
-	<%
+<%
+	CorsaDAO corsadao= new CorsaDAO();
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
+	FermataDAO fermatadao= new FermataDAO();
+	
 
 %>
 
@@ -327,12 +340,18 @@
 	<tr>
 		<td class="arrpar">&#183<%=corsa.getTratta().getPartenza() %></td>
 	</tr>
-	
 	<%
-	ArrayList<Fermata> fermate;
-	fermate=corsa.getFermate();
-	
-	for(Fermata t:fermate)
+	Collection<Fermata> fermate;
+	fermate=fermatadao.doRetrieveAll();
+	ArrayList<Fermata> fermatefin=new ArrayList<Fermata>();
+	for(Fermata f:fermate)
+	{
+		if(f.getCorsa().getId()==corsa.getId())
+		{
+			fermatefin.add(f);
+		}
+	}
+	for(Fermata t:fermatefin)
 	
 	{
 	
@@ -393,6 +412,7 @@
 		<li class="selected"><a href="view/home.jsp">Home</a></li>
 		<li><a href="view/chisiamo.jsp">L'azienda</a> </li>
   		<li> <a href="view/corsa.jsp">Le nostre corse</a> </li>
+  			<li> <a href="view/visualizzaAutobus.jsp">I nostri autobus</a> </li>
 		
 		
 		
@@ -413,7 +433,10 @@
 
 
 <%
+	CorsaDAO corsadao= new CorsaDAO();
 	Corsa corsa=  (Corsa)request.getAttribute("corsasel");
+	FermataDAO fermatadao= new FermataDAO();
+	
 
 %>
 
@@ -441,10 +464,17 @@
 	</tr>
 	
 	<%
-	ArrayList<Fermata> fermate;
-	fermate=corsa.getFermate();
-	
-	for(Fermata t:fermate)
+	Collection<Fermata> fermate;
+	fermate=fermatadao.doRetrieveAll();
+	ArrayList<Fermata> fermatefin=new ArrayList<Fermata>();
+	for(Fermata f:fermate)
+	{
+		if(f.getCorsa().getId()==corsa.getId())
+		{
+			fermatefin.add(f);
+		}
+	}
+	for(Fermata t:fermatefin)
 	
 	{
 	

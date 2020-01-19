@@ -18,26 +18,33 @@
     margin-left: 87px;" src="../foto/logo.jpeg">
 </div>
 
-<div class="topnav">
-<div class="topnavleft" style="padding-left: 60px;
-    font-size: 20px;">
-  <a href="home.jsp">Home</a>
-  <a href="chisiamo.jsp">L'azienda</a>
-  <a href="areautente.jsp">Area Utente</a>
-  <a href="corsa.jsp">Le nostre corse</a>
-  </div>
-  
-  <div class="topnavright" style="padding-right: 60px;
-    font-size: 20px;">
-  <a class="selected" href="Login.jsp" style="float:right">Login</a>
-  <a href="registrazione.jsp" style="float:right">Registrazione</a>
-</div>
+	
+	<div id="menu">
+	<ul>
+		<li class="selected"><a href="home.jsp">Home</a></li>
+		<li> <a href="chisiamo.jsp">L'azienda</a></li>
+		<li> <a href="areaPers.jsp">Area Utente</a> </li>
+		<li> <a href="corsa.jsp">Le nostre corse</a> </li>
+		
+		<li class="dropdown4"><a href="#">Personalizza Viaggio</a>
+		
+ 			 <div class="dropdown4-content">
+   				 <a href="richiestaCorsa.jsp"> Richiesta Corsa </a>
+    				<a href="richiestaFermata.jsp"> Richiesta Fermata </a>
+  	<a href="richiestaTratta.jsp"> Richiesta Tratta </a>
+    		</div>
+		</li>
+		
+		<div id="lright" style="float:right">
+			<li><a href="logout.jsp">Logout</a></li>
+		</div>
+	</ul>
+	</div>
+	<div style="margin-top:80px;">
+
+
 </div>
 
-<div style="margin-top:80px;">
-
-
-</div>
 <%Cliente c=(Cliente)request.getSession().getAttribute("cliente"); %>
  <center>
 <div id="firstP">
