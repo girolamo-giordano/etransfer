@@ -18,10 +18,10 @@
 </div>
 
 <form>
-<div class="succText"> Eliminazione avvenuta con successo, verrai reindirizzato alla tua Pagina Personale</div>
+<div class="succText"> Eliminazione avvenuta con successo, verrai reindirizzato alla tua Homepage</div>
 <script>
   setTimeout(function() {
-      document.location = "areaPers.jsp";
+      document.location = "home.jsp";
   }, 2000);
 </script>
 </form>

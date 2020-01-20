@@ -139,6 +139,9 @@
 
 			<label class="rcolor" for="username">Nuova Password:</label>
 			<input type="password" id="username" name="indir" value="" placeholder="Inserire nuova password..." required> 
+			
+			<label class="rcolor" for="username">Conferma Password:</label>
+			<input type="password" id="username" name="indir" value="" placeholder="Ripeti password..." required> 
 		</div>
 		
 		</fieldset>
