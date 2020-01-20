@@ -69,6 +69,11 @@ public class ModificaPassword extends HttpServlet {
 				}
 				else
 				{
+					if(pass.equals(man.getPassword()))
+					{
+						response.sendError(408);
+						return;
+					}
 					man.setPassword(pass);
 					try {
 						managerdao.doUpdate(man);
@@ -80,6 +85,11 @@ public class ModificaPassword extends HttpServlet {
 			}
 			else
 			{
+				if(pass.equals(at.getPassword()))
+				{
+					response.sendError(408);
+					return;
+				}
 				at.setPassword(pass);
 				try {
 					autistadao.doUpdate(at);
@@ -91,6 +101,11 @@ public class ModificaPassword extends HttpServlet {
 		}
 		else
 		{
+			if(pass.equals(ur.getPassword()))
+			{
+				response.sendError(408);
+				return;
+			}
 			ur.setPassword(pass);
 			try {
 				model.doUpdate(ur);

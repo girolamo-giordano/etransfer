@@ -48,10 +48,16 @@ public class Registrazione extends HttpServlet {
 		String email=request.getParameter("email");
 		String utente=request.getParameter("username");
 		String password=request.getParameter("password");
+		String confermapassword=request.getParameter("confermapassword");
 		String numeroditelefono= request.getParameter("numerotelefono");
 		if(nome==null || cognome == null ||ind == null || citta==null || email==null || utente==null || password==null || numeroditelefono == null)
 		{
 			System.out.println(nome+" "+cognome+" "+ind+" "+ citta+" "+ email+ " "+ utente+" "+password+" "+numeroditelefono);
+			return;
+		}
+		if(password!=confermapassword)
+		{
+			response.sendError(405);
 			return;
 		}
 		Collection<Cliente> lir;

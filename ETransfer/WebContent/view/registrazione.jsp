@@ -8,6 +8,7 @@
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="registrazione.css" type="text/css">
 </head>
+<script src="jquery-3.js"></script>
 
 <body>
 <div id="logo"> 
@@ -33,7 +34,7 @@
 
 
 <div id="form">
-<form name="checkforname" method="post" action="../Registrazione">
+<form name="checkforname" method="post" action="../Registrazione" onsubmit="event.preventDefault();validate(this)">
 
 <fieldset>
 	
@@ -299,7 +300,57 @@ function myFunction() {
 	    x.type = "password";
 	  }
 	}
+	
+function validate(obj){
+	var valid=true;
+	var name=document.getElementsByName("name")[0];
+	if(!checkNamesurname(name)){
+		valid=false;
+		$("#name").addClass("error");
+		$("#errorna1").remove();
+		$("#name").after('<label id="errorna1" >Nome Utente Errato</label>');
+	}else{
+		$("#errorna1").remove();
+		$("#name").removeClass("error");
+	}
+	
+	var cutente=document.getElementsByName("username")[0];
+	if(!checkUtente(cutente))
+		{
+			valid=false;
+			$("#user").addClass("error");
+			$("#errorna2").remove();
+			$("#user").after('<label id="errorna2" >Utente Errato</label>');
+		}else{
+			$("#errorna2").remove();
+			$("#user").removeClass("error");
+		}
+	
+	var surname=document.getElementsByName("cognome")[0];
+	if(!checkNamesurname(surname)){
+		valid=false;
+		$("#cognome").addClass("error");
+		$("#errorna3").remove();
+		$("#cognome").after('<label id="errorna3" >Cognome Errato</label>');
+	}else{
+		$("#errorna3").remove();
+		$("#cognome").removeClass("error");
+	}
+	
+	var email=document.getElementsByName("email")[0];
+	if(!checkEmail(email)){
+		valid=false;
+		$("#email").addClass("error");
+		$("#errorna4").remove();
+		$("#email").after('<label id="errorna4" >Email Errata</label>');
+	}else{
+		$("#errorna4").remove();
+		$("#email").removeClass("error");
+	}
+	if(valid)obj.submit();
+}
 
 </script>
+<script src="javascriptcode.js"></script>
 </body>
 </html>

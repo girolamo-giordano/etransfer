@@ -131,7 +131,7 @@
 <h2> Cambio Email</h2>
 
 
-<form name="mailform" action="../ModificaEmail" method="post">
+<form name="mailform" action="../ModificaEmail" method="post" onsubmit="event.preventDefault();validate(this)">
 
 <div>
 	
@@ -150,8 +150,24 @@
 	</form>
 </div>
 </center>
+<script type="text/javascript">
+function validate(obj){
+	var valid=true;
+	var email=document.getElementsByName("indir")[0];
+	if(!checkEmail(email)){
+		valid=false;
+		$("#email").addClass("error");
+		$("#errorna4").remove();
+		$("#email").after('<label id="errorna4" >Email Errata</label>');
+	}else{
+		$("#errorna4").remove();
+		$("#email").removeClass("error");
+	}
+	if(valid)obj.submit();
+}
+</script>
 
-
-
+<script src="javascriptcode.js"></script>
+<script src="jquery-3.js"></script>
 </body>
 </html>
