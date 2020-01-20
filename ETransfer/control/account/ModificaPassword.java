@@ -53,7 +53,13 @@ public class ModificaPassword extends HttpServlet {
 		at=(Autista)request.getSession().getAttribute("autista");
 		man=(Manager)request.getSession().getAttribute("manager");
 		String pass=request.getParameter("indir");
+		String cpass=request.getParameter("cpass");
 		if(pass==null)
+		{
+			response.sendError(406);
+			return;
+		}
+		if (!pass.equals(cpass))
 		{
 			response.sendError(406);
 			return;

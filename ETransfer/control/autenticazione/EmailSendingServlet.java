@@ -1,7 +1,8 @@
 package autenticazione;
 
 import java.io.IOException;
- 
+import java.util.Collection;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ClienteDAO;
+import utenti.Cliente;
 import utils.EmailUtility;
  
 /**
@@ -20,6 +23,7 @@ import utils.EmailUtility;
  */
 @WebServlet("/EmailSendingServlet")
 public class EmailSendingServlet extends HttpServlet {
+	static ClienteDAO clientedao= new ClienteDAO();
     private String host;
     private String port;
     private String user;
@@ -40,13 +44,26 @@ public class EmailSendingServlet extends HttpServlet {
         String recipient = request.getParameter("recipient");
         String subject = request.getParameter("subject");
         String content = request.getParameter("content");
+        boolean find=false;
  
         String resultMessage = "";
  
         try {
-            EmailUtility.sendEmail(host, port, user, pass, recipient, subject,
-                    content);
-            resultMessage = "The e-mail was sent successfully";
+        	Collection<Cliente>clienti= clientedao.doRetrieveAll();
+        	for(Cliente c:clienti)
+        	{
+        		if(c.getEmail().equals(recipient))
+        		{
+        			find=true;
+        			content="Caro "+c.getNome()+" ecco le sue credenziali che ha richiesto\n Username:"+c.getUsername()+"\n Password:"+c.getPassword();
+        		}
+        	}
+        	System.out.println("Content:"+content+" Subject:"+subject);
+        	if(find)
+        	{
+	            EmailUtility.sendEmail(host, port, user, pass, recipient, subject,content);
+	            resultMessage = "The e-mail was sent successfully";
+        	}
         } catch (Exception ex) {
             ex.printStackTrace();
             resultMessage = "There were an error: " + ex.getMessage();
