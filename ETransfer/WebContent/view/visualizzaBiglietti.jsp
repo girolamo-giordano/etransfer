@@ -115,7 +115,7 @@
 				<td><%=t.getAcquistodata()%></td>
 				<td><%=t.getCorsa().getDatapart()%></td>
 				<td><%=t.getCliente().getNome()%> <%=t.getCliente().getCognome() %></td>
-				<td><%=t.getCorsa().getCosto() %> </td>
+				<td><%=t.getCorsa().getCosto() %> &#8364 </td>
 	</tr>
 
 	
