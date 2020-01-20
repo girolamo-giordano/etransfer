@@ -132,44 +132,43 @@
 	
 	
 	<table>
- 
-  <tr>
-    <td>Quantita</td>
-    <td>Data acquisto</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td> <%=b.getQuantita() %></td>
-    <td><%=b.getAcquistodata() %></td>
-    <td></td>
-    <td></td>
-    
-  </tr>
-  <tr>
+	
+	 <tr>
+	  <td>Partenza</td>
+    <td>Arrivo</td>
     <td>Data</td>
     <td>Orario</td>
-    <td>Partenza</td>
-    <td>Arrivo</td>
+    <td>Duarata Viaggio</td>
+   
   </tr>
   <tr>
+  <td><%=b.getCorsa().getTratta().getPartenza() %></td>
+     <td><%=b.getCorsa().getTratta().getArrivo() %></td>
     <td><%=b.getCorsa().getDatapart() %></td>
     <td><%=b.getCorsa().getOrapart() %></td>
-    <td><%=b.getCorsa().getTratta().getPartenza() %></td>
-     <td><%=b.getCorsa().getTratta().getArrivo() %></td>
-  </tr>
-  <tr>
-    <td>Nome e cognome</td>
-    <td>Duarata Viaggio</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><%=b.getCliente().getNome() %> <%=b.getCliente().getCognome()%></td>
-    <td><%=b.getCorsa().getDurata() %></td>
-    <td></td>
+      <td><%=b.getCorsa().getDurata() %></td>
     
-    <td><%=b.getCorsa().getCosto() %></td>
   </tr>
+ 
+  <tr>
+  <td>Nome e cognome</td>
+    <td>Quantita</td>
+    <td>Data acquisto</td>
+    
+    <td> </td>
+    <td> Prezzo </td>
+  </tr>
+  <tr>
+  <td><%=b.getCliente().getNome() %> <%=b.getCliente().getCognome()%></td>
+    <td> <%=b.getQuantita() %></td>
+    <td><%=b.getAcquistodata() %></td>
+    
+    <td> </td>
+    <td><%=b.getCorsa().getCosto() %></td>
+    
+  </tr>
+ 
+  
 </table>
 <%	}
 	%>	<div style="

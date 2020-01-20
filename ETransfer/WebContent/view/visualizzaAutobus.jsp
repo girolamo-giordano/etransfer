@@ -161,7 +161,7 @@
 		immatricolazione
 		</th>
 		<th>
-		chilometri
+		kilometri
 		</th>
 		<th>
 		autista

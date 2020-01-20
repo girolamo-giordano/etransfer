@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Acquisto avvenuto con successo</title>
+<title> Credenziali non valide</title>
+
 <link rel="icon" href="foto/favicon.ico">
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="success.css" type="text/css">
@@ -18,10 +19,10 @@
 </div>
 
 <form>
-<div class="succText"> Acquisto avvenuto con successo, verrai reindirizzato alla tua Homepage</div>
+<div class="succText"> Credenziali non disponibili, riprovare con nuovi dati</div>
 <script>
   setTimeout(function() {
-      document.location = "home.jsp";
+      document.location = "areaPers.jsp";
   }, 2000);
 </script>
 </form>

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Logout avvenuto con successo</title>
+<title> Username Utilizzata</title>
+
 <link rel="icon" href="foto/favicon.ico">
 <LINK rel= "stylesheet" href="home.css" type="text/css">
 <LINK rel= "stylesheet" href="success.css" type="text/css">
@@ -18,10 +19,10 @@
 </div>
 
 <form>
-<div class="succText"> Logout avvenuto con successo, verrai reindirizzato alla Homepage</div>
+<div class="succText"> Username già utilizzata</div>
 <script>
   setTimeout(function() {
-      document.location = "home.jsp";
+      document.location = "registrazione.jsp";
   }, 2000);
 </script>
 </form>
