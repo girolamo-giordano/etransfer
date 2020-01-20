@@ -77,11 +77,13 @@
 		<div id="mostra"> <input type="checkbox" onclick="myFunction()"> Mostra Password </div>
 		
 		<div id="button">
-		<input type="radio" id="radiobutton" name="sceltaP" value="Admin" checked="checked"> 
-		<label class="rcolor" for="radio"> Admin </label>
+		
 
-		<input type="radio" id="radiobutton" name="sceltaP" value="Utente">
-		<label class="rcolor" for="radio"> Utente </label>
+		<input type="radio" id="radiobutton" name="sceltaP" value="Utente" checked="checked">
+		<label class="rcolor" for="radio"> Cliente </label>
+		
+		<input type="radio" id="radiobutton" name="sceltaP" value="Admin" > 
+		<label class="rcolor" for="radio"> Manager </label>
 		
 		<input type="radio" id="radiobutton" name="sceltaP" value="Autista">
 		<label class="rcolor" for="radio"> Autista </label>

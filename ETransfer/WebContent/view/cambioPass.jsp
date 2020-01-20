@@ -10,7 +10,7 @@
 <title>Modifica Indirizzo</title>
 
 <LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="cambia.css" type="text/css">
+<LINK rel= "stylesheet" href="login.css" type="text/css">
 
 </head>
 <body>
@@ -126,20 +126,27 @@
 </div>
 
  <center>
-<div id="firstP">
-
-<h2> Cambia Password</h2>
-
-<form name="passform" action="../ModificaPassword" method="post">
 
 
-<div>
+
+<div id="form">
+<form name="passform" action="../ModificaPassword" method="post" style="margin-left:-1500px">
+<fieldset>
+<h2 style="
+    text-transform: uppercase;
+    color: #F8F8FA;
+"> Cambia Password</h2>
+<fieldset id="primoF">
+
+
 	
 		<div class="tableRow">
 
 			<label class="rcolor" for="username">Nuova Password:</label>
 			<input type="password" id="username" name="indir" value="" placeholder="Inserire nuova password..." required> 
-			
+		</div>
+		
+		<div class="tableRow">
 			<label class="rcolor" for="username">Conferma Password:</label>
 			<input type="password" id="username" name="cpass" value="" placeholder="Ripeti password..." required> 
 		</div>
@@ -150,8 +157,10 @@
 			<input class="submit" type="submit" value="Cambia">
 			<input class ="reset" type="reset">
 		</div>
+		</fieldset>
 		
-	</form>
+		
+</form>
 </div>
 </center>
 
