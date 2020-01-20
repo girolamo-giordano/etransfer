@@ -37,6 +37,7 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
    				 <a href="corsa.jsp"> Le nostre Corse </a>
     			<a href="visualizzaAutisti.jsp"> I nostri autisti </a>
   				<a href="visualizzaAutobus.jsp">I nostri bus </a>
+  				<a href="visualizzaBiglietti.jsp">Biglietti venduti </a>
     		</div>
 		</li>
 		
@@ -66,6 +67,11 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
 		</div>
 	</ul>
 	</div>
+	
+	<div style="margin-top:80px;">
+
+
+</div>
   	
   	
 <h2><center>Visualizza Richieste corse</center></h2>

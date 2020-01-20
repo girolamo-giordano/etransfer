@@ -87,7 +87,7 @@ public class Login extends HttpServlet {
 								request.getSession().setAttribute("cliente",cliente);
 								//RequestDispatcher dd= request.getRequestDispatcher("http://localhost:8080/Etransferr/view/home.jsp");
 								//dd.forward(request, response);
-								response.sendRedirect("view/home.jsp");
+								response.sendRedirect("view/logiSucc.jsp");
 							
 								
 							}
@@ -123,7 +123,7 @@ public class Login extends HttpServlet {
 								logged=true;
 								request.getSession().setAttribute("manager",ar);
 								System.out.println("manager loggato");
-								response.sendRedirect("view/home.jsp");
+								response.sendRedirect("view/logiSucc.jsp");
 							}
 			}
 			if(!logged)
@@ -156,7 +156,7 @@ public class Login extends HttpServlet {
 								logged=true;
 								request.getSession().setAttribute("autista",ar);
 								System.out.println("autista loggato");
-								response.sendRedirect("view/home.jsp");
+								response.sendRedirect("view/logiSucc.jsp");
 							}
 			}
 			if(!logged)

@@ -77,7 +77,7 @@ public class AggiungiCorsa extends HttpServlet {
 		
 		try {
 			corsadao.doSave(corsa);
-			response.sendRedirect("view/home.jsp");
+			response.sendRedirect("view/aggiunta.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

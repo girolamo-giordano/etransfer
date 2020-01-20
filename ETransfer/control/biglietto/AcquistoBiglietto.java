@@ -96,7 +96,7 @@ public class AcquistoBiglietto extends HttpServlet {
 			return;
 		}
 		
-		response.sendRedirect("view/home.jsp");
+		response.sendRedirect("view/acquisto.jsp");
 	}
 
 }

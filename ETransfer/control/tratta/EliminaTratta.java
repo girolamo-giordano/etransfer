@@ -41,7 +41,7 @@ public class EliminaTratta extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect("visualizzaTratte.jsp");
+		response.sendRedirect("eliminazione.jsp");
 	}
 
 	/**

@@ -100,7 +100,7 @@ public class ModificaPassword extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		response.sendRedirect("view/home.jsp");
+		response.sendRedirect("view/change.jsp");
 	}
 
 }

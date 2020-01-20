@@ -36,6 +36,7 @@
    				 <a href="corsa.jsp"> Le nostre Corse </a>
     			<a href="visualizzaAutisti.jsp"> I nostri autisti </a>
   				<a href="visualizzaAutobus.jsp">I nostri bus </a>
+  				<a href="visualizzaBiglietti.jsp">Biglietti venduti </a>
     		</div>
 		</li>
 		
@@ -66,6 +67,10 @@
 	</ul>
 	</div>
   	
+  	<div style="margin-top:80px;">
+
+
+</div>
   	
 <h2><center>Visualizza Richieste Tratte</center></h2>
 <div id="firstP">
