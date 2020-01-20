@@ -88,7 +88,7 @@ autistalist=autistadao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="numeroPosti">Numero Posti:</label>
-			<input type="number" id="numeroPosti" name="numeroPosti" value="" min="10" max="130" placeholder="Inserire Numero Posti.." required style="
+			<input type="number" id="numeroPosti" name="numeroPosti" value="" min="10" max="200" placeholder="Inserire Numero Posti.." required style="
     width: 192px;
 "> 
 		</div>
@@ -102,7 +102,7 @@ autistalist=autistadao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="km">Chilometri:</label>
-			<input type="number" id="km" name="km" value="" placeholder="Inserire kilometri..." min="0" required >
+			<input type="number" id="km" name="km" value="" placeholder="Inserire kilometri..." min="0" max="2000000" required >
 		</div>
 		
 		<div class="tableRow">

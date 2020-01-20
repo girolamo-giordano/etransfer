@@ -79,7 +79,7 @@ autobus=busdao.doRetrieveAll();
 
 %>
 
-<form name="loginform" action="../AggiungiCorsa" method="post"> 
+<form name="loginform" action="../AggiungiCorsa" method="post" onsubmit=" event.preventDefault();myFunction(this)"> 
 
 	<fieldset>
 	
@@ -106,12 +106,12 @@ autobus=busdao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Durata:</label>
-			<input type="number" id="durata" name="durata" value="" min="0" placeholder="Inserire durata.." required >
+			<input type="number" id="durata" name="durata" value="" min="1" max="999" placeholder="Inserire durata.." required >
 		</div>
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Costo:</label>
-			<input type="number" id="durata" name="costo" value="" min="0" placeholder="Inserire costo.." required >
+			<input type="number" id="durata" name="costo" value="" min="1" max="999" placeholder="Inserire costo.." required >
 		</div>
 		
 		<div class="tableRow">
@@ -157,7 +157,34 @@ autobus=busdao.doRetrieveAll();
       All trademarks and registered trademarks appearing on 
       this site are the property of their respective owners.
 </div>
+<script>
+function myFunction(obj) {
+	var valid=true;
+	var numtelefono=document.getElementsByName("data")[0];
+	var phoneno=/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+	if(!(numtelefono.value.match(phoneno)))
+		{
+			valid=false;
+			alert("data non valida");
+			
 
+		}
+	
+	var ora=document.getElementsByName("ora")[0];
+	var regora=/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+	if(!(ora.value.match(regora)))
+		{
+			valid=false;
+			alert("ora non valida");
+		}
+	if(valid)obj.submit();
+}
+
+</script>
+
+
+<script src="javascriptcode.js"></script>
+<script src="jquery-3.js"></script>
 
 
 

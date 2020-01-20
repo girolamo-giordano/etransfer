@@ -2,6 +2,7 @@ package account;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,15 +51,26 @@ public class ModificaEmail extends HttpServlet {
 			response.sendError(406);
 			return;
 		}
+		
 		if(ur==null)
 		{
 			response.sendError(407);
 			return;
 		}
+		
 		else
 		{
-			ur.setEmail(email);
+			
 			try {
+				Collection<Cliente> clienti=model.doRetrieveAll();
+				for(Cliente c:clienti)
+				{
+					if(c.getEmail().equals(email))
+					{
+						response.sendError(406);
+					}
+				}
+				ur.setEmail(email);
 				model.doUpdate(ur);
 				response.sendRedirect("view/change.jsp");
 			} catch (SQLException e) {

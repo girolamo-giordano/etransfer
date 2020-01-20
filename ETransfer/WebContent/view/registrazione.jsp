@@ -347,6 +347,26 @@ function validate(obj){
 		$("#errorna4").remove();
 		$("#email").removeClass("error");
 	}
+	var password=document.getElementsByName("password")[0];
+	var confermapassword=document.getElementsByName("confermaPassword")[0];
+	if(password.value!=confermapassword.value)
+		{
+			valid=false;
+			alert("le due password non coincidono");
+			alert(password.value);
+			alert(confermapassword.value);
+		}
+	var numtelefono=document.getElementsByName("numerotelefono")[0];
+	var phoneno=/^([0-9]{10})$/;
+	if(!(numtelefono.value.match(phoneno)))
+		{
+			valid=false;
+			alert("numero di telefono non valido");
+
+		}
+	
+
+	
 	if(valid)obj.submit();
 }
 

@@ -123,15 +123,15 @@ Collection<Autobus> autobus= autobusdao.doRetrieveAll();
 		<td><%=t.getTratta().getArrivo()%></td>
 		<td><%=t.getDatapart()%></td>
 		<td><%=t.getOrapart()%></td>
-		<td><select name="idbus" id="idbus">
+		<td><select name="idbus" id="idbus" required>
 		<option value="" selected> Seleziona autobus </option>
 				<% for(Autobus a:autobus){
 					%>
 					<option value="<%=a.getId()%>"><%=a.getModello()%> - <%=a.getAutista().getCognome() %> </option>
 				<%} %>
 		</select></td>
-		<td><input type="text" name="durata" id="durata"></td>
-		<td><input type="text" name="costo" id="costo"></td>
+		<td><input type="number" min="1" max="999" name="durata" id="durata" required></td>
+		<td><input type="number" min="1" max="999" name="costo" id="costo" required></td>
 		<td><button onclick="see('<%=t.getId()%>')"> Aggiungi corsa</button>
 		<a href="../EliminaRichiestaCorsa?idrichco=<%=t.getId()%>">Elimina corsa</a>
 		</td>
@@ -147,9 +147,19 @@ function see(k)
 	var r= document.getElementById("idbus").value;
 	var j= document.getElementById("durata").value;
 	var a= document.getElementById("costo").value;
-
+	if(r=="" || j== "" || a== "")
+		{
+			alert("Riempire tutti i campi");
+		}
+	else if(j<1 || a <1)
+		{
+			alert("Valori non validi");
+		}
+	else
+		{
 	var x="../ConfermaRichiestaCorsa?idbus="+r+"&durata="+j+"&idrcor="+k+"&costo="+a;
 	window.location.href=x;
+		}
 }
 
 </script>
