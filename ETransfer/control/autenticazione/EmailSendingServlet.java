@@ -52,6 +52,7 @@ public class EmailSendingServlet extends HttpServlet {
         	Collection<Cliente>clienti= clientedao.doRetrieveAll();
         	for(Cliente c:clienti)
         	{
+        		System.out.println("emaill:"+c.getEmail());
         		if(c.getEmail().equals(recipient))
         		{
         			find=true;

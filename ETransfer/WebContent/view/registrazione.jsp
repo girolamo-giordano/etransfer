@@ -273,7 +273,7 @@
 			<input type="password" id="password" name="password" placeholder="Inserire password.." required>
 		</div>
 		
-		<div id="mostra"> <input type="checkbox" onclick="myFunction()"> Mostra Password </div>
+		
 			
 		</fieldset>
 		
@@ -308,7 +308,7 @@ function validate(obj){
 		valid=false;
 		$("#name").addClass("error");
 		$("#errorna1").remove();
-		$("#name").after('<label id="errorna1" >Nome Utente Errato</label>');
+		
 	}else{
 		$("#errorna1").remove();
 		$("#name").removeClass("error");
@@ -320,7 +320,7 @@ function validate(obj){
 			valid=false;
 			$("#user").addClass("error");
 			$("#errorna2").remove();
-			$("#user").after('<label id="errorna2" >Utente Errato</label>');
+			
 		}else{
 			$("#errorna2").remove();
 			$("#user").removeClass("error");
@@ -331,7 +331,7 @@ function validate(obj){
 		valid=false;
 		$("#cognome").addClass("error");
 		$("#errorna3").remove();
-		$("#cognome").after('<label id="errorna3" >Cognome Errato</label>');
+		
 	}else{
 		$("#errorna3").remove();
 		$("#cognome").removeClass("error");
@@ -353,8 +353,7 @@ function validate(obj){
 		{
 			valid=false;
 			alert("le due password non coincidono");
-			alert(password.value);
-			alert(confermapassword.value);
+			
 		}
 	var numtelefono=document.getElementsByName("numerotelefono")[0];
 	var phoneno=/^([0-9]{10})$/;

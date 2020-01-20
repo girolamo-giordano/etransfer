@@ -106,12 +106,16 @@ autobus=busdao.doRetrieveAll();
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Durata:</label>
-			<input type="number" id="durata" name="durata" value="" min="1" max="999" placeholder="Inserire durata.." required >
+			<input type="number" id="durata" name="durata" value="" min="1" max="999" placeholder="Inserire durata.." required style="
+    width: 193px;
+" >
 		</div>
 		
 		<div class="tableRow">
 			<label class="rcolor" for="durata">Costo:</label>
-			<input type="number" id="durata" name="costo" value="" min="1" max="999" placeholder="Inserire costo.." required >
+			<input type="number" id="durata" name="costo" value="" min="1" max="999" placeholder="Inserire costo.." required style="
+    width: 193px;
+" >
 		</div>
 		
 		<div class="tableRow">
