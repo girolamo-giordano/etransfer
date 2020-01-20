@@ -63,7 +63,7 @@ function checkUtente(inputtxt)
 	}
 	
 	function checkPhonenumber(inputtxt){
-		var phoneno=/^([0-9]{3}-[0-9]{7})$/;
+		var phoneno=/^([0-9]{10})$/;
 		if(inputtxt.value.match(phoneno))
 		return true;
 		

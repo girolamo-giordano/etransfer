@@ -2,6 +2,7 @@ package utenti;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,6 +50,15 @@ public class AggiungiAutista extends HttpServlet {
 		autista.setUsername(username);
 		autista.setPassword(password);
 		try {
+			Collection<Autista> autisti=autistadao.doRetrieveAll();
+			for(Autista a:autisti)
+			{
+				if(a.getUsername().equals(username))
+				{
+					response.sendError(408);
+					return;
+				}
+			}
 			autistadao.doSave(autista);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

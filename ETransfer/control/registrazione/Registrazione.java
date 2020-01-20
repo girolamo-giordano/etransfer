@@ -72,6 +72,11 @@ public class Registrazione extends HttpServlet {
 						response.sendError(410);
 						return;
 					}
+					if(ao.getEmail().equals(email))
+					{
+						response.sendError(410);
+						return;
+					}
 				}
 			}
 		} catch (SQLException e1) {
