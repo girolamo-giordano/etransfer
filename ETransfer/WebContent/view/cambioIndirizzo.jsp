@@ -56,7 +56,7 @@
 	
 		<div class="tableRow">
 			<label class="rcolor" for="username">Nuovo indirizzo:</label>
-			<input type="text" id="username" name="indir" value="" placeholder="Inserire nuovo indirizzo..." required> 
+			<input type="text"  id="username" name="indir" value="" placeholder="Inserire nuovo indirizzo..." required> 
 		</div>
 		
 		</fieldset>

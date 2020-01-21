@@ -47,6 +47,11 @@ public class AggiungiAutobus extends HttpServlet {
 		int anno=Integer.parseInt(request.getParameter("anno"));
 		int km=Integer.parseInt(request.getParameter("km"));
 		int idautobus=Integer.parseInt(request.getParameter("autista"));
+		if(numeroposti<0|| numeroposti>999 || anno<1990 || anno>2020 || km<0 || km>999999999 || modello.length()<3 || modello.length() >20 )
+		{
+			response.sendError(406);
+			return;
+		}
 		Autobus bus= new Autobus();
 		
 		try {

@@ -46,6 +46,12 @@ public class AggiungiFermata extends HttpServlet {
 		String nome=request.getParameter("nome");
 		String idcorsa=request.getParameter("corsa");
 		Fermata fermata= new Fermata();
+		if(nome.length()<3)
+		{
+			response.sendError(406);
+			return;
+			
+		}
 		fermata.setNomefermata(nome);
 		try {
 			fermata.setCorsa(corsadao.doRetrieveByKey(Integer.parseInt(idcorsa)));

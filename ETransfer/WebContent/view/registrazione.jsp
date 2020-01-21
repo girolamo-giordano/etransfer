@@ -327,11 +327,10 @@ function validate(obj){
 		}
 	
 	var surname=document.getElementsByName("cognome")[0];
-	if(!checkNamesurname(surname)){
-		valid=false;
-		$("#cognome").addClass("error");
-		$("#errorna3").remove();
-		$("#cognome").after('<label id="errorna3" >Cognome Errato</label>');
+	var checksur=/^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$/;
+		if(!surname.value.match(checksur)){
+			valid=false;
+			alert("cognome errato");
 	}else{
 		$("#errorna3").remove();
 		$("#cognome").removeClass("error");

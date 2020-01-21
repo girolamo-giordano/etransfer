@@ -44,6 +44,11 @@ public class AggiungiAutista extends HttpServlet {
 		String cognome=request.getParameter("cognome");
 		String username=request.getParameter("username");
 		String password=request.getParameter("pass");
+		if(nome.length()<3 || nome.length()>25 || cognome.length()<3 || cognome.length()>25 || username.length()<3 || username.length()>25 || password.length()<3 || password.length()>25)
+		{
+			response.sendError(406);
+			return;
+		}
 		Autista autista= new Autista();
 		autista.setNome(nome);
 		autista.setCognome(cognome);

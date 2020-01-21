@@ -14,7 +14,7 @@ public class Cliente {
 	private String username;
 	private String password;
 	private String email;
-	private int numerotel;
+	private String numerotel;
 	private String indirizzo;
 	private String citta;
 	private int id;
@@ -36,7 +36,7 @@ public class Cliente {
 	 * @param indirizzo
 	 * @param citta
 	 */
-	public Cliente(String nome, String cognome, String username, String password, String email, int numerotel,
+	public Cliente(String nome, String cognome, String username, String password, String email, String numerotel,
 			String indirizzo, String citta) {
 		this.nome = nome;
 		this.cognome = cognome;
@@ -115,13 +115,13 @@ public class Cliente {
 	/**
 	 * @return the numerotel
 	 */
-	public int getNumerotel() {
+	public String getNumerotel() {
 		return numerotel;
 	}
 	/**
 	 * @param numerotel the numerotel to set
 	 */
-	public void setNumerotel(int numerotel) {
+	public void setNumerotel(String numerotel) {
 		this.numerotel = numerotel;
 	}
 	/**
@@ -170,20 +170,7 @@ public class Cliente {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((citta == null) ? 0 : citta.hashCode());
-		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((indirizzo == null) ? 0 : indirizzo.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + numerotel;
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
-		return result;
-	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */

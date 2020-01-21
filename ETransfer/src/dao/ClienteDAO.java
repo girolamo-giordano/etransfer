@@ -45,7 +45,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 				cliente.setEmail(rs.getString("email"));
 				cliente.setIndirizzo(rs.getString("indirizzo"));
 				cliente.setCitta(rs.getString("citta"));
-				cliente.setNumerotel(rs.getInt("numerotelefono"));
+				cliente.setNumerotel(rs.getString("numerotelefono"));
 			
 			}	
 		} finally {
@@ -89,7 +89,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 				man.setIndirizzo(rs.getString("indirizzo"));
 				man.setEmail(rs.getString("email"));
 				man.setCitta(rs.getString("citta"));
-				man.setNumerotel(rs.getInt("numerotelefono"));
+				man.setNumerotel(rs.getString("numerotelefono"));
 				//Aggiungo il bean che ho appena creato alla Collezione
 				clienti.add(man);
 			}	
@@ -132,7 +132,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 			preparedStatement.setString(3, cliente.getUsername());
 			preparedStatement.setString(4, cliente.getPassword());
 			preparedStatement.setString(5, cliente.getEmail());
-			preparedStatement.setInt(6, cliente.getNumerotel());
+			preparedStatement.setString(6, cliente.getNumerotel());
 			preparedStatement.setString(7, cliente.getIndirizzo());
 			preparedStatement.setString(8, cliente.getCitta());
 			
@@ -172,7 +172,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 				preparedStatement.setString(3,cliente.getUsername());
 				preparedStatement.setString(4,cliente.getPassword());
 				preparedStatement.setString(5,cliente.getEmail());
-				preparedStatement.setInt(6,cliente.getNumerotel());
+				preparedStatement.setString(6,cliente.getNumerotel());
 				preparedStatement.setString(7,cliente.getIndirizzo());
 				preparedStatement.setString(8,cliente.getCitta());
 				preparedStatement.setString(9,cliente.getUsername());

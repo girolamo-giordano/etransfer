@@ -88,7 +88,7 @@
 		
 		<div class="tableRow">
 			<label class="rcolor" for="email">Telefono</label>
-			<input type="number" id="telefono" name="numerotelefono" value= <%=c.getNumerotel()%> readonly>
+			<input type="text" id="telefono" name="numerotelefono" value= <%=c.getNumerotel()%> readonly>
 		</div>
 		
 		

@@ -55,6 +55,11 @@ public class Registrazione extends HttpServlet {
 			System.out.println(nome+" "+cognome+" "+ind+" "+ citta+" "+ email+ " "+ utente+" "+password+" "+numeroditelefono);
 			return;
 		}
+		if(nome.length()<3 || nome.length()>25 ||cognome.length()<3 || cognome.length()>25 ||utente.length()<3 || utente.length()>25 ||password.length()<3 || password.length()>25 ||ind.length()<3 || ind.length()>25)
+		{
+			response.sendError(406);
+			return;
+		}
 		if(!password.equals(confermapassword))
 		{
 			System.out.println("Password:"+password+" Conferma pass:"+confermapassword);
@@ -93,7 +98,7 @@ public class Registrazione extends HttpServlet {
 		ur.setEmail(email);
 		ur.setUsername(utente);
 		ur.setPassword(password);
-		ur.setNumerotel(Integer.parseInt(numeroditelefono));
+		ur.setNumerotel(numeroditelefono);
 		try {
 			clientedao.doSave(ur);
 			response.sendRedirect("view/regiSuccess.jsp");
