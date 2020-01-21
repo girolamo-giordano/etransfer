@@ -63,7 +63,7 @@ public class Registrazione extends HttpServlet {
 		if(!password.equals(confermapassword))
 		{
 			System.out.println("Password:"+password+" Conferma pass:"+confermapassword);
-			response.sendError(405);
+			response.sendError(406);
 			return;
 		}
 		Collection<Cliente> lir;

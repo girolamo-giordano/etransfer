@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title> Credenziali non valide</title>
+<title> Sessione scaduta</title>
 
 <link rel="icon" href="foto/favicon.ico">
 <LINK rel= "stylesheet" href="view/home.css" type="text/css">
@@ -19,10 +19,10 @@
 </div>
 
 <form>
-<div class="succText"> Credenziali non disponibili, riprovare con nuovi dati</div>
+<div class="succText"> Sessione scaduta</div>
 <script>
   setTimeout(function() {
-      document.location = "view/areaPers.jsp";
+      document.location = "view/login.jsp";
   }, 2000);
 </script>
 </form>
