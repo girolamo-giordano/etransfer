@@ -44,7 +44,7 @@ public class ModificaIndirizzo extends HttpServlet {
 		Cliente ur=new Cliente();
 		ur=(Cliente)request.getSession(false).getAttribute("cliente");
 		String indirizzo=request.getParameter("indir");
-		if(indirizzo==null)
+		if(indirizzo==null || indirizzo.length() < 3 || indirizzo.length() > 25)
 		{
 			response.sendError(406);
 			return;

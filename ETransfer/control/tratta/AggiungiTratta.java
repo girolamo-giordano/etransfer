@@ -42,6 +42,11 @@ public class AggiungiTratta extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String partenza=request.getParameter("partenza");
 		String arrivo=request.getParameter("arrivo");
+		if(partenza.length()<3|| partenza.length()>25 || arrivo.length()<3 || partenza.length()>25 )
+		{
+			response.sendError(406);
+			return;
+		}
 		Tratta tratta= new Tratta();
 		tratta.setPartenza(partenza);
 		tratta.setArrivo(arrivo);

@@ -46,6 +46,11 @@ public class AggiungiRichiestaCorsa extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String data= request.getParameter("data");
 		String ora= request.getParameter("ora");
+		if(data.length()!= 10 || ora.length()!=5)
+		{
+			response.sendError(406);
+			return;
+		}
 		int trattaid=Integer.parseInt(request.getParameter("idtratta"));
 		Richiestacorsa richiestacorsa=new Richiestacorsa();
 		try {

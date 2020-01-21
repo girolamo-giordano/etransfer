@@ -41,7 +41,7 @@ function checkNumber(inputtxt)
 
 function checkNamesurname(inputtxt)
 {
-	var name=/^[A-Za-z]+$/;
+	var name=/^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$/;
 	if(inputtxt.value.match(name))
 		return true;
 	return false;

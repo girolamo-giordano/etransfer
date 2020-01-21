@@ -46,7 +46,7 @@ public class ModificaEmail extends HttpServlet {
 		
 		
 		String email=request.getParameter("indir");
-		if(email==null)
+		if(email==null || email.length()<3)
 		{
 			response.sendError(406);
 			return;
