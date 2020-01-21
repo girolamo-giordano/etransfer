@@ -306,8 +306,7 @@ function validate(obj){
 	var name=document.getElementsByName("name")[0];
 	if(!checkNamesurname(name)){
 		valid=false;
-		$("#name").addClass("error");
-		$("#errorna1").remove();
+		alert("Nome non valido");
 		
 	}else{
 		$("#errorna1").remove();
@@ -318,8 +317,7 @@ function validate(obj){
 	if(!checkUtente(cutente))
 		{
 			valid=false;
-			$("#user").addClass("error");
-			$("#errorna2").remove();
+			alert("Username non valido");
 			
 		}else{
 			$("#errorna2").remove();
@@ -339,9 +337,7 @@ function validate(obj){
 	var email=document.getElementsByName("email")[0];
 	if(!checkEmail(email)){
 		valid=false;
-		$("#email").addClass("error");
-		$("#errorna4").remove();
-		$("#email").after('<label id="errorna4" >Email Errata</label>');
+		alert("email non valida");
 	}else{
 		$("#errorna4").remove();
 		$("#email").removeClass("error");

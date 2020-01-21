@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title> Credenziali non valide</title>
+<title> Parametri non validi</title>
 
 <link rel="icon" href="foto/favicon.ico">
 <LINK rel= "stylesheet" href="view/home.css" type="text/css">
@@ -19,10 +19,10 @@
 </div>
 
 <form>
-<div class="succText"> Credenziali non disponibili, riprovare con nuovi dati</div>
+<div class="succText"> Parametri non validi</div>
 <script>
   setTimeout(function() {
-      document.location = "view/areaPers.jsp";
+      document.location = "view/home.jsp";
   }, 2000);
 </script>
 </form>

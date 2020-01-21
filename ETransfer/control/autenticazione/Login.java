@@ -95,7 +95,7 @@ public class Login extends HttpServlet {
 				}
 				if(!logged)
 				{
-					response.sendError(406);
+					response.sendError(408);
 					return;
 				}
 		}
@@ -128,7 +128,7 @@ public class Login extends HttpServlet {
 			}
 			if(!logged)
 			{
-				response.sendError(406);
+				response.sendError(408);
 				return;
 			}
 		}
@@ -161,7 +161,7 @@ public class Login extends HttpServlet {
 			}
 			if(!logged)
 			{
-				response.sendError(406);
+				response.sendError(408);
 				return;
 			}
 		}

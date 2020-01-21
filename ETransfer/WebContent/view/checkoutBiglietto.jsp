@@ -51,7 +51,7 @@ Cliente cliente= (Cliente)request.getSession().getAttribute("cliente");
 
 </div>
 
-<form method="post" action="AcquistoBiglietto">
+<form method="post" action="AcquistoBiglietto" onsubmit="event.preventDefault();validate(this)">
 <center><h2 style="color:#F8F8FA"> DATI CARTA DI CREDITO</h2> </center>
 
 <fieldset id="primoF" id="form" >
@@ -63,17 +63,17 @@ Cliente cliente= (Cliente)request.getSession().getAttribute("cliente");
 					
 					<div class="tableRow">
 						<label class="rcolor" for="username">Numero Carta:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire Numero Carta.."  required> 
+						<input type="text" id="username" name="numc" value="" placeholder="Inserire Numero Carta.."  required> 
 					</div>
 					
 					<div class="tableRow">
 						<label class="rcolor" for="username">Scadenza:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire Scadenza.."  required> 
+						<input type="text" id="username" name="scad" value="" placeholder="Inserire Scadenza.."  required> 
 					</div>
 					
 					<div class="tableRow">
 						<label class="rcolor" for="username">CVV:</label>
-						<input type="text" id="username" name="username" value="" placeholder="Inserire CVV.." required> 
+						<input type="text" id="username" name="cvv" value="" placeholder="Inserire CVV.." required> 
 					</div>
 					
 					
@@ -104,6 +104,48 @@ Cliente cliente= (Cliente)request.getSession().getAttribute("cliente");
  ">
 
 </form>
+<script type="text/javascript">
+function validate(obj){
+	var valid=true;
+	
+	var surname=document.getElementsByName("username")[0];
+	var checksur=/^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$/;
+		if(!surname.value.match(checksur)){
+			valid=false;
+			alert("Nome e cognome errati");
+	}
+	
+	var email=document.getElementsByName("numc")[0];
+	var checknum=/^([0-9]{16})$/
+	if(!email.value.match(checknum)){
+		valid=false;
+		alert("Numero PAN non valido");
+	}
+	var password=document.getElementsByName("scad")[0];
+	var confermapassword=/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+	if(!password.value.match(confermapassword))
+		{
+			valid=false;
+			alert("Data di scadenza non valida");
+			
+		}
+	var numtelefono=document.getElementsByName("cvv")[0];
+	var phoneno=/^([0-9]{3})$/;
+	if(!(numtelefono.value.match(phoneno)))
+		{
+			valid=false;
+			alert("CVV non valido");
+
+		}
+	
+
+	
+	if(valid)obj.submit();
+}
+
+</script>
+<script src="javascriptcode.js"></script>
+<script src="jquery-3.js"></script>
 
 <div class="footer">
       &copy; 2020, E-Transfer

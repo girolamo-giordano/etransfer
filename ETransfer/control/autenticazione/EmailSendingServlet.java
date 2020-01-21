@@ -63,7 +63,7 @@ public class EmailSendingServlet extends HttpServlet {
         	if(find)
         	{
 	            EmailUtility.sendEmail(host, port, user, pass, recipient, subject,content);
-	            resultMessage = "The e-mail was sent successfully";
+	            resultMessage = "L'email con le tue credenziali è stata inviata con successo";
         	}
         } catch (Exception ex) {
             ex.printStackTrace();

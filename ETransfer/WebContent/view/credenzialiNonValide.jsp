@@ -7,22 +7,22 @@
 <title> Credenziali non valide</title>
 
 <link rel="icon" href="foto/favicon.ico">
-<LINK rel= "stylesheet" href="home.css" type="text/css">
-<LINK rel= "stylesheet" href="success.css" type="text/css">
+<LINK rel= "stylesheet" href="view/home.css" type="text/css">
+<LINK rel= "stylesheet" href="view/success.css" type="text/css">
 
 
 </head>
 <body>
 <div id="logo"> 
 <img style="height: 290px;
-    margin-left: 87px;" src="../foto/logo.jpeg">
+    margin-left: 87px;" src="./foto/logo.jpeg">
 </div>
 
 <form>
 <div class="succText"> Credenziali non Valide</div>
 <script>
   setTimeout(function() {
-      document.location = "login.jsp";
+      document.location = "view/login.jsp";
   }, 2000);
 </script>
 </form>
