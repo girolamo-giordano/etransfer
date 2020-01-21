@@ -73,6 +73,9 @@ if(autista != null)
 		<th>
 		Durata
 		</th>
+		<th>
+		Bus
+		</th>
 		
 		
 	</tr>
@@ -85,6 +88,8 @@ if(autista != null)
 		<td><%=c.getDatapart() %></td>
 		<td><%=c.getOrapart() %></td>
 		<td><%=c.getDurata() %></td>
+		<td><%=c.getBus().getModello() %></td>
+		
 	</tr>
 
 	

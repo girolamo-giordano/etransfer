@@ -87,6 +87,9 @@
 		Arrivo
 		</th>
 		<th>
+		Orario Partenza
+		</th>
+		<th>
 		Azioni
 		</th>
 		
@@ -106,9 +109,10 @@
 
 	
 	<tr>
-		<td><%=t.getNomefermata()%></a></td>
-		<td><%=t.getCorsa().getTratta().getPartenza()%></a></td>
+		<td><%=t.getNomefermata()%></td>
+		<td><%=t.getCorsa().getTratta().getPartenza()%></td>
 		<td><%=t.getCorsa().getTratta().getArrivo()%></td>
+		<td><%=t.getCorsa().getOrapart()%></td>
 		<td><a href="../ConfermaRichiestaFermata?idrichfermata=<%=t.getId()%>">Aggiungi fermata</a>
 		|| <a href="../EliminaRichiestaFermata?idrichfe=<%=t.getId()%>">Rimuovi Fermata</a>
 		</td>

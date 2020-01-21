@@ -99,7 +99,7 @@
 		</form>
 		
 		<div style="padding-top:10px;">
-		 <a id="ricordapass" href="ricordapassword" style="margin:65px; color:#F8F8FA; "> Hai dimenticato la password?</a>
+		 <a id="ricordapass" href="RecuperaPassword.jsp" style="margin:65px; color:#F8F8FA; "> Hai dimenticato la password?</a>
 		 </div>
 		 
 		<div id="reg"> <h2 id="RegText"> Sei nuovo su ETransfer?</h2> 

@@ -101,8 +101,10 @@ autistalist=autistadao.doRetrieveAll();
 		</div>
 		
 		<div class="tableRow">
-			<label class="rcolor" for="km">Chilometri:</label>
-			<input type="number" id="km" name="km" value="" placeholder="Inserire kilometri..." min="0" max="2000000" required >
+			<label class="rcolor" for="km">kilometri:</label>
+			<input type="number" id="km" name="km" value="" placeholder="Inserire kilometri..." min="0" max="2000000" required style="
+    width: 192px;
+" >
 		</div>
 		
 		<div class="tableRow">

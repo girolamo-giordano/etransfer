@@ -119,7 +119,7 @@ function myFunction(obj) {
 	if(!(numtelefono.value.match(phoneno)))
 		{
 			valid=false;
-			alert("data non valida");
+			alert("data non valida, inserire nel formato gg/mm/aaaa");
 			
 
 		}
@@ -129,7 +129,7 @@ function myFunction(obj) {
 	if(!(ora.value.match(regora)))
 		{
 			valid=false;
-			alert("ora non valida");
+			alert("ora non valida, inserire nel formato hh:mm");
 		}
 	if(valid)obj.submit();
 }
