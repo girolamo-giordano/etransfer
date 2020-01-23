@@ -42,7 +42,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		String selectSQL = "SELECT * FROM corsa WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -85,7 +85,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		String selectSQL = "SELECT * FROM corsa";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -139,7 +139,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, corsa.getTratta().getId());
@@ -176,7 +176,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		
 		String updateSQL="UPDATE corsa SET"+" id_tratta=?,id_autobus=?,orapartenza=?,datapartenza=?,durata=?,costo=?"+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setInt(1,corsa.getTratta().getId());
@@ -235,7 +235,7 @@ public class CorsaDAO implements DaoModel<Corsa> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM corsa WHERE id_tratta=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,tratta.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

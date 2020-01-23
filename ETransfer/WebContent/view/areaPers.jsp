@@ -31,6 +31,7 @@
 	
 	if(c != null)
 	{
+		System.out.println(c.getIndirizzo());
 %>
  		
 	<div id="menu">
@@ -63,13 +64,13 @@
 
 
 <form id="form">
-<h2><center> Ciao <%=c.getNome() %> <%=c.getCognome() %></center></h2>
+<h2><center> Ciao <%=c.getNome() %> <%=c.getCognome()  %></center></h2>
 
 <fieldset class="field">
 	
 		<div class="tableRow">
 			<label class="rcolor" for="indirizzo">Indirizzo</label>
-			<input type="text" id="indirizzo" name="indirizzo" value= <%=c.getIndirizzo() %> readonly> 
+			<input type="text" id="indirizzo" name="indirizzo" value=" <%=c.getIndirizzo() %>" readonly>
 			<a href="cambioIndirizzo.jsp">Modifica Indirizzo </a>
 		</div>
 		
@@ -164,7 +165,7 @@
     <td><%=b.getAcquistodata() %></td>
     
     <td> </td>
-    <td><%=b.getCorsa().getCosto() %></td>
+    <td><%=b.getCorsa().getCosto()*b.getQuantita() %></td>
     
   </tr>
  

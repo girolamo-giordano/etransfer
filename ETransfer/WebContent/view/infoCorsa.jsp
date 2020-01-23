@@ -280,6 +280,7 @@
    				 <a href="view/corsa.jsp"> Le nostre Corse </a>
     			<a href="view/visualizzaAutisti.jsp"> I nostri autisti </a>
   				<a href="view/visualizzaAutobus.jsp">I nostri bus </a>
+  				<a href="view/visualizzaBiglietti.jsp">Biglietti venduti</a>
     		</div>
 		</li>
 		

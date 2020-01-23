@@ -30,7 +30,7 @@ public class AutobusDAO implements DaoModel<Autobus> {
 		String selectSQL = "SELECT * FROM autobus WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -67,7 +67,7 @@ public class AutobusDAO implements DaoModel<Autobus> {
 		String selectSQL = "SELECT * FROM autobus";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -119,7 +119,7 @@ public class AutobusDAO implements DaoModel<Autobus> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, autobus.getModello());
@@ -156,7 +156,7 @@ public class AutobusDAO implements DaoModel<Autobus> {
 		
 		String updateSQL="UPDATE autobus SET"+" modello=?, numeroposti=?, annoimm=?, chilometri=?, id_autista=?  "+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,autobus.getModello());
@@ -189,7 +189,7 @@ public class AutobusDAO implements DaoModel<Autobus> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM autobus WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,autobus.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

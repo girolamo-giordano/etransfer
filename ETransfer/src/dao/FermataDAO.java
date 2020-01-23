@@ -29,7 +29,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 		String selectSQL = "SELECT * FROM fermata WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -64,7 +64,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 		String selectSQL = "SELECT * FROM fermata";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -114,7 +114,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, fermata.getCorsa().getId());
@@ -151,7 +151,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 		
 		String updateSQL="UPDATE fermata SET"+" id_corsa=?, nomefermata=? "+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setInt(1,fermata.getCorsa().getId());
@@ -181,7 +181,7 @@ public class FermataDAO implements DaoModel<Fermata> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM fermata WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,fermata.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

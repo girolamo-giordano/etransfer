@@ -28,7 +28,7 @@ public class RichiestatrattaDAO implements DaoModel<Richiestatratta> {
 		String selectSQL = "SELECT * FROM richiestatratta WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -62,7 +62,7 @@ public class RichiestatrattaDAO implements DaoModel<Richiestatratta> {
 		String selectSQL = "SELECT * FROM richiestatratta";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -111,7 +111,7 @@ public class RichiestatrattaDAO implements DaoModel<Richiestatratta> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1,richiestatratta.getPartenza());
@@ -144,7 +144,7 @@ public class RichiestatrattaDAO implements DaoModel<Richiestatratta> {
 		
 		String updateSQL="UPDATE richiestatratta SET"+" cittapartenza=?,cittadiarr=? "+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,richiestatratta.getPartenza());
@@ -174,7 +174,7 @@ public class RichiestatrattaDAO implements DaoModel<Richiestatratta> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM richiestatratta WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,richiestatratta.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

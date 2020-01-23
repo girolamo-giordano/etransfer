@@ -125,7 +125,7 @@ autobus=busdao.doRetrieveAll();
 				<option value="" selected> Partenza-Arrivo </option>
 				<% for(Tratta t:trattalist){
 					%>
-					<option value="<%=t.getId()%>"><%=t.getPartenza()%> - <%=t.getArrivo() %> </option>
+					<option value="<%=t.getId()%>"><%=t.getPartenza()%>-<%=t.getArrivo() %> </option>
 				<%} %>
 			</select>
 		</div>
@@ -169,7 +169,7 @@ function myFunction(obj) {
 	if(!(numtelefono.value.match(phoneno)))
 		{
 			valid=false;
-			alert("data non valida");
+			alert("Data non valida, formato da usare dd:mm:yyyy");
 			
 
 		}
@@ -179,7 +179,7 @@ function myFunction(obj) {
 	if(!(ora.value.match(regora)))
 		{
 			valid=false;
-			alert("ora non valida");
+			alert("Formato ora non valido, formato da usare: hh:mm");
 		}
 	if(valid)obj.submit();
 }

@@ -31,7 +31,7 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		String selectSQL = "SELECT * FROM biglietto WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -67,7 +67,7 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		String selectSQL = "SELECT * FROM biglietto";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -118,7 +118,7 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, biglietto.getCliente().getId());
@@ -153,7 +153,7 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		
 		String updateSQL="UPDATE biglietto SET"+" id_cliente=?, id_corsa=?, quantita=?, data=?"+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setInt(1,biglietto.getCliente().getId());
@@ -185,7 +185,7 @@ public class BigliettoDAO implements DaoModel<Biglietto> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM biglietto WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,biglietto.getNumerobigl());
 			System.out.println("doDelete: "+ preparedStatement.toString());

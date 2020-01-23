@@ -65,6 +65,11 @@ public class ModificaPassword extends HttpServlet {
 			response.sendError(406);
 			return;
 		}
+		if(pass.length()<3)
+		{
+			response.sendError(406);
+			return;
+		}
 		if(ur==null)
 		{
 			if(at==null)
@@ -84,6 +89,7 @@ public class ModificaPassword extends HttpServlet {
 					man.setPassword(pass);
 					try {
 						managerdao.doUpdate(man);
+						response.sendRedirect("view/change.jsp");
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -100,6 +106,7 @@ public class ModificaPassword extends HttpServlet {
 				at.setPassword(pass);
 				try {
 					autistadao.doUpdate(at);
+					response.sendRedirect("view/change.jsp");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

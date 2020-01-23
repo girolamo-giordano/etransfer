@@ -1,3 +1,4 @@
+<%@page import="utils.DriverManagerConnectionPool"%>
 <%@page import="utenti.Manager"%>
 <%@page import="utenti.Cliente"%>
 <%@page import="utenti.Autista"%>

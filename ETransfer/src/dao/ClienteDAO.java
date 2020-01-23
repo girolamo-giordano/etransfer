@@ -28,7 +28,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 		String selectSQL = "SELECT * FROM cliente WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -69,7 +69,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 		String selectSQL = "SELECT * FROM cliente";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -124,7 +124,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, cliente.getNome());
@@ -164,7 +164,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 		
 		String updateSQL="UPDATE cliente SET"+" name=?,cognome=?,username=?,password=?,email=?,numerotelefono=?,indirizzo=?,citta=?  "+" WHERE username = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,cliente.getNome());
@@ -200,7 +200,7 @@ public class ClienteDAO implements DaoModel<Cliente> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM cliente WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,cliente.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

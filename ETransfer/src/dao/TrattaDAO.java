@@ -28,7 +28,7 @@ public class TrattaDAO implements DaoModel<Tratta> {
 		String selectSQL = "SELECT * FROM tratta WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -62,7 +62,7 @@ public class TrattaDAO implements DaoModel<Tratta> {
 		String selectSQL = "SELECT * FROM tratta";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -111,7 +111,7 @@ public class TrattaDAO implements DaoModel<Tratta> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, tratta.getPartenza());
@@ -130,6 +130,7 @@ public class TrattaDAO implements DaoModel<Tratta> {
 			} finally {
 				//Se rilascio fuori dal try finally più interno la connessione se venisse lanciata un'eccezione
 				//dalla chiusura di preparedStatement la connessione non verrebbe rilasciata
+					System.out.println("rilascio la connessione");
 					DriverManagerConnectionPool.releaseConnection(connection);
 				}
 			}
@@ -144,7 +145,7 @@ public class TrattaDAO implements DaoModel<Tratta> {
 		
 		String updateSQL="UPDATE tratta SET"+" cittapartenza=?, cittadiarr=? "+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,tratta.getPartenza());
@@ -176,7 +177,7 @@ public class TrattaDAO implements DaoModel<Tratta> {
 		corsadao.doDelete(tratta);
 		String deleteSql="DELETE FROM tratta WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection=DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,tratta.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

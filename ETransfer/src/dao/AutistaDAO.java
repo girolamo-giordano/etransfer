@@ -29,7 +29,7 @@ public class AutistaDAO implements DaoModel<Autista> {
 		String selectSQL = "SELECT * FROM autista WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -66,7 +66,7 @@ public class AutistaDAO implements DaoModel<Autista> {
 		String selectSQL = "SELECT * FROM autista";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -117,7 +117,7 @@ public class AutistaDAO implements DaoModel<Autista> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, autista.getUsername());
@@ -153,7 +153,7 @@ public class AutistaDAO implements DaoModel<Autista> {
 		
 		String updateSQL="UPDATE autista SET"+" nome=?, cognome=?,username=?, password=?  "+" WHERE username = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,autista.getNome());
@@ -185,7 +185,7 @@ public class AutistaDAO implements DaoModel<Autista> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM autista WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection=DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,autista.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

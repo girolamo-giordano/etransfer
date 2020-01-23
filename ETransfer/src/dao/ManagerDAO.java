@@ -33,7 +33,7 @@ public class ManagerDAO implements DaoModel<Manager> {
 		String selectSQL = "SELECT * FROM manager";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -84,7 +84,7 @@ public class ManagerDAO implements DaoModel<Manager> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, manager.getUsername());
@@ -120,7 +120,7 @@ public class ManagerDAO implements DaoModel<Manager> {
 		
 		String updateSQL="UPDATE manager SET"+" nome=?, cognome=?,username=?, password=?  "+" WHERE username = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,manager.getNome());
@@ -153,7 +153,7 @@ public class ManagerDAO implements DaoModel<Manager> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM manager WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,manager.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());

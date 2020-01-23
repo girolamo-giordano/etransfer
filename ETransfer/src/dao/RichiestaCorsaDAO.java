@@ -30,7 +30,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		String selectSQL = "SELECT * FROM richiestacorsa WHERE CODE = ?";
 		
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 			
@@ -65,7 +65,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		String selectSQL = "SELECT * FROM richiestacorsa";
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
@@ -115,7 +115,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		//Mi serve per rilasciare sicuramente le risorse
 		try {
 			//Istanzio una connessione usando il mio DriverManager
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = DriverManagerConnectionPool.createDBConnection();
 			//Preparo lo statement
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1,richiestacorsa.getOrapart());
@@ -149,7 +149,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		
 		String updateSQL="UPDATE richiestacorsa SET"+" orapartenza=?,datapartenza=?,id_tratta=?"+" WHERE code = ?";
 		try {
-				connection=DriverManagerConnectionPool.getConnection();
+				connection=DriverManagerConnectionPool.createDBConnection();
 				preparedStatement=connection.prepareStatement(updateSQL);
 				
 				preparedStatement.setString(1,richiestacorsa.getOrapart());
@@ -180,7 +180,7 @@ public class RichiestaCorsaDAO implements DaoModel<Richiestacorsa> {
 		PreparedStatement preparedStatement = null;
 		String deleteSql="DELETE FROM richiestacorsa WHERE CODE=?";
 		try {
-			connection= DriverManagerConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.createDBConnection();
 			preparedStatement= connection.prepareStatement(deleteSql);
 			preparedStatement.setInt(1,richiestacorsa.getId());
 			System.out.println("doDelete: "+ preparedStatement.toString());
